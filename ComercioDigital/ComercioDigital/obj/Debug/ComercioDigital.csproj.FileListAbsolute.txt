@@ -1,0 +1,6 @@
+C:\Users\tecnara\Desktop\Victor\ComercioDigital\ComercioDigital\ComercioDigital\bin\Debug\ComercioDigital.exe
+C:\Users\tecnara\Desktop\Victor\ComercioDigital\ComercioDigital\ComercioDigital\bin\Debug\ComercioDigital.exe.config
+C:\Users\tecnara\Desktop\Victor\ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.csproj.CoreCompileInputs.cache
+C:\Users\tecnara\Desktop\Victor\ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.exe
+C:\Users\tecnara\Desktop\Victor\ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.pdb
+C:\Users\tecnara\Desktop\Victor\ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.csprojAssemblyReference.cache

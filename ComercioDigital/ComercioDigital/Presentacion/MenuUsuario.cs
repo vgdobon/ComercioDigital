@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ComercioDigital.DTOs.Personas;
 using ComercioDigital.Servicio;
 
 namespace ComercioDigital.Presentacion
@@ -10,10 +11,17 @@ namespace ComercioDigital.Presentacion
     public class MenuUsuario
     {
 
-        public void EjecutarMenuUsuario(GestionComercio gestionComercio, GestionUsuarios gestionUsuarios)
+        public void EjecutarMenuUsuario(Usuario usuarioSesion ,GestionComercio gestionComercio, GestionUsuarios gestionUsuarios)
         {
-            MostrarMenuUsuarios();
-            EjecutarOpcionUsuario(ElegirOpcionUsuario(), gestionComercio, gestionUsuarios);
+
+            int opcionTemp =-1;
+            do{
+                MostrarMenuUsuarios();
+                opcionTemp = ElegirOpcionUsuario();
+                EjecutarOpcionUsuario(opcionTemp, gestionComercio, gestionUsuarios);
+            }while(opcionTemp=!5);
+           
+            
         }
 
         public void EjecutarOpcionUsuario(int opcion, GestionComercio gestionComercio, GestionUsuarios gestionUsuarios)
@@ -23,22 +31,29 @@ namespace ComercioDigital.Presentacion
             {
                 case 1:
 
+                    Console.WriteLine("TECNOLOGIA");
                     break;
 
                 case 2:
 
+                    Console.WriteLine("MODA");
                     break;
 
                 case 3:
 
+                    Console.WriteLine("MULTIMEDIA");
                     break;
 
                 case 4:
-
+                    Console.WriteLine("CUENTA");
                     break;
 
                 case 5:
+                    Console.WriteLine("CARRITO");
+                    break;
 
+                case 6:
+                    Console.WriteLine("Se cerró la sesion de usuario");
                     break;
             }
         }
@@ -66,7 +81,15 @@ namespace ComercioDigital.Presentacion
 
         private void MostrarMenuUsuarios()
         {
-            
+            Console.Clear();
+            Console.WriteLine("1-Tecnologia");
+            Console.WriteLine("2-Moda");
+            Console.WriteLine("3-Multimedia");
+            Console.WriteLine("4-Cuenta");
+            Console.WriteLine("5-Carrito");
+            Console.WriteLine("5-Salir");
+            Console.Write("Opcion Menu Principal:");
         }
+
     }
 }

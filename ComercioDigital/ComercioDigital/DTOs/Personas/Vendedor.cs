@@ -22,7 +22,7 @@ namespace ComercioDigital.DTOs.Personas
             Nombre = nombre ?? throw new ArgumentNullException(nameof(nombre));
             Direccion = direccion ?? throw new ArgumentNullException(nameof(direccion));
             Contrasenna = contrasenna ?? throw new ArgumentNullException(nameof(contrasenna));
-            Valoracion =  Valoraciones.Sum() / Valoraciones.Count();
+            //Valoracion =  Valoraciones.Sum() / Valoraciones.Count();
             Incrementer++;
             IdVendedor = Incrementer;
         }
