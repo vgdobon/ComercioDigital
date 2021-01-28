@@ -13,8 +13,7 @@ namespace ComercioDigital.DTOs.Productos.Tecnologia
         public string Color { get; set; }
         public string Procesador { get; set; }
         public string SO { get; set; }
-        public string Modelo { get; set; }
-
+        public string Modelo { get; set; 
         private DateTime FechaLanzamiento { get; }
 
         public Tecnologia(string nombre, string marca, float precio, Vendedor vendedor, string descripcion,

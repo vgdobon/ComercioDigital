@@ -27,5 +27,35 @@ namespace ComercioDigital.Servicio
 
             return false;
         }
+
+        public bool AutentificarVendedor(string nombre,string pass){
+        
+            foreach(Vendedor vendedor in Vendedor){
+            
+                    if (vendedor.Nombre.Equals(nombreVendedorIngreso) &&
+                        usuario.Password.Equals(contrasennaUsuarioIngreso))
+                    {
+                        UsuarioSesion = usuario;
+                    }
+                    
+            }
+        }
+
+        public bool EliminarVendedor(string nombre,string pass){
+        
+            foreach(Vendedor vendedor in Vendedor){
+            
+                    if (vendedor.Nombre.Equals(nombreVendedorIngreso) &&
+                        usuario.Password.Equals(contrasennaUsuarioIngreso))
+                    {
+                        UsuarioSesion = usuario;
+                    }
+                    
+            }
+        }
+
+
+
+
     }
 }

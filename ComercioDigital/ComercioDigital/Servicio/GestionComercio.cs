@@ -8,6 +8,7 @@ using ComercioDigital.DTOs.Productos;
 
 namespace ComercioDigital.Servicio
 {
+
     public class GestionComercio
     {
         private Almacen Almacen { get; set; }
@@ -17,9 +18,12 @@ namespace ComercioDigital.Servicio
             Almacen = new Almacen();
         }
 
-        public void AgregarProductoAlmacen()
+        public void AgregarProductoAlmacen(Producto producto)
         {
-            
+            if(producto!= null)
+            {
+                Almacen.AlmacenProductos.Add(producto);
+            }
         }
     }
 }

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTOs\Almacen.cs" />
+    <Compile Include="DTOs\Productos\InfoProducto.cs" />
     <Compile Include="DTOs\Productos\Moda\Bolsos.cs" />
     <Compile Include="DTOs\Productos\Moda\Calzado.cs" />
     <Compile Include="DTOs\Productos\Moda\Joyeria.cs" />

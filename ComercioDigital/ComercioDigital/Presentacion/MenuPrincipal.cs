@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ComercioDigital.DTOs.Personas;
 using ComercioDigital.Servicio;
 
@@ -24,9 +20,14 @@ namespace ComercioDigital.Presentacion
 
         public void EjecutarApp()
         {
-            
+            int opcionTemporal=-1;
+
+            do
+            {
             MostrarMenuPrincipal();
-            EjecutarOpcionPrincipal(ElegirOpcionPrincipal());
+            opcionTemporal = ElegirOpcionPrincipal();
+            EjecutarOpcionPrincipal(opcionTemporal);
+            }while(opcionTemporal!=5);
 
         }
 
@@ -55,7 +56,7 @@ namespace ComercioDigital.Presentacion
 
                     if (UsuarioSesion != null)
                     {
-                        menuUsuario.ejecutarMenuUsuario(UsuarioSesion,GestionComercio,);
+                        menuUsuario.EjecutarMenuUsuario(UsuarioSesion, GestionComercio, gestionUsuarios);
                     }
                     else
                     {
@@ -66,6 +67,32 @@ namespace ComercioDigital.Presentacion
                     break;
 
                 case 2:
+
+                     Console.WriteLine("Ingreso de vendedores");
+
+                    Console.Write("Nombre de Vendedor:");
+                    string nombreVendedorIngreso = Console.ReadLine();
+
+                    Console.Write("Contraseña:");
+                    string contrasennaVendedorIngreso = Console.ReadLine();
+
+                    foreach (Vendedor vendedor in gestionVendedores.Vendedores)
+                    {
+                        if (vendedor.Nombre.Equals(nombreVendedorIngreso) &&
+                            vendedor.Contrasenna.Equals(contrasennaVendedorIngreso)
+                        {
+                            VendedorSesion = vendedor;
+                        }
+                    }
+
+                    if (VendedorSesion != null)
+                    {
+                       menuVendedor.EjecutarMenuVendedor(vendedorSesion,GestionComercio,gestionVendedores);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Inicio de sesion incorrecto.");
+                    }
 
                     break;
 
@@ -128,6 +155,8 @@ namespace ComercioDigital.Presentacion
             Console.WriteLine("3-Registrarse como Usuario");
             Console.WriteLine("4-Registrarse como Vendedor");
             Console.WriteLine("5-Salir");
+
+            Console.Write("Opcion Menu Principal:");
         }
 
         public int ElegirOpcionPrincipal()
@@ -136,6 +165,7 @@ namespace ComercioDigital.Presentacion
             int opcionPrincipal = -1;
             do
             {
+                
                 bool opcionPrincipalIsINt = int.TryParse(Console.ReadLine(), out opcionPrincipal);
 
                 if (opcionPrincipalIsINt && opcionPrincipal <= 5 && opcionPrincipal >= 1)

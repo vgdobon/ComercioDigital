@@ -9,19 +9,7 @@ namespace ComercioDigital.DTOs
 {
     public class Almacen
     {
-        private List<Producto> AlmacenProductos { get; set; }
+        public List<Producto> AlmacenProductos { get; set; }
 
-
-
-        public bool AgregarProductoAlmacen(Producto producto)
-        {
-            if (producto != null)
-            {
-                AlmacenProductos.Add(producto);
-                return true;
-            }
-
-            return false;
-        }
     }
 }
