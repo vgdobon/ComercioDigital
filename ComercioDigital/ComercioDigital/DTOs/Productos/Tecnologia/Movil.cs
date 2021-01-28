@@ -9,6 +9,8 @@ namespace ComercioDigital.DTOs.Productos.Tecnologia
 {
     public class Movil : Tecnologia
     {
+        public int Pantalla { get; set; }
+        public int Bateria { get; set; }
         public Movil(string nombre, string marca, float precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock, string color, string procesador,
             string so, string modelo, DateTime fechaLanzamiento, int pantalla, int bateria)
@@ -18,8 +20,7 @@ namespace ComercioDigital.DTOs.Productos.Tecnologia
             Bateria = bateria;
         }
 
-        public int Pantalla { get; set; }
-        public int Bateria { get; set; }
+       
 
     }
 }

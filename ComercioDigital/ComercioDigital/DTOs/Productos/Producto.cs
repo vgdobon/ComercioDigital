@@ -16,7 +16,7 @@ namespace ComercioDigital.DTOs.Productos
         public string Descripcion { get; set;}
         public int Valoracion { get; set; }
         public List<int> Valoraciones { get; set; }
-        private DateTime FechaPuestaVenta { get; }
+        public DateTime FechaPuestaVenta { get; }
         public string CodigoDescuento { get; set; }
         public int Stock { get; set; }
         public static int Incrementer { get; set; }
