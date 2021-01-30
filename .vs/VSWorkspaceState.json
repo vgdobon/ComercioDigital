@@ -1,5 +1,6 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     "",
     "\\ComercioDigital",
     "\\ComercioDigital\\ComercioDigital",
@@ -7,4 +8,10 @@
   ],
   "SelectedNode": "\\ComercioDigital\\ComercioDigital\\Presentacion\\MenuUsuario.cs",
   "PreviewInSolutionExplorer": false
+=======
+    ""
+  ],
+  "SelectedNode": "\\ComercioDigital.sln",
+  "PreviewInSolutionExplorer": true
+>>>>>>> 5f4cb0678d9eedb67ce7f528e3a01ad2ac18fb1b
 }
