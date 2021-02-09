@@ -44,8 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTOs\Almacen.cs" />
+    <Compile Include="DTOs\Personas\Carrito.cs" />
     <Compile Include="DTOs\Productos\InfoProducto.cs" />
-    <Compile Include="DTOs\Productos\Moda\Bolsos.cs" />
+    <Compile Include="DTOs\Productos\Moda\Bolso.cs" />
     <Compile Include="DTOs\Productos\Moda\Calzado.cs" />
     <Compile Include="DTOs\Productos\Moda\Joyeria.cs" />
     <Compile Include="DTOs\Productos\Moda\Moda.cs" />
@@ -53,14 +54,14 @@
     <Compile Include="DTOs\Productos\Multimedia\Multimedia.cs" />
     <Compile Include="DTOs\Productos\Multimedia\Musica.cs" />
     <Compile Include="DTOs\Productos\Tecnologia\Ordenador.cs" />
-    <Compile Include="DTOs\Productos\Multimedia\Peliculas.cs" />
+    <Compile Include="DTOs\Productos\Multimedia\Pelicula.cs" />
     <Compile Include="DTOs\Personas\Usuario.cs" />
     <Compile Include="DTOs\Productos\Producto.cs" />
     <Compile Include="DTOs\Productos\Moda\Ropa.cs" />
     <Compile Include="DTOs\Productos\Tecnologia\Tecnologia.cs" />
     <Compile Include="DTOs\Personas\Vendedor.cs" />
     <Compile Include="DTOs\Productos\Tecnologia\VideoConsola.cs" />
-    <Compile Include="DTOs\Productos\Multimedia\VideosJuegos.cs" />
+    <Compile Include="DTOs\Productos\Multimedia\VideosJuego.cs" />
     <Compile Include="Presentacion\MenuPrincipal.cs" />
     <Compile Include="Presentacion\MenuUsuario.cs" />
     <Compile Include="Presentacion\MenuVendedor.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Servicio\GestionComercio.cs" />
     <Compile Include="Servicio\GestionUsuarios.cs" />
     <Compile Include="Servicio\GestionVendedores.cs" />
+    <Compile Include="Servicio\Mensaje.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

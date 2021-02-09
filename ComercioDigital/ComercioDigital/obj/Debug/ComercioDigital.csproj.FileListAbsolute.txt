@@ -4,7 +4,24 @@ C:\Users\tecnara\Desktop\Victor\ComercioDigital\ComercioDigital\ComercioDigital\
 C:\Users\tecnara\Desktop\Victor\ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.exe
 C:\Users\tecnara\Desktop\Victor\ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.pdb
 C:\Users\tecnara\Desktop\Victor\ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.csprojAssemblyReference.cache
-I:\FORMATEA\FullStack\ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.csprojAssemblyReference.cache
 I:\FORMATEA\FullStack\ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.csproj.CoreCompileInputs.cache
 I:\FORMATEA\FullStack\ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.exe
 I:\FORMATEA\FullStack\ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.pdb
+I:\FORMATEA\FullStack\ComercioDigital\ComercioDigital\ComercioDigital\bin\Debug\ComercioDigital.exe.config
+I:\FORMATEA\FullStack\ComercioDigital\ComercioDigital\ComercioDigital\bin\Debug\ComercioDigital.exe
+I:\FORMATEA\FullStack\ComercioDigital\ComercioDigital\ComercioDigital\bin\Debug\ComercioDigital.pdb
+I:\FORMATEA\FullStack\ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.csprojAssemblyReference.cache
+I:\FORMATEA\FullStack\ComercioDigital - copia\ComercioDigital\ComercioDigital\bin\Debug\ComercioDigital.exe.config
+I:\FORMATEA\FullStack\ComercioDigital - copia\ComercioDigital\ComercioDigital\bin\Debug\ComercioDigital.exe
+I:\FORMATEA\FullStack\ComercioDigital - copia\ComercioDigital\ComercioDigital\bin\Debug\ComercioDigital.pdb
+I:\FORMATEA\FullStack\ComercioDigital - copia\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.csprojAssemblyReference.cache
+I:\FORMATEA\FullStack\ComercioDigital - copia\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.csproj.CoreCompileInputs.cache
+I:\FORMATEA\FullStack\ComercioDigital - copia\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.exe
+I:\FORMATEA\FullStack\ComercioDigital - copia\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.pdb
+I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\bin\Debug\ComercioDigital.exe.config
+I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\bin\Debug\ComercioDigital.exe
+I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\bin\Debug\ComercioDigital.pdb
+I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.csprojAssemblyReference.cache
+I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.csproj.CoreCompileInputs.cache
+I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.exe
+I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.pdb

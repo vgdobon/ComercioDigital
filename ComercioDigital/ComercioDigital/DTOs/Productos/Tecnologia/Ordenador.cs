@@ -22,6 +22,9 @@ namespace ComercioDigital.DTOs.Productos.Tecnologia
         Tipo = tipo ?? throw new ArgumentNullException(nameof(tipo));
     }
 
-
+    public override string ToString()
+    {
+        return $"{base.ToString()},\n {nameof(PlacaBase)}: {PlacaBase},\n {nameof(Tipo)}: {Tipo}\n";
+    }
     }
 }

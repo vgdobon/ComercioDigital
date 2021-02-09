@@ -9,16 +9,21 @@ namespace ComercioDigital.DTOs.Productos.Moda
 {
     public class Calzado : Moda
     {
-        public string Talla { get; set; }
+        public int Talla { get; set; }
         public string Tipo { get; set; }
 
         public Calzado(string nombre, string marca, float precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock, string color, string mAterial, string sexo,
-            string talla, string tipo) : base(nombre, marca, precio, vendedor, descripcion, fechaPuestaVenta,
+            int talla, string tipo) : base(nombre, marca, precio, vendedor, descripcion, fechaPuestaVenta,
             codigoDescuento, stock, color, mAterial, sexo)
         {
-            Talla = talla ?? throw new ArgumentNullException(nameof(talla));
+            Talla = talla ;
             Tipo = tipo ?? throw new ArgumentNullException(nameof(tipo));
+        }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()},\n {nameof(Talla)}: {Talla},\n {nameof(Tipo)}: {Tipo}\n";
         }
     }
 }

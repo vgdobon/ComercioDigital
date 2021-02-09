@@ -24,5 +24,10 @@ namespace ComercioDigital.DTOs.Productos.Multimedia
             Idioma = idioma ?? throw new ArgumentNullException(nameof(idioma));
             FechaLanzamiento = fechaLanzamiento;
         }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()},\n {nameof(Genero)}: {Genero},\n {nameof(Formato)}: {Formato},\n {nameof(Idioma)}: {Idioma},\n {nameof(FechaLanzamiento)}: {FechaLanzamiento}";
+        }
     }
 }

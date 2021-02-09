@@ -18,5 +18,10 @@ namespace ComercioDigital.DTOs.Productos.Moda
         {
             Medida = medida ?? throw new ArgumentNullException(nameof(medida));
         }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()},\n {nameof(Medida)}: {Medida}\n";
+        }
     }
 }

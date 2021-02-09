@@ -28,6 +28,9 @@ namespace ComercioDigital.DTOs.Productos.Tecnologia
             FechaLanzamiento = fechaLanzamiento;
         }
 
-
+        public override string ToString()
+        {
+            return $"{base.ToString()},\n {nameof(Color)}: {Color},\n {nameof(Procesador)}: {Procesador},\n {nameof(SO)}: {SO},\n {nameof(Modelo)}: {Modelo},\n {nameof(FechaLanzamiento)}: {FechaLanzamiento}";
+        }
     }
 }

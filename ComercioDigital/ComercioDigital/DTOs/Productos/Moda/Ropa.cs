@@ -20,5 +20,10 @@ namespace ComercioDigital.DTOs.Productos.Moda
             Talla = talla ?? throw new ArgumentNullException(nameof(talla));
             Tipo = tipo ?? throw new ArgumentNullException(nameof(tipo));
         }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()},\n {nameof(Talla)}: {Talla},\n {nameof(Tipo)}: {Tipo}\n";
+        }
     }
 }

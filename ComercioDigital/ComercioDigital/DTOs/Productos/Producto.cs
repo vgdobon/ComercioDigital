@@ -12,7 +12,7 @@ namespace ComercioDigital.DTOs.Productos
         public string Nombre { get; set; }
         public string Marca { get; set; }
         public float Precio { get; set; }
-        public Vendedor vendedor { get; set; }
+        public Vendedor Vendedor { get; set; }
         public string Descripcion { get; set;}
         public int Valoracion { get; set; }
         public List<int> Valoraciones { get; set; }
@@ -28,13 +28,18 @@ namespace ComercioDigital.DTOs.Productos
             Nombre = nombre ?? throw new ArgumentNullException(nameof(nombre));
             Marca = marca ?? throw new ArgumentNullException(nameof(marca));
             Precio = precio;
-            this.vendedor = vendedor ?? throw new ArgumentNullException(nameof(vendedor));
+            this.Vendedor = vendedor ?? throw new ArgumentNullException(nameof(vendedor));
             Descripcion = descripcion ?? throw new ArgumentNullException(nameof(descripcion));
             FechaPuestaVenta = fechaPuestaVenta;
             CodigoDescuento = codigoDescuento ?? throw new ArgumentNullException(nameof(codigoDescuento));
             Stock = stock;
             Incrementer++;
             IdProducto = Incrementer;
+        }
+
+        public override string ToString()
+        {
+            return $" {nameof(Nombre)}: {Nombre},\n {nameof(Marca)}: {Marca},\n {nameof(Precio)}: {Precio},\n {nameof(Vendedor)}: {Vendedor},\n {nameof(Descripcion)}: {Descripcion},\n {nameof(Valoracion)}: {Valoracion},\n {nameof(FechaPuestaVenta)}: {FechaPuestaVenta},\n {nameof(CodigoDescuento)}: {CodigoDescuento},\n {nameof(Stock)}: {Stock},\n {nameof(IdProducto)}: {IdProducto}";
         }
     }
 }

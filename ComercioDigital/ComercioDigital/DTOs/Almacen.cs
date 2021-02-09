@@ -9,7 +9,12 @@ namespace ComercioDigital.DTOs
 {
     public class Almacen
     {
-        public List<Producto> AlmacenProductos { get; set; }
+        public List<Producto> AlmacenProductos  {get; set;}
+
+        public Almacen()
+        {
+            AlmacenProductos = new List<Producto>();
+        }
 
     }
 }

@@ -12,5 +12,10 @@ namespace ComercioDigital.DTOs.Productos.Tecnologia
         public VideoConsola(string nombre, string marca, float precio, Vendedor vendedor, string descripcion, DateTime fechaPuestaVenta, string codigoDescuento, int stock, string color, string procesador, string so, string modelo, DateTime fechaLanzamiento) : base(nombre, marca, precio, vendedor, descripcion, fechaPuestaVenta, codigoDescuento, stock, color, procesador, so, modelo, fechaLanzamiento)
         {
         }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}\n";
+        }
     }
 }

@@ -18,5 +18,10 @@ namespace ComercioDigital.DTOs.Productos.Multimedia
         {
             Artista = artista ?? throw new ArgumentNullException(nameof(artista));
         }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()},\n {nameof(Artista)}: {Artista}\n";
+        }
     }
 }

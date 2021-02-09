@@ -26,5 +26,10 @@ namespace ComercioDigital.DTOs.Personas
             Incrementer++;
             IdVendedor = Incrementer;
         }
+
+        public override string ToString()
+        {
+            return $"{Nombre}";
+        }
     }
 }
