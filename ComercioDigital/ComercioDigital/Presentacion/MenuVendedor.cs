@@ -302,14 +302,15 @@ namespace ComercioDigital.Presentacion
                     bool opcionEliminarIsInt = int.TryParse(Console.ReadLine(), out int opcionEliminar);
                     if (opcionEliminarIsInt)
                     {
-                        if (gestionComercio.EliminarProductoAlmacen(opcionEliminar))
-                        {
-                            Console.WriteLine("Producto Eliminado");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Fallo al eliminar el producto");
-                        }
+
+                            if (gestionComercio.EliminarProductoAlmacen(opcionEliminar))
+                            {
+                                Console.WriteLine("Producto Eliminado");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Fallo al eliminar el producto");
+                            }
                     }
 
                     Console.ReadKey();
