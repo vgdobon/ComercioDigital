@@ -14,7 +14,7 @@ namespace ComercioDigital.DTOs.Productos.Moda
         public string Material { get; set; }
         public string Sexo { get; set; }
 
-        public Moda(string nombre, string marca, float precio, Vendedor vendedor, string descripcion,
+        public Moda(string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock, string color, string material, string sexo) :
             base(nombre, marca, precio, vendedor, descripcion, fechaPuestaVenta, codigoDescuento, stock)
         {

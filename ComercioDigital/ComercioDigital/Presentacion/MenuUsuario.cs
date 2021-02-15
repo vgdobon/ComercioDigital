@@ -10,13 +10,14 @@ using ComercioDigital.DTOs.Productos.Moda;
 using ComercioDigital.DTOs.Productos.Multimedia;
 using ComercioDigital.DTOs.Productos.Tecnologia;
 using ComercioDigital.Servicio;
+using ComercioDigital.Utiles;
 
 namespace ComercioDigital.Presentacion
 {
     public class MenuUsuario
     {
 
-        public void EjecutarMenuUsuario(Usuario usuarioSesion ,GestionComercio gestionComercio, GestionUsuarios gestionUsuarios)
+        public void EjecutarMenuUsuario(Usuario usuarioSesion)
         {
 
             int opcionTemp =-1;
@@ -24,13 +25,13 @@ namespace ComercioDigital.Presentacion
             { 
                 MostrarMenuUsuarios();
                 opcionTemp = ElegirOpcionUsuario();
-                EjecutarOpcionUsuario(opcionTemp, gestionComercio, gestionUsuarios,usuarioSesion);
+                EjecutarOpcionUsuario(opcionTemp,usuarioSesion);
             }
            
             
         }
 
-        public void EjecutarOpcionUsuario(int opcion, GestionComercio gestionComercio, GestionUsuarios gestionUsuarios,Usuario usuarioSesion)
+        public void EjecutarOpcionUsuario(int opcion,Usuario usuarioSesion)
         {
             bool existenProductos = false;
             switch (opcion)
@@ -64,9 +65,9 @@ namespace ComercioDigital.Presentacion
 
                                     Console.WriteLine("ORDENADORES");
 
-                                    if (gestionComercio.ExistenProductosTipo(typeof(Ordenador)))
+                                    if (GestionComercio.ExistenProductosTipo(typeof(Ordenador)))
                                     {
-                                        foreach (Producto producto in gestionComercio.FiltroTipoProducto(
+                                        foreach (Producto producto in GestionComercio.FiltroTipoProducto(
                                             typeof(Ordenador)))
                                         {
                                             Console.WriteLine(producto + "\n");
@@ -85,9 +86,9 @@ namespace ComercioDigital.Presentacion
 
                                     Console.WriteLine("MÓVILES");
 
-                                    if (gestionComercio.ExistenProductosTipo(typeof(Movil)))
+                                    if (GestionComercio.ExistenProductosTipo(typeof(Movil)))
                                     {
-                                        foreach (Producto producto in gestionComercio.FiltroTipoProducto(typeof(Movil)))
+                                        foreach (Producto producto in GestionComercio.FiltroTipoProducto(typeof(Movil)))
                                         {
                                             Console.WriteLine(producto + "\n");
                                         }
@@ -105,9 +106,9 @@ namespace ComercioDigital.Presentacion
 
                                     Console.WriteLine("VIDEOCONSOLAS");
 
-                                    if (gestionComercio.ExistenProductosTipo(typeof(VideoConsola)))
+                                    if (GestionComercio.ExistenProductosTipo(typeof(VideoConsola)))
                                     {
-                                        foreach (Producto producto in gestionComercio.FiltroTipoProducto(
+                                        foreach (Producto producto in GestionComercio.FiltroTipoProducto(
                                             typeof(VideoConsola)))
                                         {
                                             Console.WriteLine(producto + "\n");
@@ -127,12 +128,12 @@ namespace ComercioDigital.Presentacion
                                     Console.WriteLine("PRODUCTOS DE TECNOLOGÍA");
 
                                     if (
-                                        gestionComercio.ExistenProductosTipo(typeof(Ordenador)) ||
-                                        gestionComercio.ExistenProductosTipo(typeof(Movil)) ||
-                                        gestionComercio.ExistenProductosTipo(typeof(VideoConsola))
+                                        GestionComercio.ExistenProductosTipo(typeof(Ordenador)) ||
+                                        GestionComercio.ExistenProductosTipo(typeof(Movil)) ||
+                                        GestionComercio.ExistenProductosTipo(typeof(VideoConsola))
                                     )
                                     {
-                                        foreach (Producto producto in gestionComercio.Almacen.AlmacenProductos)
+                                        foreach (Producto producto in GestionComercio.ListaAlmacen())
                                         {
                                             if (producto is Tecnologia)
                                             {
@@ -166,15 +167,15 @@ namespace ComercioDigital.Presentacion
                             bool idProductoTecnologiaCarritoIsInt = int.TryParse(Console.ReadLine(),
                                 out int idProductoTecnologiaCarrito);
                             if (idProductoTecnologiaCarritoIsInt &&
-                                gestionComercio.ExisteProductoId(idProductoTecnologiaCarrito))
+                                GestionComercio.ExisteProductoId(idProductoTecnologiaCarrito))
                             {
-                                if (gestionComercio.GetProductoId(idProductoTecnologiaCarrito).Stock > 0)
+                                if (GestionComercio.GetProductoId(idProductoTecnologiaCarrito).Stock > 0)
                                 {
 
                                     usuarioSesion.CarritoCompra.CarritoCompra.Add(
-                                        gestionComercio.GetProductoId(idProductoTecnologiaCarrito));
+                                        GestionComercio.GetProductoId(idProductoTecnologiaCarrito));
                                     Console.WriteLine(
-                                        $"Producto añadido al carrito correctamente: \n {gestionComercio.GetProductoId(idProductoTecnologiaCarrito).Nombre}");
+                                        $"Producto añadido al carrito correctamente: \n {GestionComercio.GetProductoId(idProductoTecnologiaCarrito).Nombre}");
                                 }
                                 else
                                 {
@@ -228,9 +229,9 @@ namespace ComercioDigital.Presentacion
 
                                     Console.WriteLine("CALZADO");
 
-                                    if (gestionComercio.ExistenProductosTipo(typeof(Calzado)))
+                                    if (GestionComercio.ExistenProductosTipo(typeof(Calzado)))
                                     {
-                                        foreach (Producto producto in gestionComercio.FiltroTipoProducto(typeof(Calzado)))
+                                        foreach (Producto producto in GestionComercio.FiltroTipoProducto(typeof(Calzado)))
                                         {
                                             Console.WriteLine(producto + "\n");
                                         }
@@ -247,9 +248,9 @@ namespace ComercioDigital.Presentacion
 
                                     Console.WriteLine("ROPA");
 
-                                    if (gestionComercio.ExistenProductosTipo(typeof(Ropa)))
+                                    if (GestionComercio.ExistenProductosTipo(typeof(Ropa)))
                                     {
-                                        foreach (Producto producto in gestionComercio.FiltroTipoProducto(typeof(Ropa)))
+                                        foreach (Producto producto in GestionComercio.FiltroTipoProducto(typeof(Ropa)))
                                         {
                                             Console.WriteLine(producto + "\n");
                                         }
@@ -266,9 +267,9 @@ namespace ComercioDigital.Presentacion
 
                                     Console.WriteLine("JOYERIA");
 
-                                    if (gestionComercio.ExistenProductosTipo(typeof(Joyeria)))
+                                    if (GestionComercio.ExistenProductosTipo(typeof(Joyeria)))
                                     {
-                                        foreach (Producto producto in gestionComercio.FiltroTipoProducto(typeof(Joyeria)))
+                                        foreach (Producto producto in GestionComercio.FiltroTipoProducto(typeof(Joyeria)))
                                         {
                                             Console.WriteLine(producto + "\n");
                                         }
@@ -285,9 +286,9 @@ namespace ComercioDigital.Presentacion
 
                                     Console.WriteLine("BOLSOS");
 
-                                    if (gestionComercio.ExistenProductosTipo(typeof(Bolso)))
+                                    if (GestionComercio.ExistenProductosTipo(typeof(Bolso)))
                                     {
-                                        foreach (Producto producto in gestionComercio.FiltroTipoProducto(typeof(Bolso)))
+                                        foreach (Producto producto in GestionComercio.FiltroTipoProducto(typeof(Bolso)))
                                         {
                                             Console.WriteLine(producto + "\n");
                                         }
@@ -305,13 +306,13 @@ namespace ComercioDigital.Presentacion
                                     Console.WriteLine("MODA");
 
                                     if (
-                                        gestionComercio.ExistenProductosTipo(typeof(Ropa)) ||
-                                        gestionComercio.ExistenProductosTipo(typeof(Joyeria)) ||
-                                        gestionComercio.ExistenProductosTipo(typeof(Bolso)) ||
-                                        gestionComercio.ExistenProductosTipo(typeof(Calzado)) 
+                                        GestionComercio.ExistenProductosTipo(typeof(Ropa)) ||
+                                        GestionComercio.ExistenProductosTipo(typeof(Joyeria)) ||
+                                        GestionComercio.ExistenProductosTipo(typeof(Bolso)) ||
+                                        GestionComercio.ExistenProductosTipo(typeof(Calzado)) 
                                     )
                                     {
-                                        foreach (Producto producto in gestionComercio.Almacen.AlmacenProductos)
+                                        foreach (Producto producto in GestionComercio.ListaAlmacen())
                                         {
                                             if (producto is Moda)
                                             {
@@ -344,14 +345,14 @@ namespace ComercioDigital.Presentacion
                             Console.WriteLine("Escriba el id del producto que quieres añadir a tu carrito.");
                             Console.Write("Id producto:");
                             bool idProductoModaCarritoIsInt = int.TryParse(Console.ReadLine(), out int idProductoModaCarrito);
-                            if (idProductoModaCarritoIsInt && gestionComercio.ExisteProductoId(idProductoModaCarrito))
+                            if (idProductoModaCarritoIsInt && GestionComercio.ExisteProductoId(idProductoModaCarrito))
                             {
                                
-                                if (gestionComercio.GetProductoId(idProductoModaCarrito).Stock > 0)
+                                if (GestionComercio.GetProductoId(idProductoModaCarrito).Stock > 0)
                                 {
 
-                                    usuarioSesion.CarritoCompra.CarritoCompra.Add(gestionComercio.GetProductoId(idProductoModaCarrito));
-                                    Console.WriteLine($"Producto añadido al carrito correctamente: \n {gestionComercio.GetProductoId(idProductoModaCarrito).Nombre}");
+                                    usuarioSesion.CarritoCompra.CarritoCompra.Add(GestionComercio.GetProductoId(idProductoModaCarrito));
+                                    Console.WriteLine($"Producto añadido al carrito correctamente: \n {GestionComercio.GetProductoId(idProductoModaCarrito).Nombre}");
                                 }
                                 else
                                 {
@@ -402,9 +403,9 @@ namespace ComercioDigital.Presentacion
 
                                     Console.WriteLine("MUSICA");
 
-                                    if (gestionComercio.ExistenProductosTipo(typeof(Musica)))
+                                    if (GestionComercio.ExistenProductosTipo(typeof(Musica)))
                                     {
-                                        foreach (Producto producto in gestionComercio.FiltroTipoProducto(typeof(Musica)))
+                                        foreach (Producto producto in GestionComercio.FiltroTipoProducto(typeof(Musica)))
                                         {
                                             Console.WriteLine(producto + "\n");
                                         }
@@ -420,9 +421,9 @@ namespace ComercioDigital.Presentacion
                                 case 2:
                                     Console.WriteLine("PELICULAS");
 
-                                    if (gestionComercio.ExistenProductosTipo(typeof(Pelicula)))
+                                    if (GestionComercio.ExistenProductosTipo(typeof(Pelicula)))
                                     {
-                                        foreach (Producto producto in gestionComercio.FiltroTipoProducto(typeof(Pelicula)))
+                                        foreach (Producto producto in GestionComercio.FiltroTipoProducto(typeof(Pelicula)))
                                         {
                                             Console.WriteLine(producto + "\n");
                                         }
@@ -437,9 +438,9 @@ namespace ComercioDigital.Presentacion
                                 case 3:
                                     Console.WriteLine("VIDEOJUEGOS");
 
-                                    if (gestionComercio.ExistenProductosTipo(typeof(VideosJuego)))
+                                    if (GestionComercio.ExistenProductosTipo(typeof(VideosJuego)))
                                     {
-                                        foreach (Producto producto in gestionComercio.FiltroTipoProducto(typeof(VideosJuego)))
+                                        foreach (Producto producto in GestionComercio.FiltroTipoProducto(typeof(VideosJuego)))
                                         {
                                             Console.WriteLine(producto + "\n");
                                         }
@@ -456,12 +457,12 @@ namespace ComercioDigital.Presentacion
                                     Console.WriteLine("MULTIMEDIA");
 
                                     if (
-                                        gestionComercio.ExistenProductosTipo(typeof(Musica)) ||
-                                        gestionComercio.ExistenProductosTipo(typeof(VideosJuego)) ||
-                                        gestionComercio.ExistenProductosTipo(typeof(Pelicula))
+                                        GestionComercio.ExistenProductosTipo(typeof(Musica)) ||
+                                        GestionComercio.ExistenProductosTipo(typeof(VideosJuego)) ||
+                                        GestionComercio.ExistenProductosTipo(typeof(Pelicula))
                                     )
                                     {
-                                        foreach (Producto producto in gestionComercio.Almacen.AlmacenProductos)
+                                        foreach (Producto producto in GestionComercio.ListaAlmacen())
                                         {
                                             if (producto is Multimedia)
                                             {
@@ -497,16 +498,16 @@ namespace ComercioDigital.Presentacion
                             bool idProductoMultimediaCarritoIsInt =
                                 int.TryParse(Console.ReadLine(), out int idProductoMultimediaCarrito);
                             if (idProductoMultimediaCarritoIsInt &&
-                                gestionComercio.ExisteProductoId(idProductoMultimediaCarrito))
+                                GestionComercio.ExisteProductoId(idProductoMultimediaCarrito))
                             {
                                 
-                                if (gestionComercio.GetProductoId(idProductoMultimediaCarrito).Stock > 0)
+                                if (GestionComercio.GetProductoId(idProductoMultimediaCarrito).Stock > 0)
                                 {
 
                                     usuarioSesion.CarritoCompra.CarritoCompra.Add(
-                                        gestionComercio.GetProductoId(idProductoMultimediaCarrito));
+                                        GestionComercio.GetProductoId(idProductoMultimediaCarrito));
                                     Console.WriteLine(
-                                        $"Producto añadido al carrito correctamente: \n {gestionComercio.GetProductoId(idProductoMultimediaCarrito).Nombre}");
+                                        $"Producto añadido al carrito correctamente: \n {GestionComercio.GetProductoId(idProductoMultimediaCarrito).Nombre}");
                                 }
                                 else
                                 {
@@ -538,9 +539,9 @@ namespace ComercioDigital.Presentacion
 
                     
                     
-                    if (gestionComercio.Almacen.AlmacenProductos.Count > 0)
+                    if (GestionComercio.ListaAlmacen().Count > 0)
                     {
-                        foreach (Producto producto in gestionComercio.Almacen.AlmacenProductos)
+                        foreach (Producto producto in GestionComercio.ListaAlmacen())
                         {
                             Console.WriteLine(producto + "\n");
                         }
@@ -559,17 +560,17 @@ namespace ComercioDigital.Presentacion
                         bool idProductoCarritoIsInt =
                             int.TryParse(Console.ReadLine(), out int idProductoCarrito);
                         if (idProductoCarritoIsInt &&
-                            gestionComercio.ExisteProductoId(idProductoCarrito))
+                            GestionComercio.ExisteProductoId(idProductoCarrito))
                         {
                             usuarioSesion.CarritoCompra.CarritoCompra.Add(
-                                gestionComercio.GetProductoId(idProductoCarrito));
-                            if (gestionComercio.GetProductoId(idProductoCarrito).Stock > 0)
+                                GestionComercio.GetProductoId(idProductoCarrito));
+                            if (GestionComercio.GetProductoId(idProductoCarrito).Stock > 0)
                             {
 
                                 usuarioSesion.CarritoCompra.CarritoCompra.Add(
-                                    gestionComercio.GetProductoId(idProductoCarrito));
+                                    GestionComercio.GetProductoId(idProductoCarrito));
                                 Console.WriteLine(
-                                    $"Producto añadido al carrito correctamente: \n {gestionComercio.GetProductoId(idProductoCarrito).Nombre}");
+                                    $"Producto añadido al carrito correctamente: \n {GestionComercio.GetProductoId(idProductoCarrito).Nombre}");
                             }
                             else
                             {
@@ -630,7 +631,7 @@ namespace ComercioDigital.Presentacion
 
                                                     Console.WriteLine("Ingresar saldo");
                                                     Console.Write("Ingrese la cantidad a ingresar:");
-                                                    bool saldoIsFloat = float.TryParse(Console.ReadLine(), out float saldo);
+                                                    bool saldoIsFloat = decimal.TryParse(Console.ReadLine(), out decimal saldo);
                                                     if (saldoIsFloat)
                                                     {
                                                         usuarioSesion.Saldo += saldo;
@@ -675,7 +676,7 @@ namespace ComercioDigital.Presentacion
                                                 case 1:
                                                     Console.Write("Escriba el nuevo nombre:");
                                                     string nuevoNombre = Console.ReadLine();
-                                                    gestionUsuarios.ModificarUsuario(usuarioSesion, nuevoNombre, "nombre");
+                                                    GestionUsuarios.ModificarUsuario(usuarioSesion, nuevoNombre, "nombre");
                                                     Console.WriteLine("Nombre cambiado correctamente");
 
                                                     break;
@@ -683,7 +684,7 @@ namespace ComercioDigital.Presentacion
                                                 case 2:
                                                     Console.Write("Escriba la nueva contraseña:");
                                                     string nuevaPass = Console.ReadLine();
-                                                    gestionUsuarios.ModificarUsuario(usuarioSesion, nuevaPass, "contraseña");
+                                                    GestionUsuarios.ModificarUsuario(usuarioSesion, nuevaPass, "contraseña");
                                                     Console.WriteLine("Contraseña cambiada correctamente");
 
                                                     break;
@@ -741,8 +742,8 @@ namespace ComercioDigital.Presentacion
                             {
                                 case 1:
                                     Console.WriteLine("Hacer pedido");
-                                    float sumaProductos=0;
-                                    bool compraCorrecta;
+                                    decimal sumaProductos=0;
+                                    
                                     
                                     foreach (Producto producto in usuarioSesion.CarritoCompra.CarritoCompra)
                                     {
@@ -760,7 +761,7 @@ namespace ComercioDigital.Presentacion
                                         {
                                             if (producto.Stock >= 0)
                                             {
-                                                gestionComercio.GetProductoId(producto.IdProducto).Stock--;
+                                                GestionComercio.GetProductoId(producto.IdProducto).Stock--;
                                                 sumaProductos += producto.Precio;
                                             }
                                             else
@@ -840,7 +841,7 @@ namespace ComercioDigital.Presentacion
 
                     if (usuarioSesion.Nombre.Equals(confirmacionEliminacion))
                     {
-                        if (gestionUsuarios.EliminarUsuario(usuarioSesion))
+                        if (GestionUsuarios.EliminarUsuario(usuarioSesion))
                         {
                             Console.WriteLine("Usuario Eliminado correctamente");
                             

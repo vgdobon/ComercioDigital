@@ -8,16 +8,11 @@ using ComercioDigital.DTOs.Personas;
 
 namespace ComercioDigital.Servicio
 {
-    public class GestionVendedores
+    public static class GestionVendedores
     {
-        public List<Vendedor> Vendedores { get; set; }
+        public static List<Vendedor> Vendedores { get; set; } = new List<Vendedor>();
 
-        public GestionVendedores()
-        {
-            Vendedores = new List<Vendedor>();
-        }
-
-        public bool InsertarVendedor(Vendedor vendedor)
+        public static bool InsertarVendedor(Vendedor vendedor)
 
         {
             if (vendedor != null)
@@ -29,7 +24,7 @@ namespace ComercioDigital.Servicio
             return false;
         }
 
-        public bool AutentificarVendedor(string nombre,string pass){
+        public static bool AutentificarVendedor(string nombre,string pass){
         
             foreach(Vendedor vendedor in Vendedores){
             
@@ -44,7 +39,7 @@ namespace ComercioDigital.Servicio
             return false;
         }
 
-        public Vendedor SesionVendedor(string nombre, string pass)
+        public static Vendedor SesionVendedor(string nombre, string pass)
         {
             Vendedor vendedorSesion = null;
 
@@ -63,7 +58,7 @@ namespace ComercioDigital.Servicio
         }
 
 
-        public bool EliminarVendedor(Vendedor vendedor){
+        public static bool EliminarVendedor(Vendedor vendedor){
 
             if (vendedor != null)
             {
@@ -75,7 +70,7 @@ namespace ComercioDigital.Servicio
 
         }
 
-        public bool ModificarVendedor(Vendedor vendedor, string s, string campo)
+        public static bool ModificarVendedor(Vendedor vendedor, string s, string campo)
         {
             if (campo.Equals("nombre"))
             {

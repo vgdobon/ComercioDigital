@@ -25,3 +25,8 @@ I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigita
 I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.csproj.CoreCompileInputs.cache
 I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.exe
 I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.pdb
+I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\bin\Debug\EntityFramework.dll
+I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\bin\Debug\EntityFramework.SqlServer.dll
+I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\bin\Debug\EntityFramework.xml
+I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\bin\Debug\EntityFramework.SqlServer.xml
+I:\FORMATEA\FullStack\Ejercicio18-ComercioDigital\ComercioDigital\ComercioDigital\obj\Debug\ComercioDigital.csproj.CopyComplete

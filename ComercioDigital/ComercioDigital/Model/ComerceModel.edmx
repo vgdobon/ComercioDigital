@@ -1,0 +1,1325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="eCommerceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'eCommerce.dbo.Almacenes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="Almacenes">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bolsos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdModa" Type="int" Nullable="false" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Calzados">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IdModa" Type="int" />
+          <Property Name="Talla" Type="int" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="CarritoProductos">
+          <Key>
+            <PropertyRef Name="IdCarrito" />
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdCarrito" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carritos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Joyas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdModa" Type="int" Nullable="false" />
+          <Property Name="Medida" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProducto" Type="int" />
+          <Property Name="Color" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Material" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sexo" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Moviles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTecnologia" Type="int" />
+          <Property Name="Pantalla" Type="float" />
+          <Property Name="Bateria" Type="int" />
+        </EntityType>
+        <EntityType Name="Multimedias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProducto" Type="int" />
+          <Property Name="Genero" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Formato" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Idioma" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaLanzamiento" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Musicas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMultimedia" Type="int" />
+          <Property Name="Artista" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Ordenadores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTecnologia" Type="int" Nullable="false" />
+          <Property Name="PlacaBase" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="PedidoProductos">
+          <Property Name="IdPedido" Type="int" />
+          <Property Name="IdProducto" Type="int" />
+        </EntityType>-->
+        <EntityType Name="Pedidos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="date" />
+        </EntityType>
+        <EntityType Name="Peliculas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMultimedia" Type="int" Nullable="false" />
+          <Property Name="Actores" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Director" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="EdadRecomendada" Type="int" Nullable="false" />
+          <Property Name="Sinopsis" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Marca" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdVendedor" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Valoracion" Type="int" />
+          <Property Name="FechaPuestaVenta" Type="date" Nullable="false" />
+          <Property Name="CodigoDescuento" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Stock" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ropas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdModa" Type="int" />
+          <Property Name="Talla" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tecnologicos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProducto" Type="int" Nullable="false" />
+          <Property Name="Color" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Procesador" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SistemaOperativo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Modelo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaLanzamiento" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pass" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Domicilio" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Saldo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="IdCarrito" Type="int" Nullable="false" />
+          <Property Name="IdPedido" Type="int" />
+        </EntityType>
+        <EntityType Name="Vendedores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contrasenna" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Valoracion" Type="int" />
+        </EntityType>
+        <EntityType Name="Videoconsolas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTecnologia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Videojuegos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdMultimedia" Type="int" Nullable="false" />
+          <Property Name="Plataforma" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EdadRecomendada" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_almacenes_Productos">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="Almacenes" Type="Self.Almacenes" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Almacenes">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bolsos_Moda">
+          <End Role="Modas" Type="Self.Modas" Multiplicity="1" />
+          <End Role="Bolsos" Type="Self.Bolsos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bolsos">
+              <PropertyRef Name="IdModa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Calzados_Modas">
+          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1" />
+          <End Role="Calzados" Type="Self.Calzados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Calzados">
+              <PropertyRef Name="IdModa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarritoProductos_Carritos">
+          <End Role="Carritos" Type="Self.Carritos" Multiplicity="1" />
+          <End Role="CarritoProductos" Type="Self.CarritoProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carritos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarritoProductos">
+              <PropertyRef Name="IdCarrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CarritoProductos_Productos">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="CarritoProductos" Type="Self.CarritoProductos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CarritoProductos">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Joyas_Modas">
+          <End Role="Modas" Type="Self.Modas" Multiplicity="1" />
+          <End Role="Joyas" Type="Self.Joyas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Joyas">
+              <PropertyRef Name="IdModa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Moda_Productos">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+          <End Role="Modas" Type="Self.Modas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modas">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Moviles_Tecnologicos">
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="0..1" />
+          <End Role="Moviles" Type="Self.Moviles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnologicos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Moviles">
+              <PropertyRef Name="IdTecnologia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Multimedias_Productos">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Multimedias">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Musicas_Multimedias">
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="0..1" />
+          <End Role="Musicas" Type="Self.Musicas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multimedias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Musicas">
+              <PropertyRef Name="IdMultimedia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ordenadores_Tecnologicos">
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1" />
+          <End Role="Ordenadores" Type="Self.Ordenadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnologicos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ordenadores">
+              <PropertyRef Name="IdTecnologia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProductos', pero no se encuentra la tabla.
+        <Association Name="FK_PedidoProductos_Pedidos" />-->
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProductos', pero no se encuentra la tabla.
+        <Association Name="FK_PedidoProductos_Productos" />-->
+        <Association Name="FK_Peliculas_Multimedias">
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1" />
+          <End Role="Peliculas" Type="Self.Peliculas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multimedias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Peliculas">
+              <PropertyRef Name="IdMultimedia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_Vendedores">
+          <End Role="Vendedores" Type="Self.Vendedores" Multiplicity="1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdVendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ropas_Modas">
+          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1" />
+          <End Role="Ropas" Type="Self.Ropas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ropas">
+              <PropertyRef Name="IdModa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tecnologicos_Productos">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tecnologicos">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Carritos">
+          <End Role="Carritos" Type="Self.Carritos" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carritos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="IdCarrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Pedidos">
+          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedidos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="IdPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Videoconsolas_Tecnologicos">
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1" />
+          <End Role="Videoconsolas" Type="Self.Videoconsolas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnologicos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Videoconsolas">
+              <PropertyRef Name="IdTecnologia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Videojuegos_Multimedias">
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1" />
+          <End Role="Videojuegos" Type="Self.Videojuegos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multimedias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Videojuegos">
+              <PropertyRef Name="IdMultimedia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="eCommerceModelStoreContainer">
+          <EntitySet Name="Bolsos" EntityType="Self.Bolsos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Calzados" EntityType="Self.Calzados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carritos" EntityType="Self.Carritos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Joyas" EntityType="Self.Joyas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modas" EntityType="Self.Modas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Moviles" EntityType="Self.Moviles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Multimedias" EntityType="Self.Multimedias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Musicas" EntityType="Self.Musicas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ordenadores" EntityType="Self.Ordenadores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pedidos" EntityType="Self.Pedidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Peliculas" EntityType="Self.Peliculas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ropas" EntityType="Self.Ropas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tecnologicos" EntityType="Self.Tecnologicos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendedores" EntityType="Self.Vendedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Videoconsolas" EntityType="Self.Videoconsolas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Videojuegos" EntityType="Self.Videojuegos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Almacenes" EntityType="Self.Almacenes" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Almacenes].[IdProducto] AS [IdProducto]
+    FROM [dbo].[Almacenes] AS [Almacenes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CarritoProductos" EntityType="Self.CarritoProductos" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CarritoProductos].[IdCarrito] AS [IdCarrito], 
+    [CarritoProductos].[IdProducto] AS [IdProducto]
+    FROM [dbo].[CarritoProductos] AS [CarritoProductos]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_almacenes_Productos" Association="Self.FK_almacenes_Productos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Almacenes" EntitySet="Almacenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bolsos_Moda" Association="Self.FK_Bolsos_Moda">
+            <End Role="Modas" EntitySet="Modas" />
+            <End Role="Bolsos" EntitySet="Bolsos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Calzados_Modas" Association="Self.FK_Calzados_Modas">
+            <End Role="Modas" EntitySet="Modas" />
+            <End Role="Calzados" EntitySet="Calzados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarritoProductos_Carritos" Association="Self.FK_CarritoProductos_Carritos">
+            <End Role="Carritos" EntitySet="Carritos" />
+            <End Role="CarritoProductos" EntitySet="CarritoProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CarritoProductos_Productos" Association="Self.FK_CarritoProductos_Productos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="CarritoProductos" EntitySet="CarritoProductos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Joyas_Modas" Association="Self.FK_Joyas_Modas">
+            <End Role="Modas" EntitySet="Modas" />
+            <End Role="Joyas" EntitySet="Joyas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Moda_Productos" Association="Self.FK_Moda_Productos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Modas" EntitySet="Modas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Moviles_Tecnologicos" Association="Self.FK_Moviles_Tecnologicos">
+            <End Role="Tecnologicos" EntitySet="Tecnologicos" />
+            <End Role="Moviles" EntitySet="Moviles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Multimedias_Productos" Association="Self.FK_Multimedias_Productos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Multimedias" EntitySet="Multimedias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Musicas_Multimedias" Association="Self.FK_Musicas_Multimedias">
+            <End Role="Multimedias" EntitySet="Multimedias" />
+            <End Role="Musicas" EntitySet="Musicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ordenadores_Tecnologicos" Association="Self.FK_Ordenadores_Tecnologicos">
+            <End Role="Tecnologicos" EntitySet="Tecnologicos" />
+            <End Role="Ordenadores" EntitySet="Ordenadores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Peliculas_Multimedias" Association="Self.FK_Peliculas_Multimedias">
+            <End Role="Multimedias" EntitySet="Multimedias" />
+            <End Role="Peliculas" EntitySet="Peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_Vendedores" Association="Self.FK_Producto_Vendedores">
+            <End Role="Vendedores" EntitySet="Vendedores" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ropas_Modas" Association="Self.FK_Ropas_Modas">
+            <End Role="Modas" EntitySet="Modas" />
+            <End Role="Ropas" EntitySet="Ropas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tecnologicos_Productos" Association="Self.FK_Tecnologicos_Productos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Tecnologicos" EntitySet="Tecnologicos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Carritos" Association="Self.FK_Usuarios_Carritos">
+            <End Role="Carritos" EntitySet="Carritos" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Pedidos" Association="Self.FK_Usuarios_Pedidos">
+            <End Role="Pedidos" EntitySet="Pedidos" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Videoconsolas_Tecnologicos" Association="Self.FK_Videoconsolas_Tecnologicos">
+            <End Role="Tecnologicos" EntitySet="Tecnologicos" />
+            <End Role="Videoconsolas" EntitySet="Videoconsolas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Videojuegos_Multimedias" Association="Self.FK_Videojuegos_Multimedias">
+            <End Role="Multimedias" EntitySet="Multimedias" />
+            <End Role="Videojuegos" EntitySet="Videojuegos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eCommerceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bolsos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdModa" Type="Int32" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Modas" Relationship="Self.FK_Bolsos_Moda" FromRole="Bolsos" ToRole="Modas" />
+        </EntityType>
+        <EntityType Name="Calzados">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdModa" Type="Int32" />
+          <Property Name="Talla" Type="Int32" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Modas" Relationship="Self.FK_Calzados_Modas" FromRole="Calzados" ToRole="Modas" />
+        </EntityType>
+        <EntityType Name="Carritos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Carritos" FromRole="Carritos" ToRole="Usuarios" />
+          <NavigationProperty Name="Productos" Relationship="Self.CarritoProductos" FromRole="Carritos" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Joyas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdModa" Type="Int32" Nullable="false" />
+          <Property Name="Medida" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Modas" Relationship="Self.FK_Joyas_Modas" FromRole="Joyas" ToRole="Modas" />
+        </EntityType>
+        <EntityType Name="Modas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProducto" Type="Int32" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Bolsos" Relationship="Self.FK_Bolsos_Moda" FromRole="Modas" ToRole="Bolsos" />
+          <NavigationProperty Name="Calzados" Relationship="Self.FK_Calzados_Modas" FromRole="Modas" ToRole="Calzados" />
+          <NavigationProperty Name="Joyas" Relationship="Self.FK_Joyas_Modas" FromRole="Modas" ToRole="Joyas" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK_Moda_Productos" FromRole="Modas" ToRole="Productos" />
+          <NavigationProperty Name="Ropas" Relationship="Self.FK_Ropas_Modas" FromRole="Modas" ToRole="Ropas" />
+        </EntityType>
+        <EntityType Name="Moviles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTecnologia" Type="Int32" />
+          <Property Name="Pantalla" Type="Double" />
+          <Property Name="Bateria" Type="Int32" />
+          <NavigationProperty Name="Tecnologicos" Relationship="Self.FK_Moviles_Tecnologicos" FromRole="Moviles" ToRole="Tecnologicos" />
+        </EntityType>
+        <EntityType Name="Multimedias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProducto" Type="Int32" />
+          <Property Name="Genero" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Formato" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Idioma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaLanzamiento" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK_Multimedias_Productos" FromRole="Multimedias" ToRole="Productos" />
+          <NavigationProperty Name="Musicas" Relationship="Self.FK_Musicas_Multimedias" FromRole="Multimedias" ToRole="Musicas" />
+          <NavigationProperty Name="Peliculas" Relationship="Self.FK_Peliculas_Multimedias" FromRole="Multimedias" ToRole="Peliculas" />
+          <NavigationProperty Name="Videojuegos" Relationship="Self.FK_Videojuegos_Multimedias" FromRole="Multimedias" ToRole="Videojuegos" />
+        </EntityType>
+        <EntityType Name="Musicas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMultimedia" Type="Int32" />
+          <Property Name="Artista" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Multimedias" Relationship="Self.FK_Musicas_Multimedias" FromRole="Musicas" ToRole="Multimedias" />
+        </EntityType>
+        <EntityType Name="Ordenadores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTecnologia" Type="Int32" Nullable="false" />
+          <Property Name="PlacaBase" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Tecnologicos" Relationship="Self.FK_Ordenadores_Tecnologicos" FromRole="Ordenadores" ToRole="Tecnologicos" />
+        </EntityType>
+        <EntityType Name="Pedidos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Pedidos" FromRole="Pedidos" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Peliculas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMultimedia" Type="Int32" Nullable="false" />
+          <Property Name="Actores" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Director" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EdadRecomendada" Type="Int32" Nullable="false" />
+          <Property Name="Sinopsis" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Multimedias" Relationship="Self.FK_Peliculas_Multimedias" FromRole="Peliculas" ToRole="Multimedias" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Marca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdVendedor" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Valoracion" Type="Int32" />
+          <Property Name="FechaPuestaVenta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CodigoDescuento" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Modas" Relationship="Self.FK_Moda_Productos" FromRole="Productos" ToRole="Modas" />
+          <NavigationProperty Name="Multimedias" Relationship="Self.FK_Multimedias_Productos" FromRole="Productos" ToRole="Multimedias" />
+          <NavigationProperty Name="Almacenes" Relationship="Self.FK_almacenes_Productos" FromRole="Productos" ToRole="Almacenes" />
+          <NavigationProperty Name="Vendedores" Relationship="Self.FK_Producto_Vendedores" FromRole="Productos" ToRole="Vendedores" />
+          <NavigationProperty Name="Tecnologicos" Relationship="Self.FK_Tecnologicos_Productos" FromRole="Productos" ToRole="Tecnologicos" />
+          <NavigationProperty Name="Carritos" Relationship="Self.CarritoProductos" FromRole="Productos" ToRole="Carritos" />
+        </EntityType>
+        <EntityType Name="Ropas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdModa" Type="Int32" />
+          <Property Name="Talla" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Modas" Relationship="Self.FK_Ropas_Modas" FromRole="Ropas" ToRole="Modas" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tecnologicos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProducto" Type="Int32" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Procesador" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SistemaOperativo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaLanzamiento" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Moviles" Relationship="Self.FK_Moviles_Tecnologicos" FromRole="Tecnologicos" ToRole="Moviles" />
+          <NavigationProperty Name="Ordenadores" Relationship="Self.FK_Ordenadores_Tecnologicos" FromRole="Tecnologicos" ToRole="Ordenadores" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK_Tecnologicos_Productos" FromRole="Tecnologicos" ToRole="Productos" />
+          <NavigationProperty Name="Videoconsolas" Relationship="Self.FK_Videoconsolas_Tecnologicos" FromRole="Tecnologicos" ToRole="Videoconsolas" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Domicilio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Saldo" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="IdCarrito" Type="Int32" Nullable="false" />
+          <Property Name="IdPedido" Type="Int32" />
+          <NavigationProperty Name="Carritos" Relationship="Self.FK_Usuarios_Carritos" FromRole="Usuarios" ToRole="Carritos" />
+          <NavigationProperty Name="Pedidos" Relationship="Self.FK_Usuarios_Pedidos" FromRole="Usuarios" ToRole="Pedidos" />
+        </EntityType>
+        <EntityType Name="Vendedores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contrasenna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Valoracion" Type="Int32" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK_Producto_Vendedores" FromRole="Vendedores" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Videoconsolas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTecnologia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tecnologicos" Relationship="Self.FK_Videoconsolas_Tecnologicos" FromRole="Videoconsolas" ToRole="Tecnologicos" />
+        </EntityType>
+        <EntityType Name="Videojuegos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdMultimedia" Type="Int32" Nullable="false" />
+          <Property Name="Plataforma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EdadRecomendada" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Multimedias" Relationship="Self.FK_Videojuegos_Multimedias" FromRole="Videojuegos" ToRole="Multimedias" />
+        </EntityType>
+        <EntityType Name="Almacenes">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK_almacenes_Productos" FromRole="Almacenes" ToRole="Productos" />
+        </EntityType>
+        <Association Name="FK_Bolsos_Moda">
+          <End Role="Modas" Type="Self.Modas" Multiplicity="1" />
+          <End Role="Bolsos" Type="Self.Bolsos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bolsos">
+              <PropertyRef Name="IdModa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Calzados_Modas">
+          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1" />
+          <End Role="Calzados" Type="Self.Calzados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Calzados">
+              <PropertyRef Name="IdModa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Carritos">
+          <End Role="Carritos" Type="Self.Carritos" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carritos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="IdCarrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Joyas_Modas">
+          <End Role="Modas" Type="Self.Modas" Multiplicity="1" />
+          <End Role="Joyas" Type="Self.Joyas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Joyas">
+              <PropertyRef Name="IdModa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Moda_Productos">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+          <End Role="Modas" Type="Self.Modas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Modas">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ropas_Modas">
+          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1" />
+          <End Role="Ropas" Type="Self.Ropas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ropas">
+              <PropertyRef Name="IdModa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Moviles_Tecnologicos">
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="0..1" />
+          <End Role="Moviles" Type="Self.Moviles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnologicos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Moviles">
+              <PropertyRef Name="IdTecnologia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Multimedias_Productos">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Multimedias">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Musicas_Multimedias">
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="0..1" />
+          <End Role="Musicas" Type="Self.Musicas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multimedias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Musicas">
+              <PropertyRef Name="IdMultimedia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Peliculas_Multimedias">
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1" />
+          <End Role="Peliculas" Type="Self.Peliculas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multimedias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Peliculas">
+              <PropertyRef Name="IdMultimedia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Videojuegos_Multimedias">
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1" />
+          <End Role="Videojuegos" Type="Self.Videojuegos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Multimedias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Videojuegos">
+              <PropertyRef Name="IdMultimedia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ordenadores_Tecnologicos">
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1" />
+          <End Role="Ordenadores" Type="Self.Ordenadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnologicos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ordenadores">
+              <PropertyRef Name="IdTecnologia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Pedidos">
+          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedidos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="IdPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_almacenes_Productos">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="Almacenes" Type="Self.Almacenes" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Almacenes">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producto_Vendedores">
+          <End Role="Vendedores" Type="Self.Vendedores" Multiplicity="1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdVendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tecnologicos_Productos">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tecnologicos">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Videoconsolas_Tecnologicos">
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1" />
+          <End Role="Videoconsolas" Type="Self.Videoconsolas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tecnologicos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Videoconsolas">
+              <PropertyRef Name="IdTecnologia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CarritoProductos">
+          <End Role="Carritos" Type="Self.Carritos" Multiplicity="*" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="eCommerceEntitiesDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bolsos" EntityType="Self.Bolsos" />
+          <EntitySet Name="Calzados" EntityType="Self.Calzados" />
+          <EntitySet Name="Carritos" EntityType="Self.Carritos" />
+          <EntitySet Name="Joyas" EntityType="Self.Joyas" />
+          <EntitySet Name="Modas" EntityType="Self.Modas" />
+          <EntitySet Name="Moviles" EntityType="Self.Moviles" />
+          <EntitySet Name="Multimedias" EntityType="Self.Multimedias" />
+          <EntitySet Name="Musicas" EntityType="Self.Musicas" />
+          <EntitySet Name="Ordenadores" EntityType="Self.Ordenadores" />
+          <EntitySet Name="Pedidos" EntityType="Self.Pedidos" />
+          <EntitySet Name="Peliculas" EntityType="Self.Peliculas" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" />
+          <EntitySet Name="Ropas" EntityType="Self.Ropas" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tecnologicos" EntityType="Self.Tecnologicos" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <EntitySet Name="Vendedores" EntityType="Self.Vendedores" />
+          <EntitySet Name="Videoconsolas" EntityType="Self.Videoconsolas" />
+          <EntitySet Name="Videojuegos" EntityType="Self.Videojuegos" />
+          <EntitySet Name="Almacenes" EntityType="Self.Almacenes" />
+          <AssociationSet Name="FK_Bolsos_Moda" Association="Self.FK_Bolsos_Moda">
+            <End Role="Modas" EntitySet="Modas" />
+            <End Role="Bolsos" EntitySet="Bolsos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Calzados_Modas" Association="Self.FK_Calzados_Modas">
+            <End Role="Modas" EntitySet="Modas" />
+            <End Role="Calzados" EntitySet="Calzados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Carritos" Association="Self.FK_Usuarios_Carritos">
+            <End Role="Carritos" EntitySet="Carritos" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Joyas_Modas" Association="Self.FK_Joyas_Modas">
+            <End Role="Modas" EntitySet="Modas" />
+            <End Role="Joyas" EntitySet="Joyas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Moda_Productos" Association="Self.FK_Moda_Productos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Modas" EntitySet="Modas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ropas_Modas" Association="Self.FK_Ropas_Modas">
+            <End Role="Modas" EntitySet="Modas" />
+            <End Role="Ropas" EntitySet="Ropas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Moviles_Tecnologicos" Association="Self.FK_Moviles_Tecnologicos">
+            <End Role="Tecnologicos" EntitySet="Tecnologicos" />
+            <End Role="Moviles" EntitySet="Moviles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Multimedias_Productos" Association="Self.FK_Multimedias_Productos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Multimedias" EntitySet="Multimedias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Musicas_Multimedias" Association="Self.FK_Musicas_Multimedias">
+            <End Role="Multimedias" EntitySet="Multimedias" />
+            <End Role="Musicas" EntitySet="Musicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Peliculas_Multimedias" Association="Self.FK_Peliculas_Multimedias">
+            <End Role="Multimedias" EntitySet="Multimedias" />
+            <End Role="Peliculas" EntitySet="Peliculas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Videojuegos_Multimedias" Association="Self.FK_Videojuegos_Multimedias">
+            <End Role="Multimedias" EntitySet="Multimedias" />
+            <End Role="Videojuegos" EntitySet="Videojuegos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ordenadores_Tecnologicos" Association="Self.FK_Ordenadores_Tecnologicos">
+            <End Role="Tecnologicos" EntitySet="Tecnologicos" />
+            <End Role="Ordenadores" EntitySet="Ordenadores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Pedidos" Association="Self.FK_Usuarios_Pedidos">
+            <End Role="Pedidos" EntitySet="Pedidos" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_almacenes_Productos" Association="Self.FK_almacenes_Productos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Almacenes" EntitySet="Almacenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producto_Vendedores" Association="Self.FK_Producto_Vendedores">
+            <End Role="Vendedores" EntitySet="Vendedores" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tecnologicos_Productos" Association="Self.FK_Tecnologicos_Productos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Tecnologicos" EntitySet="Tecnologicos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Videoconsolas_Tecnologicos" Association="Self.FK_Videoconsolas_Tecnologicos">
+            <End Role="Tecnologicos" EntitySet="Tecnologicos" />
+            <End Role="Videoconsolas" EntitySet="Videoconsolas" />
+          </AssociationSet>
+          <AssociationSet Name="CarritoProductos" Association="Self.CarritoProductos">
+            <End Role="Carritos" EntitySet="Carritos" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eCommerceModelStoreContainer" CdmEntityContainer="eCommerceEntitiesDB">
+          <EntitySetMapping Name="Bolsos">
+            <EntityTypeMapping TypeName="eCommerceModel.Bolsos">
+              <MappingFragment StoreEntitySet="Bolsos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdModa" ColumnName="IdModa" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Calzados">
+            <EntityTypeMapping TypeName="eCommerceModel.Calzados">
+              <MappingFragment StoreEntitySet="Calzados">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdModa" ColumnName="IdModa" />
+                <ScalarProperty Name="Talla" ColumnName="Talla" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carritos">
+            <EntityTypeMapping TypeName="eCommerceModel.Carritos">
+              <MappingFragment StoreEntitySet="Carritos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Joyas">
+            <EntityTypeMapping TypeName="eCommerceModel.Joyas">
+              <MappingFragment StoreEntitySet="Joyas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdModa" ColumnName="IdModa" />
+                <ScalarProperty Name="Medida" ColumnName="Medida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modas">
+            <EntityTypeMapping TypeName="eCommerceModel.Modas">
+              <MappingFragment StoreEntitySet="Modas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Material" ColumnName="Material" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Moviles">
+            <EntityTypeMapping TypeName="eCommerceModel.Moviles">
+              <MappingFragment StoreEntitySet="Moviles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdTecnologia" ColumnName="IdTecnologia" />
+                <ScalarProperty Name="Pantalla" ColumnName="Pantalla" />
+                <ScalarProperty Name="Bateria" ColumnName="Bateria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Multimedias">
+            <EntityTypeMapping TypeName="eCommerceModel.Multimedias">
+              <MappingFragment StoreEntitySet="Multimedias">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Formato" ColumnName="Formato" />
+                <ScalarProperty Name="Idioma" ColumnName="Idioma" />
+                <ScalarProperty Name="FechaLanzamiento" ColumnName="FechaLanzamiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Musicas">
+            <EntityTypeMapping TypeName="eCommerceModel.Musicas">
+              <MappingFragment StoreEntitySet="Musicas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdMultimedia" ColumnName="IdMultimedia" />
+                <ScalarProperty Name="Artista" ColumnName="Artista" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ordenadores">
+            <EntityTypeMapping TypeName="eCommerceModel.Ordenadores">
+              <MappingFragment StoreEntitySet="Ordenadores">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdTecnologia" ColumnName="IdTecnologia" />
+                <ScalarProperty Name="PlacaBase" ColumnName="PlacaBase" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pedidos">
+            <EntityTypeMapping TypeName="eCommerceModel.Pedidos">
+              <MappingFragment StoreEntitySet="Pedidos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Peliculas">
+            <EntityTypeMapping TypeName="eCommerceModel.Peliculas">
+              <MappingFragment StoreEntitySet="Peliculas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdMultimedia" ColumnName="IdMultimedia" />
+                <ScalarProperty Name="Actores" ColumnName="Actores" />
+                <ScalarProperty Name="Director" ColumnName="Director" />
+                <ScalarProperty Name="EdadRecomendada" ColumnName="EdadRecomendada" />
+                <ScalarProperty Name="Sinopsis" ColumnName="Sinopsis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="eCommerceModel.Productos">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Valoracion" ColumnName="Valoracion" />
+                <ScalarProperty Name="FechaPuestaVenta" ColumnName="FechaPuestaVenta" />
+                <ScalarProperty Name="CodigoDescuento" ColumnName="CodigoDescuento" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ropas">
+            <EntityTypeMapping TypeName="eCommerceModel.Ropas">
+              <MappingFragment StoreEntitySet="Ropas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdModa" ColumnName="IdModa" />
+                <ScalarProperty Name="Talla" ColumnName="Talla" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="eCommerceModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tecnologicos">
+            <EntityTypeMapping TypeName="eCommerceModel.Tecnologicos">
+              <MappingFragment StoreEntitySet="Tecnologicos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Procesador" ColumnName="Procesador" />
+                <ScalarProperty Name="SistemaOperativo" ColumnName="SistemaOperativo" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="FechaLanzamiento" ColumnName="FechaLanzamiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="eCommerceModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="IdCarrito" ColumnName="IdCarrito" />
+                <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendedores">
+            <EntityTypeMapping TypeName="eCommerceModel.Vendedores">
+              <MappingFragment StoreEntitySet="Vendedores">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Contrasenna" ColumnName="Contrasenna" />
+                <ScalarProperty Name="Valoracion" ColumnName="Valoracion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videoconsolas">
+            <EntityTypeMapping TypeName="eCommerceModel.Videoconsolas">
+              <MappingFragment StoreEntitySet="Videoconsolas">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdTecnologia" ColumnName="IdTecnologia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videojuegos">
+            <EntityTypeMapping TypeName="eCommerceModel.Videojuegos">
+              <MappingFragment StoreEntitySet="Videojuegos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdMultimedia" ColumnName="IdMultimedia" />
+                <ScalarProperty Name="Plataforma" ColumnName="Plataforma" />
+                <ScalarProperty Name="EdadRecomendada" ColumnName="EdadRecomendada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Almacenes">
+            <EntityTypeMapping TypeName="eCommerceModel.Almacenes">
+              <MappingFragment StoreEntitySet="Almacenes">
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CarritoProductos" TypeName="eCommerceModel.CarritoProductos" StoreEntitySet="CarritoProductos">
+            <EndProperty Name="Carritos">
+              <ScalarProperty Name="Id" ColumnName="IdCarrito" />
+            </EndProperty>
+            <EndProperty Name="Productos">
+              <ScalarProperty Name="Id" ColumnName="IdProducto" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -7,17 +7,11 @@ using ComercioDigital.DTOs.Personas;
 
 namespace ComercioDigital.Servicio
 {
-    public class GestionUsuarios
+    public static class GestionUsuarios
     {
-        public List<Usuario> Usuarios { get; set; }
+        public static List<Usuario> Usuarios { get; set; } = new List<Usuario>();
 
-
-        public GestionUsuarios()
-        {
-            Usuarios = new List<Usuario>();
-        }
-
-        public bool InsertarUsuario(Usuario usuario)
+        public static bool InsertarUsuario(Usuario usuario)
 
         {
             if (usuario != null)
@@ -28,7 +22,7 @@ namespace ComercioDigital.Servicio
 
             return false;
         }
-        public bool AutentificarUsuario(string nombre, string pass)
+        public static bool AutentificarUsuario(string nombre, string pass)
         {
 
             foreach (Usuario usuario in Usuarios)
@@ -45,7 +39,7 @@ namespace ComercioDigital.Servicio
             return false;
         }
 
-        public Usuario UsuarioSesion(string nombre, string pass)
+        public static Usuario UsuarioSesion(string nombre, string pass)
         {
             Usuario usuarioSesion = null;
 
@@ -63,7 +57,7 @@ namespace ComercioDigital.Servicio
             return usuarioSesion;
         }
 
-        public bool ModificarUsuario(Usuario usuario, string s, string campo)
+        public static bool ModificarUsuario(Usuario usuario, string s, string campo)
         {
             if (campo.Equals("nombre"))
             {
@@ -79,7 +73,7 @@ namespace ComercioDigital.Servicio
             return false;
         }
 
-        public bool EliminarUsuario(Usuario usuario)
+        public static bool EliminarUsuario(Usuario usuario)
         {
 
             if (usuario != null)

@@ -13,16 +13,12 @@ using ComercioDigital.DTOs.Productos.Tecnologia;
 namespace ComercioDigital.Servicio
 {
 
-    public class GestionComercio
+    public static class GestionComercio
     {
-        public Almacen Almacen { get; set; }
 
-        public GestionComercio()
-        {
-            Almacen = new Almacen();
-        }
 
-        public void AgregarProductoAlmacen(Producto producto)
+
+        public static void AgregarProductoAlmacen(Producto producto)
         {
             if(producto!= null)
             {
@@ -30,7 +26,7 @@ namespace ComercioDigital.Servicio
             }
         }
 
-        public bool EliminarProductoAlmacen(int id)
+        public static bool EliminarProductoAlmacen(int id)
         {
             foreach (Producto producto in Almacen.AlmacenProductos)
             {
@@ -44,7 +40,7 @@ namespace ComercioDigital.Servicio
             return false;
         }
 
-        public List<Producto> FiltroProductoVendedor(Vendedor vendedor)
+        public static List<Producto> FiltroProductoVendedor(Vendedor vendedor)
         {
             List<Producto> productosVendedor= new List<Producto>();
 
@@ -60,7 +56,7 @@ namespace ComercioDigital.Servicio
 
         }
 
-        public bool ExisteProductoId(int id)
+        public static bool ExisteProductoId(int id)
         {
             foreach (Producto producto in Almacen.AlmacenProductos)
             {
@@ -73,7 +69,7 @@ namespace ComercioDigital.Servicio
             return false;
         }
 
-        public Producto GetProductoId(int id)
+        public static Producto GetProductoId(int id)
         {
             Producto productoID = null;
 
@@ -88,7 +84,7 @@ namespace ComercioDigital.Servicio
             return productoID;
         }
 
-        public List<Producto> FiltroTipoProducto(Type type)
+        public static List<Producto> FiltroTipoProducto(Type type)
         {
 
             List<Producto> filtroProductos = new List<Producto>();
@@ -108,7 +104,7 @@ namespace ComercioDigital.Servicio
 
 
 
-        public bool ExistenProductosTipo(Type type)
+        public static bool ExistenProductosTipo(Type type)
         {
             if (FiltroTipoProducto(type).Count > 0)
             {
@@ -116,6 +112,11 @@ namespace ComercioDigital.Servicio
             }
 
             return false;
+        }
+
+        public static List<Producto> ListaAlmacen()
+        {
+            return Almacen.AlmacenProductos;
         }
        
     }

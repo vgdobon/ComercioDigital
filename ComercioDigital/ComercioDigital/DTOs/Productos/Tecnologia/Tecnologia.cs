@@ -16,7 +16,7 @@ namespace ComercioDigital.DTOs.Productos.Tecnologia
         public string Modelo { get; set; }
         public DateTime FechaLanzamiento { get; }
 
-        public Tecnologia(string nombre, string marca, float precio, Vendedor vendedor, string descripcion,
+        public Tecnologia(string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock, string color, string procesador, string so,
             string modelo, DateTime fechaLanzamiento) : base(nombre, marca, precio, vendedor, descripcion,
             fechaPuestaVenta, codigoDescuento, stock)

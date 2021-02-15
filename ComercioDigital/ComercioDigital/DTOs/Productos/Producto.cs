@@ -11,7 +11,7 @@ namespace ComercioDigital.DTOs.Productos
     {
         public string Nombre { get; set; }
         public string Marca { get; set; }
-        public float Precio { get; set; }
+        public decimal Precio { get; set; }
         public Vendedor Vendedor { get; set; }
         public string Descripcion { get; set;}
         public int Valoracion { get; set; }
@@ -22,7 +22,7 @@ namespace ComercioDigital.DTOs.Productos
         public static int Incrementer { get; set; }
         public int IdProducto { get; set; }
 
-        public Producto(string nombre, string marca, float precio, Vendedor vendedor, string descripcion,
+        public Producto(string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock)
         {
             Nombre = nombre ?? throw new ArgumentNullException(nameof(nombre));

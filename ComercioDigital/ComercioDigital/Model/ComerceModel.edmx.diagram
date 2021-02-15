@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c26110f4ab794b63aca820b21316edcb" Name="Diagram1">
+        <EntityTypeShape EntityType="eCommerceModel.Bolsos" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Calzados" Width="1.5" PointX="7.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Carritos" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Joyas" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Modas" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Moviles" Width="1.5" PointX="7.5" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Multimedias" Width="1.5" PointX="5.25" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Musicas" Width="1.5" PointX="7.5" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Ordenadores" Width="1.5" PointX="7.5" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Pedidos" Width="1.5" PointX="3.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Peliculas" Width="1.5" PointX="7.5" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Productos" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Ropas" Width="1.5" PointX="7.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Tecnologicos" Width="1.5" PointX="5.25" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Usuarios" Width="1.5" PointX="6" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Vendedores" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Videoconsolas" Width="1.5" PointX="7.5" PointY="34.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Videojuegos" Width="1.5" PointX="7.5" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerceModel.Almacenes" Width="1.5" PointX="5.25" PointY="28.875" IsExpanded="true" />
+        <AssociationConnector Association="eCommerceModel.FK_Bolsos_Moda" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Calzados_Modas" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Usuarios_Carritos" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Joyas_Modas" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Moda_Productos" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Ropas_Modas" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Moviles_Tecnologicos" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Multimedias_Productos" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Musicas_Multimedias" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Peliculas_Multimedias" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Videojuegos_Multimedias" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Ordenadores_Tecnologicos" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Usuarios_Pedidos" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_almacenes_Productos" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Producto_Vendedores" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Tecnologicos_Productos" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.FK_Videoconsolas_Tecnologicos" ManuallyRouted="false" />
+        <AssociationConnector Association="eCommerceModel.CarritoProductos" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

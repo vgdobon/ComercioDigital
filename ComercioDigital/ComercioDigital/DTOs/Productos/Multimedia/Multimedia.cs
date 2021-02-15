@@ -14,7 +14,7 @@ namespace ComercioDigital.DTOs.Productos.Multimedia
         public string Idioma { get; set; }
         public DateTime FechaLanzamiento { get; set; }
 
-        public Multimedia(string nombre, string marca, float precio, Vendedor vendedor, string descripcion,
+        public Multimedia(string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock, string genero, string formato, string idioma,
             DateTime fechaLanzamiento) : base(nombre, marca, precio, vendedor, descripcion, fechaPuestaVenta,
             codigoDescuento, stock)

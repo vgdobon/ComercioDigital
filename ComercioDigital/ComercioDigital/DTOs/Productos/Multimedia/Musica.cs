@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ComercioDigital.DTOs.Personas;
 
 namespace ComercioDigital.DTOs.Productos.Multimedia
@@ -11,7 +7,7 @@ namespace ComercioDigital.DTOs.Productos.Multimedia
     {
         public string Artista { get; set; }
 
-        public Musica(string nombre, string marca, float precio, Vendedor vendedor, string descripcion,
+        public Musica(string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock, string genero, string formato, string idioma,
             DateTime fechaLanzamiento, string artista) : base(nombre, marca, precio, vendedor, descripcion,
             fechaPuestaVenta, codigoDescuento, stock, genero, formato, idioma, fechaLanzamiento)

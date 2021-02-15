@@ -12,7 +12,7 @@ namespace ComercioDigital.DTOs.Productos.Moda
 
         public string Tipo { get; set; }
 
-        public Bolso(string nombre, string marca, float precio, Vendedor vendedor, string descripcion,
+        public Bolso(string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock, string color, string mAterial, string sexo,
             string tipo) : base(nombre, marca, precio, vendedor, descripcion, fechaPuestaVenta, codigoDescuento, stock,
             color, mAterial, sexo)

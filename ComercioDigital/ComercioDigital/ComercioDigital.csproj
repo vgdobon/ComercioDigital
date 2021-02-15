@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,19 +71,122 @@
     <Compile Include="DTOs\Personas\Vendedor.cs" />
     <Compile Include="DTOs\Productos\Tecnologia\VideoConsola.cs" />
     <Compile Include="DTOs\Productos\Multimedia\VideosJuego.cs" />
+    <Compile Include="Model\Almacenes.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Bolsos.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Calzados.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Carritos.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ComerceModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComerceModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ComerceModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ComerceModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComerceModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Joyas.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Modas.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Moviles.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Multimedias.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Musicas.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Ordenadores.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Pedidos.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Peliculas.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Productos.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Ropas.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagrams.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Tecnologicos.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Usuarios.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Vendedores.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Videoconsolas.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Videojuegos.cs">
+      <DependentUpon>ComerceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\MenuPrincipal.cs" />
     <Compile Include="Presentacion\MenuUsuario.cs" />
     <Compile Include="Presentacion\MenuVendedor.cs" />
+    <Compile Include="Presentacion\SubMenuVendedorProducto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicio\DB\DBComerce.cs" />
+    <Compile Include="Servicio\DB\DBProducto.cs" />
+    <Compile Include="Servicio\DB\DBVendedores.cs" />
     <Compile Include="Servicio\GestionComercio.cs" />
     <Compile Include="Servicio\GestionUsuarios.cs" />
     <Compile Include="Servicio\GestionVendedores.cs" />
-    <Compile Include="Servicio\Mensaje.cs" />
+    <Compile Include="Utiles\DatosProducto.cs" />
+    <Compile Include="Utiles\Mensaje.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="Model\ComerceModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ComerceModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\ComerceModel.edmx.diagram">
+      <DependentUpon>ComerceModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\ComerceModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ComerceModel.edmx</DependentUpon>
+      <LastGenOutput>ComerceModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\ComerceModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ComerceModel.edmx</DependentUpon>
+      <LastGenOutput>ComerceModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

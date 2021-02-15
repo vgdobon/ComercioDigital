@@ -15,7 +15,7 @@ namespace ComercioDigital.DTOs.Productos.Multimedia
         public string Sinopsis { get; set; }
 
 
-        public Pelicula(string nombre, string marca, float precio, Vendedor vendedor, string descripcion,
+        public Pelicula(string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock, string genero, string formato, string idioma,
             DateTime fechaLanzamiento, string actores, string director, int edadRecomendad, string sinopsis) : base(
             nombre, marca, precio, vendedor, descripcion, fechaPuestaVenta, codigoDescuento, stock, genero, formato,

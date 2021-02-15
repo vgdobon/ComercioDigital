@@ -18,7 +18,7 @@ namespace ComercioDigital.DTOs.Personas
         public static int Increment { get; set; }
         public int IdUsuario { get; }
 
-        public float Saldo { get; set; }
+        public decimal Saldo { get; set; }
 
 
         public Usuario(string nombre, string domicilio,string password )
@@ -30,7 +30,7 @@ namespace ComercioDigital.DTOs.Personas
             Pedido = new List<Producto>();
             Increment++;
             IdUsuario = Increment;
-            Saldo = 10.0f;
+            Saldo = 10.00M;
         }
     }
 }

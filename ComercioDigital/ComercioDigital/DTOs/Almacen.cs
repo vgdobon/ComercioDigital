@@ -7,14 +7,10 @@ using ComercioDigital.DTOs.Productos;
 
 namespace ComercioDigital.DTOs
 {
-    public class Almacen
+    public static class Almacen
     {
-        public List<Producto> AlmacenProductos  {get; set;}
+        public static List<Producto> AlmacenProductos { get; set; } = new List<Producto>();
 
-        public Almacen()
-        {
-            AlmacenProductos = new List<Producto>();
-        }
 
     }
 }

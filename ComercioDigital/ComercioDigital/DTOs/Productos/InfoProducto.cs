@@ -11,14 +11,14 @@ namespace ComercioDigital.DTOs.Productos
     {
         public string Nombre { get; set; }
         public string Marca { get; set; }
-        public float Precio { get; set; }
+        public decimal Precio { get; set; }
         public string Descripcion { get; set; }
         public string CodigoDescuento { get; set; }
         public int Stock { get; set; }
         public Vendedor Vendedor { get; set; }
         
 
-        public InfoProducto(string nombre, string marca, float precio, string descripcion,
+        public InfoProducto(string nombre, string marca, decimal precio, string descripcion,
              string codigoDescuento, int stock,Vendedor vendedor)
         {
             Nombre = nombre ?? throw new ArgumentNullException(nameof(nombre));
