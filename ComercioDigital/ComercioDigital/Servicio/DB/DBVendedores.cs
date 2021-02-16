@@ -30,7 +30,7 @@ namespace ComercioDigital.Servicio.DB
         public static Vendedores MapVendedorFromDTOToDB(Vendedor vendedorDTO)
         {
             Vendedores resul = new Vendedores();
-          
+            resul.Id = vendedorDTO.IdVendedor;
             resul.Nombre = vendedorDTO.Nombre;
             resul.Contrasenna = vendedorDTO.Contrasenna;
             resul.Direccion = vendedorDTO.Direccion;
@@ -53,18 +53,21 @@ namespace ComercioDigital.Servicio.DB
                 x => x.Id == id);
         }
 
+        public static void EliminarVendedor(int id)
+        {
+            Vendedores vendedorDB = BuscarPorId(id);
+            DBComerce.DBAccess.Vendedores.Remove(vendedorDB);
+        }
+
         public static void ModificarVendedor(Vendedor vendedorDTO)
         {
             Vendedores vendedorDB = BuscarPorId(vendedorDTO.IdVendedor);
+            int idBorrar = vendedorDTO.IdVendedor;
             vendedorDB = MapVendedorFromDTOToDB(vendedorDTO);
-            DBComerce.DBAccess.Entry(vendedorDB).State = EntityState.Modified;
+            DBComerce.DBAccess.Entry(vendedorDB).State = System.Data.Entity.EntityState.Added;
+            EliminarVendedor(idBorrar);
             DBComerce.DBAccess.SaveChanges();
         }
-
-
-
-
-
 
         //public static bool IdentificarUsuario(string nombre,string contrasena)
         //{
