@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ComercioDigital.DTOs;
 using ComercioDigital.DTOs.Personas;
+using ComercioDigital.Servicio.DB;
 
 namespace ComercioDigital.Servicio
 {
@@ -25,6 +26,7 @@ namespace ComercioDigital.Servicio
         }
 
         public static bool AutentificarVendedor(string nombre,string pass){
+            DBVendedores.CargarVendedoresDB(DBComerce.DBAccess);
         
             foreach(Vendedor vendedor in Vendedores){
             

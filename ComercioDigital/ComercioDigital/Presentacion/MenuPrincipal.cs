@@ -37,11 +37,14 @@ namespace ComercioDigital.Presentacion
 
         private void IniciarApp()
         {
+            DBComerce.CargarDB();
             //Vendedor vendedorInterno = new Vendedor("comercio", "Calle VendedorPrincipal", "1111");
             //GestionVendedores.InsertarVendedor(vendedorInterno);
 
             //Usuario usuarioInterno = new Usuario("victor", "Calle Usuario", "1111");
             //GestionUsuarios.InsertarUsuario(usuarioInterno);
+
+
 
             //Ordenador ordenadorInicial = new Ordenador("Pc sobremesa HP", "HP", 500.99M, vendedorInterno,
             //    "Potente y silencioso ordenador de sobremesa", DateTime.Today, "DESCUENTO", 4, "Negro",
@@ -158,11 +161,12 @@ namespace ComercioDigital.Presentacion
 
                     if (VendedorSesion != null)
                     {
-                       menuVendedor.EjecutarMenuVendedor(VendedorSesion);
+                        Mensaje.SalirMenu($"Iniciando sesion como vendedor {VendedorSesion.Nombre}");
+                        menuVendedor.EjecutarMenuVendedor(VendedorSesion);
                     }
                     else
                     {
-                        Console.WriteLine("Inicio de sesion incorrecto.");
+                        Mensaje.SalirMenu("Inicio de sesion incorrecto.\nVolviendo al menu principal");
                     }
 
                     break;
@@ -251,6 +255,7 @@ namespace ComercioDigital.Presentacion
                 else
                 {
                     Console.WriteLine("No has elegido una opción correcta");
+                    Mensaje.PulsaTeclaSalir();
                 }
             } while (!opcionCorrecta);
 

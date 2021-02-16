@@ -10,6 +10,7 @@ using ComercioDigital.DTOs.Productos.Moda;
 using ComercioDigital.DTOs.Productos.Multimedia;
 using ComercioDigital.DTOs.Productos.Tecnologia;
 using ComercioDigital.Servicio;
+using ComercioDigital.Servicio.DB;
 using ComercioDigital.Utiles;
 
 namespace ComercioDigital.Presentacion
@@ -82,7 +83,7 @@ namespace ComercioDigital.Presentacion
                             }
                     }
 
-                    Console.ReadKey();
+                    Mensaje.PulsaTeclaSalir();
 
                     break;
 
@@ -99,20 +100,24 @@ namespace ComercioDigital.Presentacion
                             case 1:
                                 Console.Write("Escriba el nuevo nombre:");
                                 string nuevoNombre = Console.ReadLine();
-                                GestionVendedores.ModificarVendedor(vendedorSesion, nuevoNombre, "nombre");
+                                vendedorSesion.Nombre = nuevoNombre;
+                                DBVendedores.ModificarVendedor(vendedorSesion);
 
                                 break;
 
                             case 2:
                                 Console.Write("Escriba la nueva contraseña:");
                                 string nuevaPass = Console.ReadLine();
-                                GestionVendedores.ModificarVendedor(vendedorSesion, nuevaPass, "contraseña");
+                                vendedorSesion.Contrasenna = nuevaPass;
+                                DBVendedores.ModificarVendedor(vendedorSesion);
 
                                 break;
                         }
                     }
+                    
 
-                    Console.ReadKey();
+
+                    Mensaje.PulsaTeclaSalir();
                     break;
 
                 case 4:
@@ -137,7 +142,7 @@ namespace ComercioDigital.Presentacion
                         Console.WriteLine("No he escrito correctamente su nombre. Su cuenta no se ha elimnado");
                     }
 
-                    Console.ReadKey();
+                    Mensaje.PulsaTeclaSalir();
 
                     break;
 
