@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ComercioDigital.DTOs.Personas;
+using ComercioDigital.DTOs.Productos;
+using ComercioDigital.Servicio.DB;
 
 namespace ComercioDigital.Servicio
 {
@@ -16,21 +18,41 @@ namespace ComercioDigital.Servicio
         {
             if (usuario != null)
             {
+                
+                Usuarios.Add(usuario);
+                DBUsuarios.AnnadirUsuarioDB(usuario);
+                return true;
+            }
+
+            return false;
+        }
+
+        public static bool CargarListaDB(Usuario usuario)
+
+        {
+
+            Usuarios.Clear();
+            if (usuario != null)
+            {
                 Usuarios.Add(usuario);
                 return true;
             }
 
             return false;
         }
+
+
         public static bool AutentificarUsuario(string nombre, string pass)
         {
-
+            Usuarios.Clear();
+            DBUsuarios.CargarUsuariosDB(DBComerce.DBAccess);
             foreach (Usuario usuario in Usuarios)
             {
 
                 if (usuario.Nombre.Equals(nombre) &&
                     usuario.Password.Equals(pass))
                 {
+
                     return true;
                 }
 
@@ -84,6 +106,11 @@ namespace ComercioDigital.Servicio
 
             return false;
 
+        }
+        
+        public static void AnnadirProductoCarrito(Producto producto,Usuario usuarioSesion)
+        {
+            usuarioSesion.CarritoCompra.CarritoCompra.Add(GestionComercio.GetProductoId(producto.IdProducto));
         }
     }
 }

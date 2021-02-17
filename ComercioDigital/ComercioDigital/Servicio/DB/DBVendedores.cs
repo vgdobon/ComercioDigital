@@ -16,7 +16,7 @@ namespace ComercioDigital.Servicio.DB
         {
             foreach (var VARIABLE in DBAccess.Vendedores)
             {
-                GestionVendedores.InsertarVendedor(MapVendedorFromDBToDTO(VARIABLE));
+                GestionVendedores.CargarlistaBD(MapVendedorFromDBToDTO(VARIABLE));
             }
         }
 
@@ -43,7 +43,8 @@ namespace ComercioDigital.Servicio.DB
         {
             Vendedores nuevoVendedor = MapVendedorFromDTOToDB(vendedorDTO);
             DBComerce.DBAccess.Vendedores.Add(nuevoVendedor);
-            DBComerce.DBAccess.SaveChanges();
+            DBComerce.DBAccess.SaveChangesAsync();
+            
         }
 
         public static Vendedores BuscarPorId(int id)
@@ -57,6 +58,8 @@ namespace ComercioDigital.Servicio.DB
         {
             Vendedores vendedorDB = BuscarPorId(id);
             DBComerce.DBAccess.Vendedores.Remove(vendedorDB);
+            DBComerce.DBAccess.Entry(vendedorDB).State = EntityState.Deleted;
+            DBComerce.DBAccess.SaveChanges();
         }
 
         public static void ModificarVendedor(Vendedor vendedorDTO)

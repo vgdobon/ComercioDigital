@@ -130,12 +130,12 @@ namespace ComercioDigital.Presentacion
 
                     if (UsuarioSesion != null)
                     {
+                        Mensaje.SalirMenu($"Iniciando sesion como {UsuarioSesion.Nombre}");
                         menuUsuario.EjecutarMenuUsuario(UsuarioSesion);
                     }
                     else
                     {
-                        Console.WriteLine("Inicio de sesion incorrecto.");
-                        Thread.Sleep(5000);
+                        Mensaje.SalirMenu("Inicio de sesion incorrecto.\nVolviendo al menu principal");
                     }
 
 
@@ -183,15 +183,16 @@ namespace ComercioDigital.Presentacion
                     Console.Write("Contraseña:");
                     string contrasennaUsuarioRegistro = Console.ReadLine();
 
-                    foreach (Usuario usuario in GestionUsuarios.Usuarios)
+                    if(GestionUsuarios.InsertarUsuario(new Usuario(nombreUsuarioRegistro, direccionUSuarioRegistro, contrasennaUsuarioRegistro)))
                     {
-                        if (usuario.Nombre.Equals(nombreUsuarioRegistro))
-                        {
-                            UsuarioSesion = usuario;
-                        }
+                        Mensaje.SalirMenu("Usuario añadido correctamente \nVolviendo al menu principal");
+                    }
+                    else
+                    {
+                        Mensaje.SalirMenu("Ha ocurrido un error en el registro de usuario.Vuelva a intentarlo de nuevo. \nVolviendo al menu principal");
                     }
 
-                    GestionUsuarios.InsertarUsuario(new Usuario( nombreUsuarioRegistro, direccionUSuarioRegistro,contrasennaUsuarioRegistro));
+                    
 
                     break;
 
@@ -209,13 +210,18 @@ namespace ComercioDigital.Presentacion
                     Console.Write("Contraseña:");
                     string contrasennaVendedor = Console.ReadLine();
 
-
-                    //GestionVendedores.InsertarVendedor();
-                    DBVendedores.AnnadirVendedorDB(new Vendedor(nombreVendedor, direccionVendedor, contrasennaVendedor));
-                    Console.WriteLine("Vendedor añadido correctamente");
-                    Mensaje.SalirMenu("Volviendo al menu principal");
-
-
+                    
+                    if(GestionVendedores.InsertarVendedor(new Vendedor(nombreVendedor, direccionVendedor, contrasennaVendedor)))
+                    {
+                        Mensaje.SalirMenu("Vendedor añadido correctamente \nVolviendo al menu principal");
+                    }
+                    else
+                    {
+                        Mensaje.SalirMenu("Ha ocurrido un error en el registro de vendedor.Vuelva a intentarlo de nuevo. \nVolviendo al menu principal");
+                    }
+                    
+                    Console.WriteLine("");
+                    
                     break;
 
                 case 5:
@@ -236,7 +242,6 @@ namespace ComercioDigital.Presentacion
             Console.WriteLine("4-Registrarse como Vendedor");
             Console.WriteLine("5-Salir");
 
-            Console.Write("Opcion Menu Principal:");
         }
 
         public int ElegirOpcionPrincipal()
@@ -245,7 +250,8 @@ namespace ComercioDigital.Presentacion
             int opcionPrincipal;
             do
             {
-                
+                Console.Write("Opcion Menu Principal:");
+
                 bool opcionPrincipalIsINt = int.TryParse(Console.ReadLine(), out opcionPrincipal);
 
                 if (opcionPrincipalIsINt && opcionPrincipal <= 5 && opcionPrincipal >= 1)
@@ -255,7 +261,6 @@ namespace ComercioDigital.Presentacion
                 else
                 {
                     Console.WriteLine("No has elegido una opción correcta");
-                    Mensaje.PulsaTeclaSalir();
                 }
             } while (!opcionCorrecta);
 

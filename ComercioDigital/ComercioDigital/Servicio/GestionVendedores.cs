@@ -19,13 +19,28 @@ namespace ComercioDigital.Servicio
             if (vendedor != null)
             {
                 Vendedores.Add(vendedor);
+                DBVendedores.AnnadirVendedorDB(vendedor);
                 return true;
             }
 
             return false;
         }
 
-        public static bool AutentificarVendedor(string nombre,string pass){
+        public static bool CargarlistaBD(Vendedor vendedor)
+
+        {
+            if (vendedor != null)
+            {
+                Vendedores.Add(vendedor);
+                return true;
+            }
+
+            return false;
+        }
+
+        public static bool AutentificarVendedor(string nombre,string pass)
+        {
+            Vendedores.Clear();
             DBVendedores.CargarVendedoresDB(DBComerce.DBAccess);
         
             foreach(Vendedor vendedor in Vendedores){
@@ -60,16 +75,16 @@ namespace ComercioDigital.Servicio
         }
 
 
-        public static bool EliminarVendedor(Vendedor vendedor){
-
+        public static bool EliminarVendedor(Vendedor vendedor)
+        {
             if (vendedor != null)
             {
                 Vendedores.Remove(vendedor);
+                DBVendedores.EliminarVendedor(vendedor.IdVendedor);
                 return true;
             }
 
             return false;
-
         }
 
         public static bool ModificarVendedor(Vendedor vendedor, string s, string campo)
@@ -77,11 +92,13 @@ namespace ComercioDigital.Servicio
             if (campo.Equals("nombre"))
             {
                 vendedor.Nombre = s;
+                DBVendedores.ModificarVendedor(vendedor);
                 return true;
             }
             else if (campo.Equals("contraseña"))
             {
                 vendedor.Contrasenna = s;
+                DBVendedores.ModificarVendedor(vendedor);
                 return true;
             }
 

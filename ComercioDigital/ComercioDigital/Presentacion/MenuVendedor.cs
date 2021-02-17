@@ -30,7 +30,6 @@ namespace ComercioDigital.Presentacion
 
             Console.WriteLine("Se cerro la sesion del vendedor");
 
-            Console.ReadKey();
         }
 
         public void MostrarMenuVendedor(Vendedor vendedor)
@@ -101,7 +100,13 @@ namespace ComercioDigital.Presentacion
                                 Console.Write("Escriba el nuevo nombre:");
                                 string nuevoNombre = Console.ReadLine();
                                 vendedorSesion.Nombre = nuevoNombre;
-                                DBVendedores.ModificarVendedor(vendedorSesion);
+                                if(GestionVendedores.ModificarVendedor(vendedorSesion,nuevoNombre,"nombre"))
+                                {
+                                    Console.WriteLine($"Nombre de vendedor cambiado correctamente.");
+                                }else
+                                {
+                                    Console.WriteLine("Error en el cambio de nombre");
+                                }
 
                                 break;
 
@@ -109,7 +114,15 @@ namespace ComercioDigital.Presentacion
                                 Console.Write("Escriba la nueva contraseña:");
                                 string nuevaPass = Console.ReadLine();
                                 vendedorSesion.Contrasenna = nuevaPass;
-                                DBVendedores.ModificarVendedor(vendedorSesion);
+                                if(GestionVendedores.ModificarVendedor(vendedorSesion,nuevaPass,"contraseña"))
+                                {
+                                    Console.WriteLine($"Contraseña de vendedor cambiada correctamente.");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Error en el cambio de constraseña");
+                                }
+                             
 
                                 break;
                         }

@@ -13,7 +13,6 @@ namespace ComercioDigital.Utiles
             
             for (int j = 0; j <= 3; j++)
             {
-                ;
                 Console.Write($" . ");
                 Thread.Sleep(1000);
             }

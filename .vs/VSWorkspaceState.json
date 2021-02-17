@@ -1,13 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\ComercioDigital",
-    "\\ComercioDigital\\ComercioDigital",
-    "\\ComercioDigital\\ComercioDigital\\Model",
-    "\\ComercioDigital\\ComercioDigital\\Presentacion",
-    "\\ComercioDigital\\ComercioDigital\\Servicio",
-    "\\ComercioDigital\\ComercioDigital\\Servicio\\DB"
+    ""
   ],
-  "SelectedNode": "\\ComercioDigital\\ComercioDigital\\Servicio\\DB\\DBVendedores.cs",
+  "SelectedNode": "\\ComercioDigital.sln",
   "PreviewInSolutionExplorer": false
 }
