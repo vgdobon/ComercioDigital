@@ -19,12 +19,15 @@ namespace ComercioDigital.DTOs.Productos
         public DateTime FechaPuestaVenta { get; }
         public string CodigoDescuento { get; set; }
         public int Stock { get; set; }
-        public static int Incrementer { get; set; }
         public int IdProducto { get; set; }
 
-        public Producto(string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
+        public Producto(int? id, string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock)
         {
+            if (id != null)
+            {
+                IdProducto = (int)id;
+            }
             Nombre = nombre ?? throw new ArgumentNullException(nameof(nombre));
             Marca = marca ?? throw new ArgumentNullException(nameof(marca));
             Precio = precio;
@@ -33,9 +36,11 @@ namespace ComercioDigital.DTOs.Productos
             FechaPuestaVenta = fechaPuestaVenta;
             CodigoDescuento = codigoDescuento ?? throw new ArgumentNullException(nameof(codigoDescuento));
             Stock = stock;
-            Incrementer++;
-            IdProducto = Incrementer;
         }
+
+
+
+
 
         public override string ToString()
         {

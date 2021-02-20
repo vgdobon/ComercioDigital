@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ComercioDigital.DTOs;
+using ComercioDigital.DTOs.Productos;
 using ComercioDigital.Model;
 using ComercioDigital.Presentacion;
+using ComercioDigital.Servicio.DB;
+using ComercioDigital.Utiles;
 
 namespace ComercioDigital
 {
@@ -12,8 +16,25 @@ namespace ComercioDigital
     {
         static void Main(string[] args)
         {
-            MenuPrincipal menuPrincipal = new MenuPrincipal();
-            menuPrincipal.EjecutarApp();
+            //MenuPrincipal menuPrincipal = new MenuPrincipal();
+            //menuPrincipal.EjecutarApp();
+
+
+
+
+
+            // << - -  PRUEBAS - - >>
+
+
+            DBComerce.CargarDB();
+
+            foreach(Producto producto in Almacen.AlmacenProductos)
+            {
+                Console.WriteLine(producto);
+            }
+
+            Mensaje.PulsaTeclaSalir();
+
 
             //eCommerceEntities ecDB = new eCommerceEntities();
 

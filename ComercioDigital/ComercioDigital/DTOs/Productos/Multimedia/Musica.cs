@@ -7,9 +7,9 @@ namespace ComercioDigital.DTOs.Productos.Multimedia
     {
         public string Artista { get; set; }
 
-        public Musica(string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
+        public Musica(int? id, string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock, string genero, string formato, string idioma,
-            DateTime fechaLanzamiento, string artista) : base(nombre, marca, precio, vendedor, descripcion,
+            DateTime fechaLanzamiento, string artista) : base(id,nombre, marca, precio, vendedor, descripcion,
             fechaPuestaVenta, codigoDescuento, stock, genero, formato, idioma, fechaLanzamiento)
         {
             Artista = artista ?? throw new ArgumentNullException(nameof(artista));

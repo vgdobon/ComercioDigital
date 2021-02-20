@@ -16,6 +16,9 @@ namespace ComercioDigital.Servicio.DB
         public static void CargarDB()
         {
             DBVendedores.CargarVendedoresDB(DBAccess);
+            DBUsuarios.CargarUsuariosDB(DBAccess);
+            DBProducto.CargarProductosDB(DBAccess);
+
         }
     }
 }

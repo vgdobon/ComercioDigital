@@ -12,9 +12,9 @@ namespace ComercioDigital.DTOs.Productos.Moda
         public int Talla { get; set; }
         public string Tipo { get; set; }
 
-        public Calzado(string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
+        public Calzado(int? id, string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock, string color, string mAterial, string sexo,
-            int talla, string tipo) : base(nombre, marca, precio, vendedor, descripcion, fechaPuestaVenta,
+            int talla, string tipo) : base(id,nombre, marca, precio, vendedor, descripcion, fechaPuestaVenta,
             codigoDescuento, stock, color, mAterial, sexo)
         {
             Talla = talla ;

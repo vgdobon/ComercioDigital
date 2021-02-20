@@ -11,10 +11,10 @@ namespace ComercioDigital.DTOs.Productos.Tecnologia
     {
         public float Pantalla { get; set; }
         public int Bateria { get; set; }
-        public Movil(string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
+        public Movil(int? id, string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock, string color, string procesador,
             string so, string modelo, DateTime fechaLanzamiento, float pantalla, int bateria)
-            : base(nombre, marca, precio, vendedor, descripcion, fechaPuestaVenta, codigoDescuento, stock, color, procesador, so, modelo, fechaLanzamiento)
+            : base(id,nombre, marca, precio, vendedor, descripcion, fechaPuestaVenta, codigoDescuento, stock, color, procesador, so, modelo, fechaLanzamiento)
         {
             Pantalla = pantalla;
             Bateria = bateria;

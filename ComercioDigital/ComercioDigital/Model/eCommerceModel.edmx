@@ -101,6 +101,12 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           <Property Name="PlacaBase" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="PedidoProductos">
+          <Property Name="IdPedido" Type="int" />
+          <Property Name="IdProducto" Type="int" />
+        </EntityType>-->
         <EntityType Name="Pedidos">
           <Key>
             <PropertyRef Name="Id" />
@@ -216,7 +222,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Bolsos_Moda">
-          <End Role="Modas" Type="Self.Modas" Multiplicity="1" />
+          <End Role="Modas" Type="Self.Modas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Bolsos" Type="Self.Bolsos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Modas">
@@ -228,7 +236,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Calzados_Modas">
-          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1" />
+          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Calzados" Type="Self.Calzados" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Modas">
@@ -264,7 +274,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Joyas_Modas">
-          <End Role="Modas" Type="Self.Modas" Multiplicity="1" />
+          <End Role="Modas" Type="Self.Modas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Joyas" Type="Self.Joyas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Modas">
@@ -276,7 +288,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Moda_Productos">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Modas" Type="Self.Modas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Productos">
@@ -288,7 +302,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Moviles_Tecnologicos">
-          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="0..1" />
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Moviles" Type="Self.Moviles" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tecnologicos">
@@ -300,7 +316,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Multimedias_Productos">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Productos">
@@ -312,7 +330,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Musicas_Multimedias">
-          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="0..1" />
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Musicas" Type="Self.Musicas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Multimedias">
@@ -324,7 +344,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Ordenadores_Tecnologicos">
-          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1" />
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Ordenadores" Type="Self.Ordenadores" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tecnologicos">
@@ -335,8 +357,16 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProductos', pero no se encuentra la tabla.
+        <Association Name="FK_PedidoProductos_Pedidos" />-->
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProductos', pero no se encuentra la tabla.
+        <Association Name="FK_PedidoProductos_Productos" />-->
         <Association Name="FK_Peliculas_Multimedias">
-          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1" />
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Peliculas" Type="Self.Peliculas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Multimedias">
@@ -360,7 +390,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Ropas_Modas">
-          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1" />
+          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Ropas" Type="Self.Ropas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Modas">
@@ -372,7 +404,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tecnologicos_Productos">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Productos">
@@ -408,7 +442,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Videoconsolas_Tecnologicos">
-          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1" />
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Videoconsolas" Type="Self.Videoconsolas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tecnologicos">
@@ -420,7 +456,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Videojuegos_Multimedias">
-          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1" />
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Videojuegos" Type="Self.Videojuegos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Multimedias">
@@ -556,7 +594,7 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdModa" Type="Int32" />
           <Property Name="Talla" Type="Int32" />
           <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -566,7 +604,7 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Carritos" FromRole="Carritos" ToRole="Usuarios" />
           <NavigationProperty Name="Productos" Relationship="Self.CarritoProductos" FromRole="Carritos" ToRole="Productos" />
         </EntityType>
@@ -642,7 +680,7 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Fecha" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Pedidos" FromRole="Pedidos" ToRole="Usuarios" />
         </EntityType>
@@ -766,7 +804,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           <NavigationProperty Name="Productos" Relationship="Self.FK_almacenes_Productos" FromRole="Almacenes" ToRole="Productos" />
         </EntityType>
         <Association Name="FK_Bolsos_Moda">
-          <End Role="Modas" Type="Self.Modas" Multiplicity="1" />
+          <End Role="Modas" Type="Self.Modas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Bolsos" Type="Self.Bolsos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Modas">
@@ -778,7 +818,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Calzados_Modas">
-          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1" />
+          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Calzados" Type="Self.Calzados" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Modas">
@@ -802,7 +844,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Joyas_Modas">
-          <End Role="Modas" Type="Self.Modas" Multiplicity="1" />
+          <End Role="Modas" Type="Self.Modas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Joyas" Type="Self.Joyas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Modas">
@@ -814,7 +858,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Moda_Productos">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Modas" Type="Self.Modas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Productos">
@@ -826,7 +872,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Ropas_Modas">
-          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1" />
+          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Ropas" Type="Self.Ropas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Modas">
@@ -838,7 +886,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Moviles_Tecnologicos">
-          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="0..1" />
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Moviles" Type="Self.Moviles" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tecnologicos">
@@ -850,7 +900,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Multimedias_Productos">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Productos">
@@ -862,7 +914,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Musicas_Multimedias">
-          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="0..1" />
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Musicas" Type="Self.Musicas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Multimedias">
@@ -874,7 +928,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Peliculas_Multimedias">
-          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1" />
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Peliculas" Type="Self.Peliculas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Multimedias">
@@ -886,7 +942,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Videojuegos_Multimedias">
-          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1" />
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Videojuegos" Type="Self.Videojuegos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Multimedias">
@@ -898,7 +956,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Ordenadores_Tecnologicos">
-          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1" />
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Ordenadores" Type="Self.Ordenadores" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tecnologicos">
@@ -946,7 +1006,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Tecnologicos_Productos">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Productos">
@@ -958,7 +1020,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Videoconsolas_Tecnologicos">
-          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1" />
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Videoconsolas" Type="Self.Videoconsolas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tecnologicos">

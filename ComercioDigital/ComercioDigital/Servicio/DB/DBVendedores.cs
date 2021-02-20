@@ -72,6 +72,8 @@ namespace ComercioDigital.Servicio.DB
             DBComerce.DBAccess.SaveChanges();
         }
 
+
+
         //public static bool IdentificarUsuario(string nombre,string contrasena)
         //{
         //    foreach(Vendedores vendedores in DBComerce.DBAccess.Vendedores)

@@ -1,4 +1,5 @@
 ﻿using ComercioDigital.DTOs.Personas;
+using ComercioDigital.DTOs.Productos;
 using ComercioDigital.Model;
 using System;
 using System.Collections.Generic;
@@ -38,16 +39,13 @@ namespace ComercioDigital.Servicio.DB
 
         public static Usuarios MapUsuarioFromDTOToDB(Usuario usuarioDTO, int idCarrito)
         {
-            Usuarios resul = new Usuarios();
-            resul.Id = usuarioDTO.IdUsuario;
+            Usuarios resul = new Usuarios();         
             resul.Nombre = usuarioDTO.Nombre;
             resul.Pass = usuarioDTO.Password;
             resul.Domicilio = usuarioDTO.Domicilio;
             resul.Saldo = usuarioDTO.Saldo;
             resul.IdCarrito = idCarrito;
            
-            
-            
             return resul;
         }
 
@@ -85,6 +83,14 @@ namespace ComercioDigital.Servicio.DB
             DBComerce.DBAccess.Entry(usuarioDB).State = System.Data.Entity.EntityState.Added;
             EliminarUsuario(idBorrar);
             DBComerce.DBAccess.SaveChanges();
+        }
+
+        public static void AnnadirProductoCarrito(Usuario usuarioDTO,Producto producto)
+        {
+            Usuarios usuarioDB = BuscarPorId(usuarioDTO.IdUsuario);
+            //Productos productoDB = DBProductos.BuscarPorId(producto.IdProducto);
+            //usuarioDB.Carritos.Productos.Add(productoDB);
+            //DBComerce.DBAccess.SaveChanges();
         }
     }
 }

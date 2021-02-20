@@ -40,10 +40,9 @@ namespace ComercioDigital.Servicio
 
         public static bool AutentificarVendedor(string nombre,string pass)
         {
-            Vendedores.Clear();
-            DBVendedores.CargarVendedoresDB(DBComerce.DBAccess);
-        
-            foreach(Vendedor vendedor in Vendedores){
+            ActualizarVendedoresBD();
+
+            foreach (Vendedor vendedor in Vendedores){
             
                     if (vendedor.Nombre.Equals(nombre) &&
                         vendedor.Contrasenna.Equals(pass))
@@ -58,6 +57,8 @@ namespace ComercioDigital.Servicio
 
         public static Vendedor SesionVendedor(string nombre, string pass)
         {
+            ActualizarVendedoresBD();
+
             Vendedor vendedorSesion = null;
 
             foreach (Vendedor vendedor in Vendedores)
@@ -74,9 +75,9 @@ namespace ComercioDigital.Servicio
             return vendedorSesion;
         }
 
-
         public static bool EliminarVendedor(Vendedor vendedor)
         {
+            ActualizarVendedoresBD();
             if (vendedor != null)
             {
                 Vendedores.Remove(vendedor);
@@ -89,6 +90,8 @@ namespace ComercioDigital.Servicio
 
         public static bool ModificarVendedor(Vendedor vendedor, string s, string campo)
         {
+            ActualizarVendedoresBD();
+
             if (campo.Equals("nombre"))
             {
                 vendedor.Nombre = s;
@@ -105,8 +108,16 @@ namespace ComercioDigital.Servicio
             return false;
         }
 
+        public static void ActualizarVendedoresBD()
+        {
+            Vendedores.Clear();
+            DBVendedores.CargarVendedoresDB(DBComerce.DBAccess);
+        }
 
-
+        public static Vendedor BuscarPorId(int id)
+        {
+            return Vendedores.FirstOrDefault(x => x.IdVendedor == id);
+        }
 
     }
 }

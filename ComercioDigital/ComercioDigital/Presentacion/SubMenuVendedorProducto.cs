@@ -158,7 +158,7 @@ namespace ComercioDigital.Presentacion
                     Console.Write("Tipo de ordenador(Portatil,sobremesa,surface...):");
                     var tipoOrdenador = Console.ReadLine();
 
-                    var nuevoOrdenador = new Ordenador(productoTecnologiaOrdenador.Nombre,
+                    var nuevoOrdenador = new Ordenador(null,productoTecnologiaOrdenador.Nombre,
                         productoTecnologiaOrdenador.Marca, productoTecnologiaOrdenador.Precio,
                         productoTecnologiaOrdenador.Vendedor, productoTecnologiaOrdenador.Descripcion,
                         productoTecnologiaOrdenador.FechaPuestaVenta, productoTecnologiaOrdenador.CodigoDescuento,
@@ -175,7 +175,7 @@ namespace ComercioDigital.Presentacion
                     Tecnologia productoVideoconsola = DatosProducto.RecogerDatosTecnologia(vendedorSesion);
                     Console.WriteLine("Videoconsola:");
 
-                    var nuevoVideoConsola = new VideoConsola(productoVideoconsola.Nombre,
+                    var nuevoVideoConsola = new VideoConsola(null, productoVideoconsola.Nombre,
                         productoVideoconsola.Marca, productoVideoconsola.Precio,
                         productoVideoconsola.Vendedor, productoVideoconsola.Descripcion,
                         productoVideoconsola.FechaPuestaVenta, productoVideoconsola.CodigoDescuento,
@@ -197,7 +197,7 @@ namespace ComercioDigital.Presentacion
                     Console.Write("Pantalla:");
                     float.TryParse(Console.ReadLine(), out var pantalla);
 
-                    var nuevoMovil = new Movil(productoTecnologiaMovil.Nombre, productoTecnologiaMovil.Marca,
+                    var nuevoMovil = new Movil(null, productoTecnologiaMovil.Nombre, productoTecnologiaMovil.Marca,
                         productoTecnologiaMovil.Precio, productoTecnologiaMovil.Vendedor,
                         productoTecnologiaMovil.Descripcion, productoTecnologiaMovil.FechaPuestaVenta,
                         productoTecnologiaMovil.CodigoDescuento, productoTecnologiaMovil.Stock,
@@ -247,7 +247,7 @@ namespace ComercioDigital.Presentacion
                     var tallaRopa = Console.ReadLine();
 
 
-                    var nuevaRopa = new Ropa(productoModa.Nombre, productoModa.Marca,
+                    var nuevaRopa = new Ropa(null, productoModa.Nombre, productoModa.Marca,
                         productoModa.Precio, productoModa.Vendedor, productoModa.Descripcion,
                         productoModa.FechaPuestaVenta, productoModa.CodigoDescuento,
                         productoModa.Stock, productoModa.Color, productoModa.Material,
@@ -268,7 +268,7 @@ namespace ComercioDigital.Presentacion
                     Console.Write("Talla:");
                     int.TryParse(Console.ReadLine(), out var tallaCalzado);
 
-                    var nuevoCalzado = new Calzado(productoModaCalzado.Nombre, productoModaCalzado.Marca,
+                    var nuevoCalzado = new Calzado(null, productoModaCalzado.Nombre, productoModaCalzado.Marca,
                         productoModaCalzado.Precio, productoModaCalzado.Vendedor, productoModaCalzado.Descripcion,
                         productoModaCalzado.FechaPuestaVenta, productoModaCalzado.CodigoDescuento,
                         productoModaCalzado.Stock, productoModaCalzado.Color, productoModaCalzado.Material,
@@ -285,7 +285,7 @@ namespace ComercioDigital.Presentacion
                     Console.Write("Tipo:");
                     var tipoBolso = Console.ReadLine();
 
-                    var nuevoBolso = new Bolso(productoModaBolso.Nombre, productoModaBolso.Marca,
+                    var nuevoBolso = new Bolso(null, productoModaBolso.Nombre, productoModaBolso.Marca,
                         productoModaBolso.Precio, productoModaBolso.Vendedor, productoModaBolso.Descripcion,
                         productoModaBolso.FechaPuestaVenta, productoModaBolso.CodigoDescuento,
                         productoModaBolso.Stock, productoModaBolso.Color, productoModaBolso.Material,
@@ -303,7 +303,7 @@ namespace ComercioDigital.Presentacion
                     Console.Write("Medida:");
                     var medidaJoya = Console.ReadLine();
 
-                    var nuevaJoya = new Joyeria( productoModaJoyeria.Nombre, productoModaJoyeria.Marca,
+                    var nuevaJoya = new Joyeria(null, productoModaJoyeria.Nombre, productoModaJoyeria.Marca,
                         productoModaJoyeria.Precio, productoModaJoyeria.Vendedor, productoModaJoyeria.Descripcion,
                         productoModaJoyeria.FechaPuestaVenta, productoModaJoyeria.CodigoDescuento,
                         productoModaJoyeria.Stock, productoModaJoyeria.Color, productoModaJoyeria.Material,
@@ -346,7 +346,7 @@ namespace ComercioDigital.Presentacion
                     var artista = Console.ReadLine();
 
 
-                    var nuevaMusica = new Musica(productoMultimediaMusica.Nombre, productoMultimediaMusica.Marca,
+                    var nuevaMusica = new Musica(null, productoMultimediaMusica.Nombre, productoMultimediaMusica.Marca,
                         productoMultimediaMusica.Precio, productoMultimediaMusica.Vendedor,
                         productoMultimediaMusica.Descripcion,
                         productoMultimediaMusica.FechaPuestaVenta, productoMultimediaMusica.CodigoDescuento,
@@ -377,7 +377,7 @@ namespace ComercioDigital.Presentacion
                     Console.Write("Sinopsis:");
                     var sinapsis = Console.ReadLine();
 
-                    var nuevaPelicula = new Pelicula(productoMultimediaPelicula.Nombre,
+                    var nuevaPelicula = new Pelicula(null, productoMultimediaPelicula.Nombre,
                         productoMultimediaPelicula.Marca,
                         productoMultimediaPelicula.Precio, productoMultimediaPelicula.Vendedor,
                         productoMultimediaPelicula.Descripcion,
@@ -401,7 +401,7 @@ namespace ComercioDigital.Presentacion
                     Console.Write("Plataforma:");
                     var plataforma = Console.ReadLine();
 
-                    var nuevoVideoJuego = new VideosJuego(productoMultimediaVideojuego.Nombre,
+                    var nuevoVideoJuego = new VideosJuego(null, productoMultimediaVideojuego.Nombre,
                         productoMultimediaVideojuego.Marca,
                         productoMultimediaVideojuego.Precio, productoMultimediaVideojuego.Vendedor,
                         productoMultimediaVideojuego.Descripcion,

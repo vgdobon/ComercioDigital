@@ -31,7 +31,6 @@ namespace ComercioDigital.Servicio
 
         {
 
-            Usuarios.Clear();
             if (usuario != null)
             {
                 Usuarios.Add(usuario);
@@ -44,8 +43,8 @@ namespace ComercioDigital.Servicio
 
         public static bool AutentificarUsuario(string nombre, string pass)
         {
-            Usuarios.Clear();
-            DBUsuarios.CargarUsuariosDB(DBComerce.DBAccess);
+            ActualizarUsuariosDB();
+
             foreach (Usuario usuario in Usuarios)
             {
 
@@ -63,6 +62,7 @@ namespace ComercioDigital.Servicio
 
         public static Usuario UsuarioSesion(string nombre, string pass)
         {
+            ActualizarUsuariosDB();
             Usuario usuarioSesion = null;
 
             foreach (Usuario usuario in Usuarios)
@@ -81,14 +81,17 @@ namespace ComercioDigital.Servicio
 
         public static bool ModificarUsuario(Usuario usuario, string s, string campo)
         {
+            ActualizarUsuariosDB();
             if (campo.Equals("nombre"))
             {
                 usuario.Nombre = s;
+                DBUsuarios.ModificarUsuario(usuario);
                 return true;
             }
             else if (campo.Equals("contraseña"))
             {
                 usuario.Password = s;
+                DBUsuarios.ModificarUsuario(usuario);
                 return true;
             }
 
@@ -97,10 +100,11 @@ namespace ComercioDigital.Servicio
 
         public static bool EliminarUsuario(Usuario usuario)
         {
-
+            ActualizarUsuariosDB();
             if (usuario != null)
             {
                 Usuarios.Remove(usuario);
+                DBUsuarios.EliminarUsuario(usuario.IdUsuario);
                 return true;
             }
 
@@ -111,6 +115,12 @@ namespace ComercioDigital.Servicio
         public static void AnnadirProductoCarrito(Producto producto,Usuario usuarioSesion)
         {
             usuarioSesion.CarritoCompra.CarritoCompra.Add(GestionComercio.GetProductoId(producto.IdProducto));
+        }
+
+        public static void ActualizarUsuariosDB()
+        {
+            Usuarios.Clear();
+            DBUsuarios.CargarUsuariosDB(DBComerce.DBAccess);
         }
     }
 }

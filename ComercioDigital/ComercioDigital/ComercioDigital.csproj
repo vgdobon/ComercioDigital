@@ -72,79 +72,79 @@
     <Compile Include="DTOs\Productos\Tecnologia\VideoConsola.cs" />
     <Compile Include="DTOs\Productos\Multimedia\VideosJuego.cs" />
     <Compile Include="Model\Almacenes.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Bolsos.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Calzados.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Carritos.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ComerceModel.Context.cs">
+    <Compile Include="Model\eCommerceModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ComerceModel.Context.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ComerceModel.cs">
+    <Compile Include="Model\eCommerceModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ComerceModel.Designer.cs">
+    <Compile Include="Model\eCommerceModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ComerceModel.edmx</DependentUpon>
+      <DependentUpon>eCommerceModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Joyas.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Modas.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Moviles.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Multimedias.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Musicas.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Ordenadores.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Pedidos.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Peliculas.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Productos.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Ropas.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\sysdiagrams.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Tecnologicos.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Usuarios.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Vendedores.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Videoconsolas.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Videojuegos.cs">
-      <DependentUpon>ComerceModel.tt</DependentUpon>
+      <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\MenuPrincipal.cs" />
     <Compile Include="Presentacion\MenuUsuario.cs" />
@@ -156,6 +156,16 @@
     <Compile Include="Servicio\DB\DBProducto.cs" />
     <Compile Include="Servicio\DB\DBUsuarios.cs" />
     <Compile Include="Servicio\DB\DBVendedores.cs" />
+    <Compile Include="Servicio\DB\Productos\DBRopas.cs" />
+    <Compile Include="Servicio\DB\Productos\DBBolsos.cs" />
+    <Compile Include="Servicio\DB\Productos\DBCalzados.cs" />
+    <Compile Include="Servicio\DB\Productos\DBJoyas.cs" />
+    <Compile Include="Servicio\DB\Productos\DBMoviles.cs" />
+    <Compile Include="Servicio\DB\Productos\DBMusicas.cs" />
+    <Compile Include="Servicio\DB\Productos\DBOrdenadores.cs" />
+    <Compile Include="Servicio\DB\Productos\DBPeliculas.cs" />
+    <Compile Include="Servicio\DB\Productos\DBVideoConsolas.cs" />
+    <Compile Include="Servicio\DB\Productos\DBVideoJuegos.cs" />
     <Compile Include="Servicio\GestionComercio.cs" />
     <Compile Include="Servicio\GestionUsuarios.cs" />
     <Compile Include="Servicio\GestionVendedores.cs" />
@@ -164,29 +174,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Model\ComerceModel.edmx">
+    <EntityDeploy Include="Model\eCommerceModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ComerceModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>eCommerceModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\ComerceModel.edmx.diagram">
-      <DependentUpon>ComerceModel.edmx</DependentUpon>
+    <None Include="Model\eCommerceModel.edmx.diagram">
+      <DependentUpon>eCommerceModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\ComerceModel.Context.tt">
+    <Content Include="Model\eCommerceModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ComerceModel.edmx</DependentUpon>
-      <LastGenOutput>ComerceModel.Context.cs</LastGenOutput>
+      <DependentUpon>eCommerceModel.edmx</DependentUpon>
+      <LastGenOutput>eCommerceModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\ComerceModel.tt">
+    <Content Include="Model\eCommerceModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ComerceModel.edmx</DependentUpon>
-      <LastGenOutput>ComerceModel.cs</LastGenOutput>
+      <DependentUpon>eCommerceModel.edmx</DependentUpon>
+      <LastGenOutput>eCommerceModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

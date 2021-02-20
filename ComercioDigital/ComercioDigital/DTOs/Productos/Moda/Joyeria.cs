@@ -11,9 +11,9 @@ namespace ComercioDigital.DTOs.Productos.Moda
     {
         public string Medida { get; set; }
 
-        public Joyeria(string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
+        public Joyeria(int? id, string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock, string color, string mAterial, string sexo,
-            string medida) : base(nombre, marca, precio, vendedor, descripcion, fechaPuestaVenta, codigoDescuento,
+            string medida) : base(id,nombre, marca, precio, vendedor, descripcion, fechaPuestaVenta, codigoDescuento,
             stock, color, mAterial, sexo)
         {
             Medida = medida ?? throw new ArgumentNullException(nameof(medida));

@@ -63,7 +63,7 @@ namespace ComercioDigital.Utiles
             int.TryParse(Console.ReadLine(), out int dia);
             DateTime fechaLanzamiento = new DateTime(year, mes, dia);
 
-            Tecnologia productoTecnologiaGenerico = new Tecnologia(infoProducto.Nombre, infoProducto.Marca, infoProducto.Precio, infoProducto.Vendedor, infoProducto.Descripcion, DateTime.Today, infoProducto.CodigoDescuento, infoProducto.Stock, color, procesador, sistemaOperativo, modelo, fechaLanzamiento);
+            Tecnologia productoTecnologiaGenerico = new Tecnologia(null, infoProducto.Nombre, infoProducto.Marca, infoProducto.Precio, infoProducto.Vendedor, infoProducto.Descripcion, DateTime.Today, infoProducto.CodigoDescuento, infoProducto.Stock, color, procesador, sistemaOperativo, modelo, fechaLanzamiento);
 
             return productoTecnologiaGenerico;
         }
@@ -95,7 +95,7 @@ namespace ComercioDigital.Utiles
             }
 
 
-            Moda productoNuevoModa = new Moda(infoProducto.Nombre, infoProducto.Marca, infoProducto.Precio, infoProducto.Vendedor, infoProducto.Descripcion, DateTime.Today, infoProducto.CodigoDescuento, infoProducto.Stock, color, material, sexo);
+            Moda productoNuevoModa = new Moda(null,infoProducto.Nombre, infoProducto.Marca, infoProducto.Precio, infoProducto.Vendedor, infoProducto.Descripcion, DateTime.Today, infoProducto.CodigoDescuento, infoProducto.Stock, color, material, sexo);
             return productoNuevoModa;
         }
 
@@ -120,7 +120,7 @@ namespace ComercioDigital.Utiles
             int.TryParse(Console.ReadLine(), out int dia);
             DateTime fechaLanzamiento = new DateTime(year, mes, dia);
 
-            productoMultimedia = new Multimedia(infoProducto.Nombre, infoProducto.Marca, infoProducto.Precio,
+            productoMultimedia = new Multimedia(null,infoProducto.Nombre, infoProducto.Marca, infoProducto.Precio,
                 infoProducto.Vendedor, infoProducto.Descripcion,
                 DateTime.Today, infoProducto.CodigoDescuento, infoProducto.Stock, genero, formato, idioma,
                 fechaLanzamiento);

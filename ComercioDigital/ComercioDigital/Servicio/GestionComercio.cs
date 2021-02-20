@@ -9,6 +9,8 @@ using ComercioDigital.DTOs.Productos;
 using ComercioDigital.DTOs.Productos.Moda;
 using ComercioDigital.DTOs.Productos.Multimedia;
 using ComercioDigital.DTOs.Productos.Tecnologia;
+using ComercioDigital.Model;
+using ComercioDigital.Servicio.DB;
 
 namespace ComercioDigital.Servicio
 {
@@ -16,11 +18,21 @@ namespace ComercioDigital.Servicio
     public static class GestionComercio
     {
 
+        public static bool CargarlistaBD(Producto producto)
 
+        {
+            if (producto != null)
+            {
+                Almacen.AlmacenProductos.Add(producto);
+                return true;
+            }
+
+            return false;
+        }
 
         public static void AgregarProductoAlmacen(Producto producto)
         {
-            if(producto!= null)
+            if (producto!= null)
             {
                 Almacen.AlmacenProductos.Add(producto);
             }
@@ -28,6 +40,7 @@ namespace ComercioDigital.Servicio
 
         public static bool EliminarProductoAlmacen(int id)
         {
+            ActualizarAlmacen();
             foreach (Producto producto in Almacen.AlmacenProductos)
             {
                 if (producto.IdProducto == id)
@@ -42,6 +55,7 @@ namespace ComercioDigital.Servicio
 
         public static List<Producto> FiltroProductoVendedor(Vendedor vendedor)
         {
+            ActualizarAlmacen();
             List<Producto> productosVendedor= new List<Producto>();
 
             foreach (Producto producto in Almacen.AlmacenProductos)
@@ -58,6 +72,7 @@ namespace ComercioDigital.Servicio
 
         public static bool ExisteProductoId(int id)
         {
+            ActualizarAlmacen();
             foreach (Producto producto in Almacen.AlmacenProductos)
             {
                 if (producto.IdProducto == id)
@@ -71,6 +86,8 @@ namespace ComercioDigital.Servicio
 
         public static Producto GetProductoId(int id)
         {
+
+            ActualizarAlmacen();
             Producto productoID = null;
 
             foreach (Producto producto in Almacen.AlmacenProductos)
@@ -86,6 +103,7 @@ namespace ComercioDigital.Servicio
 
         public static List<Producto> FiltroTipoProducto(Type type)
         {
+            ActualizarAlmacen();
 
             List<Producto> filtroProductos = new List<Producto>();
 
@@ -106,6 +124,7 @@ namespace ComercioDigital.Servicio
 
         public static bool ExistenProductosTipo(Type type)
         {
+            ActualizarAlmacen();
             if (FiltroTipoProducto(type).Count > 0)
             {
                 return true;
@@ -116,7 +135,14 @@ namespace ComercioDigital.Servicio
 
         public static List<Producto> ListaAlmacen()
         {
+            ActualizarAlmacen();
             return Almacen.AlmacenProductos;
+        }
+
+        public static void ActualizarAlmacen()
+        {
+            Almacen.AlmacenProductos.Clear();
+            DBProducto.CargarProductosDB(DBComerce.DBAccess);
         }
        
     }

@@ -12,9 +12,9 @@ namespace ComercioDigital.DTOs.Productos.Multimedia
         public string Plataforma { get; set; }
         public int EdadRecomendad { get; set; }
 
-        public VideosJuego(string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
+        public VideosJuego(int? id, string nombre, string marca, decimal precio, Vendedor vendedor, string descripcion,
             DateTime fechaPuestaVenta, string codigoDescuento, int stock, string genero, string formato, string idioma,
-            DateTime fechaLanzamiento, string plataforma, int edadRecomendad) : base(nombre, marca, precio, vendedor,
+            DateTime fechaLanzamiento, string plataforma, int edadRecomendad) : base(id,nombre, marca, precio, vendedor,
             descripcion, fechaPuestaVenta, codigoDescuento, stock, genero, formato, idioma, fechaLanzamiento)
         {
             Plataforma = plataforma ?? throw new ArgumentNullException(nameof(plataforma));
