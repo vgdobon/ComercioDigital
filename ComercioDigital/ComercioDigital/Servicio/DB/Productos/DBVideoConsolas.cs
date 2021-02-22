@@ -29,6 +29,16 @@ namespace ComercioDigital.Servicio.DB.Productos
         public static Videoconsolas MapVideoConsolasFromDTOToDB(VideoConsola videoconsolaDTO)
         {
             Videoconsolas resul = new Videoconsolas();
+            if(resul.Tecnologicos == null)
+            {
+                resul.Tecnologicos = new Tecnologicos();
+
+                if (resul.Tecnologicos.Productos == null)
+                {
+                    resul.Tecnologicos.Productos = new Model.Productos();
+                }
+
+            }
             resul.Tecnologicos.Productos.Nombre = videoconsolaDTO.Nombre;
             resul.Tecnologicos.Productos.Precio = videoconsolaDTO.Precio;
             resul.Tecnologicos.Productos.Marca = videoconsolaDTO.Marca;
@@ -45,6 +55,16 @@ namespace ComercioDigital.Servicio.DB.Productos
             resul.Tecnologicos.FechaLanzamiento = videoconsolaDTO.FechaLanzamiento;
 
             return resul;
+        }
+
+        public static void AnnadirVideoConsola(VideoConsola videoconsolaDTO)
+        {
+
+            Videoconsolas nuevaVideoConsola= MapVideoConsolasFromDTOToDB(videoconsolaDTO);
+            DBComerce.DBAccess.Videoconsolas.Add(nuevaVideoConsola);
+
+            DBComerce.DBAccess.SaveChangesAsync();
+
         }
 
     }

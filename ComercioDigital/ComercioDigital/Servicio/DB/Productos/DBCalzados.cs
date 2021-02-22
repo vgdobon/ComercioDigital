@@ -28,7 +28,18 @@ namespace ComercioDigital.Servicio.DB.Productos
 
         public static Calzados MapCalzadosFromDTOToDB(Calzado calzadoDTO)
         {
+
             Calzados resul = new Calzados();
+            if (resul.Modas == null)
+            {
+                resul.Modas = new Modas();
+                if (resul.Modas.Productos == null)
+                {
+                    resul.Modas.Productos = new Model.Productos();
+                }
+
+
+            }
             resul.Modas.Productos.Nombre = calzadoDTO.Nombre;
             resul.Modas.Productos.Precio = calzadoDTO.Precio;
             resul.Modas.Productos.Marca = calzadoDTO.Marca;
@@ -45,6 +56,16 @@ namespace ComercioDigital.Servicio.DB.Productos
             resul.Tipo = calzadoDTO.Tipo;
 
             return resul;
+        }
+
+        public static void AnnadirCalzado(Calzado calzadoDTO)
+        {
+
+            Calzados nuevoCalzado = MapCalzadosFromDTOToDB(calzadoDTO);
+            DBComerce.DBAccess.Calzados.Add(nuevoCalzado);
+
+            DBComerce.DBAccess.SaveChangesAsync();
+
         }
     }
 }

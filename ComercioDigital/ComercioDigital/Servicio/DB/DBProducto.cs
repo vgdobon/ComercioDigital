@@ -1,4 +1,5 @@
 ﻿using ComercioDigital.DTOs.Personas;
+using ComercioDigital.DTOs.Productos;
 using ComercioDigital.Model;
 using ComercioDigital.Servicio.DB.Productos;
 using System;
@@ -26,57 +27,13 @@ namespace ComercioDigital.Servicio.DB
             DBVideoJuegos.CargarVideoJuegosDB(DBAccess);
         }
 
-        //public static Vendedor MapVendedorFromDBToDTO(Vendedores vendedorDB)
-        //{
-        //    Vendedor resul = new Vendedor(vendedorDB.Nombre, vendedorDB.Direccion, vendedorDB.Contrasenna, vendedorDB.Id);
 
-        //    return resul;
-        //}
 
-        //public static Vendedores MapVendedorFromDTOToDB(Vendedor vendedorDTO)
-        //{
-        //    Vendedores resul = new Vendedores();
-        //    resul.Id = vendedorDTO.IdVendedor;
-        //    resul.Nombre = vendedorDTO.Nombre;
-        //    resul.Contrasenna = vendedorDTO.Contrasenna;
-        //    resul.Direccion = vendedorDTO.Direccion;
-        //    resul.Valoracion = vendedorDTO.Valoracion;
+        public static void EliminarProducto(int id)
+        {
 
-        //    return resul;
-        //}
-
-        //public static void AnnadirVendedorDB(Vendedor vendedorDTO)
-        //{
-        //    Vendedores nuevoVendedor = MapVendedorFromDTOToDB(vendedorDTO);
-        //    DBComerce.DBAccess.Vendedores.Add(nuevoVendedor);
-        //    DBComerce.DBAccess.SaveChangesAsync();
-
-        //}
-
-        //public static Vendedores BuscarPorId(int id)
-
-        //{
-        //    return DBComerce.DBAccess.Vendedores.FirstOrDefault(
-        //        x => x.Id == id);
-        //}
-
-        //public static void EliminarVendedor(int id)
-        //{
-        //    Vendedores vendedorDB = BuscarPorId(id);
-        //    DBComerce.DBAccess.Vendedores.Remove(vendedorDB);
-        //    DBComerce.DBAccess.Entry(vendedorDB).State = EntityState.Deleted;
-        //    DBComerce.DBAccess.SaveChanges();
-        //}
-
-        //public static void ModificarVendedor(Vendedor vendedorDTO)
-        //{
-        //    Vendedores vendedorDB = BuscarPorId(vendedorDTO.IdVendedor);
-        //    int idBorrar = vendedorDTO.IdVendedor;
-        //    vendedorDB = MapVendedorFromDTOToDB(vendedorDTO);
-        //    DBComerce.DBAccess.Entry(vendedorDB).State = System.Data.Entity.EntityState.Added;
-        //    EliminarVendedor(idBorrar);
-        //    DBComerce.DBAccess.SaveChanges();
-        //}
+            DBComerce.DBAccess.Productos.Remove(DBComerce.DBAccess.Productos.FirstOrDefault(x => x.Id == id));
+        }
 
     }
 }

@@ -438,9 +438,9 @@ namespace ComercioDigital.Presentacion
                                 case 3:
                                     Console.WriteLine("VIDEOJUEGOS");
 
-                                    if (GestionComercio.ExistenProductosTipo(typeof(VideosJuego)))
+                                    if (GestionComercio.ExistenProductosTipo(typeof(VideoJuego)))
                                     {
-                                        foreach (Producto producto in GestionComercio.FiltroTipoProducto(typeof(VideosJuego)))
+                                        foreach (Producto producto in GestionComercio.FiltroTipoProducto(typeof(VideoJuego)))
                                         {
                                             Console.WriteLine(producto + "\n");
                                         }
@@ -458,7 +458,7 @@ namespace ComercioDigital.Presentacion
 
                                     if (
                                         GestionComercio.ExistenProductosTipo(typeof(Musica)) ||
-                                        GestionComercio.ExistenProductosTipo(typeof(VideosJuego)) ||
+                                        GestionComercio.ExistenProductosTipo(typeof(VideoJuego)) ||
                                         GestionComercio.ExistenProductosTipo(typeof(Pelicula))
                                     )
                                     {

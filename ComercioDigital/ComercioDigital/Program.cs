@@ -16,8 +16,8 @@ namespace ComercioDigital
     {
         static void Main(string[] args)
         {
-            //MenuPrincipal menuPrincipal = new MenuPrincipal();
-            //menuPrincipal.EjecutarApp();
+            MenuPrincipal menuPrincipal = new MenuPrincipal();
+            menuPrincipal.EjecutarApp();
 
 
 
@@ -26,14 +26,14 @@ namespace ComercioDigital
             // << - -  PRUEBAS - - >>
 
 
-            DBComerce.CargarDB();
+            //DBComerce.CargarDB();
 
-            foreach(Producto producto in Almacen.AlmacenProductos)
-            {
-                Console.WriteLine(producto);
-            }
+            //foreach(Producto producto in Almacen.AlmacenProductos)
+            //{
+            //    Console.WriteLine(producto);
+            //}
 
-            Mensaje.PulsaTeclaSalir();
+            //Mensaje.PulsaTeclaSalir();
 
 
             //eCommerceEntities ecDB = new eCommerceEntities();

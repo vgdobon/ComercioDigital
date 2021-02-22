@@ -30,6 +30,16 @@ namespace ComercioDigital.Servicio.DB.Productos
         public static Joyas MapJoyasFromDTOToDB(Joyeria joyeriaDTO)
         {
             Joyas resul = new Joyas();
+            if (resul.Modas == null)
+            {
+                resul.Modas = new Modas();
+                if (resul.Modas.Productos == null)
+                {
+                    resul.Modas.Productos = new Model.Productos();
+                }
+
+
+            }
             resul.Modas.Productos.Nombre = joyeriaDTO.Nombre;
             resul.Modas.Productos.Precio = joyeriaDTO.Precio;
             resul.Modas.Productos.Marca = joyeriaDTO.Marca;
@@ -45,6 +55,15 @@ namespace ComercioDigital.Servicio.DB.Productos
             resul.Medida = joyeriaDTO.Medida;
 
             return resul;
+        }
+
+        public static void AnnadirJoya(Joyeria joyeriaDTO)
+        {
+
+            Joyas nuevaJoya = MapJoyasFromDTOToDB(joyeriaDTO);
+            DBComerce.DBAccess.Joyas.Add(nuevaJoya);
+            DBComerce.DBAccess.SaveChangesAsync();
+
         }
     }
 }

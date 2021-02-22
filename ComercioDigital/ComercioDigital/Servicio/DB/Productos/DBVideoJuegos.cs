@@ -19,17 +19,26 @@ namespace ComercioDigital.Servicio.DB.Productos
             }
         }
 
-        public static VideosJuego MapVideoJuegosFromDBToDTO(Videojuegos videoJuegodB)
+        public static VideoJuego MapVideoJuegosFromDBToDTO(Videojuegos videoJuegodB)
         {
 
-            VideosJuego resul = new VideosJuego(videoJuegodB.Multimedias.Productos.Id, videoJuegodB.Multimedias.Productos.Nombre, videoJuegodB.Multimedias.Productos.Marca, videoJuegodB.Multimedias.Productos.Precio, GestionVendedores.BuscarPorId(videoJuegodB.Multimedias.Productos.IdVendedor), videoJuegodB.Multimedias.Productos.Descripcion, videoJuegodB.Multimedias.Productos.FechaPuestaVenta, videoJuegodB.Multimedias.Productos.CodigoDescuento,
+            VideoJuego resul = new VideoJuego(videoJuegodB.Multimedias.Productos.Id, videoJuegodB.Multimedias.Productos.Nombre, videoJuegodB.Multimedias.Productos.Marca, videoJuegodB.Multimedias.Productos.Precio, GestionVendedores.BuscarPorId(videoJuegodB.Multimedias.Productos.IdVendedor), videoJuegodB.Multimedias.Productos.Descripcion, videoJuegodB.Multimedias.Productos.FechaPuestaVenta, videoJuegodB.Multimedias.Productos.CodigoDescuento,
                 videoJuegodB.Multimedias.Productos.Stock, videoJuegodB.Multimedias.Genero, videoJuegodB.Multimedias.Formato, videoJuegodB.Multimedias.Idioma, videoJuegodB.Multimedias.FechaLanzamiento,videoJuegodB.Plataforma,videoJuegodB.EdadRecomendada);
             return resul;
         }
 
-        public static Videojuegos MapVideoJuegosFromDTOToDB(VideosJuego videoJuegoDTO)
+        public static Videojuegos MapVideoJuegosFromDTOToDB(VideoJuego videoJuegoDTO)
         {
             Videojuegos resul = new Videojuegos();
+            if (resul.Multimedias == null)
+            {
+                resul.Multimedias = new Multimedias();
+                if(resul.Multimedias.Productos == null)
+                {
+                    resul.Multimedias.Productos = new Model.Productos();
+                }
+            }
+            resul.Multimedias.Productos = new Model.Productos();
             resul.Multimedias.Productos.Nombre = videoJuegoDTO.Nombre;
             resul.Multimedias.Productos.Precio = videoJuegoDTO.Precio;
             resul.Multimedias.Productos.Marca = videoJuegoDTO.Marca;
@@ -47,6 +56,16 @@ namespace ComercioDigital.Servicio.DB.Productos
             resul.EdadRecomendada = videoJuegoDTO.EdadRecomendad;
 
             return resul;
+        }
+
+        public static void AnnadirVideoJuego(VideoJuego videojuegoDTO)
+        {
+
+            Videojuegos nuevoVideoJuego = MapVideoJuegosFromDTOToDB(videojuegoDTO);
+            DBComerce.DBAccess.Videojuegos.Add(nuevoVideoJuego);
+
+            DBComerce.DBAccess.SaveChangesAsync();
+
         }
     }
 }

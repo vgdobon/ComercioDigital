@@ -14,11 +14,11 @@ namespace ComercioDigital.Servicio.DB.Productos
         {
             foreach (var VARIABLE in DBAccess.Peliculas)
             {
-                GestionComercio.CargarlistaBD(MapVideoJuegosFromDBToDTO(VARIABLE));
+                GestionComercio.CargarlistaBD(MapPeliculaFromDBToDTO(VARIABLE));
             }
         }
 
-        public static Pelicula MapVideoJuegosFromDBToDTO(Peliculas peliculasDB)
+        public static Pelicula MapPeliculaFromDBToDTO(Peliculas peliculasDB)
         {
 
             Pelicula resul = new Pelicula(peliculasDB.Multimedias.Productos.Id, peliculasDB.Multimedias.Productos.Nombre, peliculasDB.Multimedias.Productos.Marca, peliculasDB.Multimedias.Productos.Precio, GestionVendedores.BuscarPorId(peliculasDB.Multimedias.Productos.IdVendedor), peliculasDB.Multimedias.Productos.Descripcion, peliculasDB.Multimedias.Productos.FechaPuestaVenta, peliculasDB.Multimedias.Productos.CodigoDescuento,
@@ -26,9 +26,19 @@ namespace ComercioDigital.Servicio.DB.Productos
             return resul;
         }
 
-        public static Peliculas MapVideoJuegosFromDTOToDB(Pelicula peliculaDTO)
+        public static Peliculas MapPeliculaFromDTOToDB(Pelicula peliculaDTO)
         {
             Peliculas resul = new Peliculas();
+
+            if (resul.Multimedias == null)
+            {
+                resul.Multimedias = new Multimedias();
+                if (resul.Multimedias.Productos == null)
+                {
+                    resul.Multimedias.Productos = new Model.Productos();
+                }
+            }
+
             resul.Multimedias.Productos.Nombre = peliculaDTO.Nombre;
             resul.Multimedias.Productos.Precio = peliculaDTO.Precio;
             resul.Multimedias.Productos.Marca = peliculaDTO.Marca;
@@ -48,6 +58,16 @@ namespace ComercioDigital.Servicio.DB.Productos
             resul.Sinopsis = peliculaDTO.Sinopsis;
 
             return resul;
+        }
+
+        public static void AnnadirPelicula(Pelicula peliculaDTO)
+        {
+
+            Peliculas nuevaPelicula = MapPeliculaFromDTOToDB(peliculaDTO);
+            DBComerce.DBAccess.Peliculas.Add(nuevaPelicula);
+
+            DBComerce.DBAccess.SaveChangesAsync();
+
         }
     }
 }

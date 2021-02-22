@@ -23,7 +23,7 @@ namespace ComercioDigital.Model
         }
     
         public int Id { get; set; }
-        public Nullable<int> IdProducto { get; set; }
+        public int IdProducto { get; set; }
         public string Genero { get; set; }
         public string Formato { get; set; }
         public string Idioma { get; set; }

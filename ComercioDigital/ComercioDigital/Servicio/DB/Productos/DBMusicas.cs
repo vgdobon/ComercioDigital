@@ -29,6 +29,21 @@ namespace ComercioDigital.Servicio.DB.Productos
         public static Musicas MapMusicasFromDTOToDB(Musica musicaDTO)
         {
             Musicas resul = new Musicas();
+
+            if (resul.Multimedias == null)
+            {
+                resul.Multimedias = new Multimedias();
+                if (resul.Multimedias.Productos == null)
+                {
+                    resul.Multimedias.Productos = new Model.Productos();
+                }
+            }
+
+            resul.Artista = musicaDTO.Artista;
+            resul.Multimedias.Genero = musicaDTO.Genero;
+            resul.Multimedias.Formato = musicaDTO.Formato;
+            resul.Multimedias.Idioma = musicaDTO.Idioma;
+            resul.Multimedias.FechaLanzamiento = musicaDTO.FechaLanzamiento;
             resul.Multimedias.Productos.Nombre = musicaDTO.Nombre;
             resul.Multimedias.Productos.Precio = musicaDTO.Precio;
             resul.Multimedias.Productos.Marca = musicaDTO.Marca;
@@ -38,13 +53,19 @@ namespace ComercioDigital.Servicio.DB.Productos
             resul.Multimedias.Productos.FechaPuestaVenta = musicaDTO.FechaPuestaVenta;
             resul.Multimedias.Productos.CodigoDescuento = musicaDTO.CodigoDescuento;
             resul.Multimedias.Productos.Stock = musicaDTO.Stock;
-            resul.Multimedias.Genero = musicaDTO.Genero;
-            resul.Multimedias.Formato = musicaDTO.Formato;
-            resul.Multimedias.Idioma = musicaDTO.Idioma;
-            resul.Multimedias.FechaLanzamiento = musicaDTO.FechaLanzamiento;
-            resul.Artista = musicaDTO.Artista;
+           
 
             return resul;
+        }
+
+        public static void AnnadirMusica(Musica musicaDTO)
+        {
+
+                Musicas nuevaMusica = MapMusicasFromDTOToDB(musicaDTO);
+                DBComerce.DBAccess.Musicas.Add(nuevaMusica);
+
+                DBComerce.DBAccess.SaveChangesAsync();
+
         }
     }
 }

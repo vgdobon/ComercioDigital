@@ -29,6 +29,16 @@ namespace ComercioDigital.Servicio.DB.Productos
         public static Ropas MapRopasFromDTOToDB(Ropa ropaDTO)
         {
             Ropas resul = new Ropas();
+            if (resul.Modas == null )
+            {
+                resul.Modas = new Modas();
+                if (resul.Modas.Productos == null)
+                {
+                    resul.Modas.Productos = new Model.Productos();
+                }
+                
+               
+            }
             resul.Modas.Productos.Nombre = ropaDTO.Nombre;
             resul.Modas.Productos.Precio = ropaDTO.Precio;
             resul.Modas.Productos.Marca = ropaDTO.Marca;
@@ -45,6 +55,15 @@ namespace ComercioDigital.Servicio.DB.Productos
             resul.Tipo = ropaDTO.Tipo;
 
             return resul;
+        }
+
+        public static void AnnadirRopa(Ropa ropaDTO)
+        {
+
+            Ropas nuevoRopa = MapRopasFromDTOToDB(ropaDTO);
+            DBComerce.DBAccess.Ropas.Add(nuevoRopa);
+            DBComerce.DBAccess.SaveChangesAsync();
+
         }
     }
 }

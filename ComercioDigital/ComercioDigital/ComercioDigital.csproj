@@ -70,7 +70,7 @@
     <Compile Include="DTOs\Productos\Tecnologia\Tecnologia.cs" />
     <Compile Include="DTOs\Personas\Vendedor.cs" />
     <Compile Include="DTOs\Productos\Tecnologia\VideoConsola.cs" />
-    <Compile Include="DTOs\Productos\Multimedia\VideosJuego.cs" />
+    <Compile Include="DTOs\Productos\Multimedia\VideoJuego.cs" />
     <Compile Include="Model\Almacenes.cs">
       <DependentUpon>eCommerceModel.tt</DependentUpon>
     </Compile>

@@ -30,6 +30,16 @@ namespace ComercioDigital.Servicio.DB.Productos
         public static Moviles MapMovilesFromDTOToDB(Movil movilDTO)
         {
             Moviles resul = new Moviles();
+            if(resul.Tecnologicos == null)
+            {
+                resul.Tecnologicos = new Tecnologicos();
+
+                if (resul.Tecnologicos.Productos == null)
+                {
+                    resul.Tecnologicos.Productos = new Model.Productos();
+                }
+
+            }
             resul.Tecnologicos.Productos.Nombre = movilDTO.Nombre;
             resul.Tecnologicos.Productos.Precio = movilDTO.Precio;
             resul.Tecnologicos.Productos.Marca = movilDTO.Marca;
@@ -50,6 +60,15 @@ namespace ComercioDigital.Servicio.DB.Productos
             
 
             return resul;
+        }
+
+        public static void AnnadirMovil(Movil movilDTO)
+        {
+
+            Moviles nuevoMovil = MapMovilesFromDTOToDB(movilDTO);
+            DBComerce.DBAccess.Moviles.Add(nuevoMovil);
+            DBComerce.DBAccess.SaveChangesAsync();
+
         }
     }
 }

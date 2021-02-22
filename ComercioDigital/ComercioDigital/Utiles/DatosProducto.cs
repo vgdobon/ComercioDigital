@@ -22,7 +22,7 @@ namespace ComercioDigital.Utiles
             string marcaProducto = Console.ReadLine();
 
             Console.Write("Precio del producto: ");
-            decimal.TryParse(Console.ReadLine(), out decimal precioProducto);
+            decimal.TryParse(Console.ReadLine().Replace(".",","), out decimal precioProducto);
 
             Console.Write("Descripcion del producto: ");
             string descripcionProducto = Console.ReadLine();

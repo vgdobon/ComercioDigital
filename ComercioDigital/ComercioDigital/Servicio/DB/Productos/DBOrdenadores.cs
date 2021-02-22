@@ -29,6 +29,16 @@ namespace ComercioDigital.Servicio.DB.Productos
         public static Ordenadores MapOrdenadoresFromDTOToDB(Ordenador ordenadorDTO)
         {
             Ordenadores resul = new Ordenadores();
+            if (resul.Tecnologicos == null)
+            {
+                resul.Tecnologicos = new Tecnologicos();
+
+                if(resul.Tecnologicos.Productos == null)
+                {
+                    resul.Tecnologicos.Productos = new Model.Productos();
+                }
+                
+            }
             resul.Tecnologicos.Productos.Nombre = ordenadorDTO.Nombre;
             resul.Tecnologicos.Productos.Precio = ordenadorDTO.Precio;
             resul.Tecnologicos.Productos.Marca = ordenadorDTO.Marca;
@@ -47,6 +57,15 @@ namespace ComercioDigital.Servicio.DB.Productos
             resul.Tipo = ordenadorDTO.Tipo;
 
             return resul;
+        }
+
+        public static void AnnadirOrdenador(Ordenador ordenadorDTO)
+        {
+
+            Ordenadores nuevoOrdenador = MapOrdenadoresFromDTOToDB(ordenadorDTO);
+            DBComerce.DBAccess.Ordenadores.Add(nuevoOrdenador);
+            DBComerce.DBAccess.SaveChangesAsync();
+
         }
     }
 }

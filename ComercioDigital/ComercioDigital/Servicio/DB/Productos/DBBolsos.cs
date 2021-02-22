@@ -30,6 +30,16 @@ namespace ComercioDigital.Servicio.DB.Productos
         public static Bolsos MapBolsosFromDTOToDB(Bolso bolsoDTO)
         {
             Bolsos resul = new Bolsos();
+            if (resul.Modas == null)
+            {
+                resul.Modas = new Modas();
+                if (resul.Modas.Productos == null)
+                {
+                    resul.Modas.Productos = new Model.Productos();
+                }
+
+
+            }
             resul.Modas.Productos.Nombre = bolsoDTO.Nombre;
             resul.Modas.Productos.Precio = bolsoDTO.Precio;
             resul.Modas.Productos.Marca = bolsoDTO.Marca;
@@ -45,6 +55,16 @@ namespace ComercioDigital.Servicio.DB.Productos
             resul.Tipo = bolsoDTO.Tipo;
 
             return resul;
+        }
+
+        public static void AnnadirBolso(Bolso bolsoDTO)
+        {
+
+            Bolsos nuevoBolso = MapBolsosFromDTOToDB(bolsoDTO);
+            DBComerce.DBAccess.Bolsos.Add(nuevoBolso);
+
+            DBComerce.DBAccess.SaveChangesAsync();
+
         }
 
     }

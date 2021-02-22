@@ -15,8 +15,8 @@ namespace ComercioDigital.Model
     public partial class Calzados
     {
         public int Id { get; set; }
-        public Nullable<int> IdModa { get; set; }
-        public Nullable<int> Talla { get; set; }
+        public int IdModa { get; set; }
+        public int Talla { get; set; }
         public string Tipo { get; set; }
     
         public virtual Modas Modas { get; set; }

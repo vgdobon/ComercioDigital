@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="eCommerceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="eCommerceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'eCommerce.dbo.Almacenes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Almacenes">
@@ -26,9 +26,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.Almacenes' no tiene definida n
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdModa" Type="int" />
-          <Property Name="Talla" Type="int" />
-          <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdModa" Type="int" Nullable="false" />
+          <Property Name="Talla" Type="int" Nullable="false" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -59,7 +59,7 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdProducto" Type="int" />
+          <Property Name="IdProducto" Type="int" Nullable="false" />
           <Property Name="Color" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Material" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Sexo" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -69,16 +69,16 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdTecnologia" Type="int" />
-          <Property Name="Pantalla" Type="float" />
-          <Property Name="Bateria" Type="int" />
+          <Property Name="IdTecnologia" Type="int" Nullable="false" />
+          <Property Name="Pantalla" Type="float" Nullable="false" />
+          <Property Name="Bateria" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Multimedias">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdProducto" Type="int" />
+          <Property Name="IdProducto" Type="int" Nullable="false" />
           <Property Name="Genero" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Formato" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Idioma" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -89,8 +89,8 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdMultimedia" Type="int" />
-          <Property Name="Artista" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdMultimedia" Type="int" Nullable="false" />
+          <Property Name="Artista" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Ordenadores">
           <Key>
@@ -145,7 +145,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdModa" Type="int" />
+          <Property Name="IdModa" Type="int" Nullable="false" />
           <Property Name="Talla" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -236,7 +236,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Calzados_Modas">
-          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1">
+          <End Role="Modas" Type="Self.Modas" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Calzados" Type="Self.Calzados" Multiplicity="*" />
@@ -288,7 +288,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Moda_Productos">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Modas" Type="Self.Modas" Multiplicity="*" />
@@ -302,7 +302,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Moviles_Tecnologicos">
-          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="0..1">
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Moviles" Type="Self.Moviles" Multiplicity="*" />
@@ -316,7 +316,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Multimedias_Productos">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="*" />
@@ -330,7 +330,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Musicas_Multimedias">
-          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="0..1">
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Musicas" Type="Self.Musicas" Multiplicity="*" />
@@ -390,7 +390,7 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Ropas_Modas">
-          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1">
+          <End Role="Modas" Type="Self.Modas" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Ropas" Type="Self.Ropas" Multiplicity="*" />
@@ -577,7 +577,8 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
             <End Role="Videojuegos" EntitySet="Videojuegos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="eCommerceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -595,9 +596,9 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdModa" Type="Int32" />
-          <Property Name="Talla" Type="Int32" />
-          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdModa" Type="Int32" Nullable="false" />
+          <Property Name="Talla" Type="Int32" Nullable="false" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Modas" Relationship="Self.FK_Calzados_Modas" FromRole="Calzados" ToRole="Modas" />
         </EntityType>
         <EntityType Name="Carritos">
@@ -622,7 +623,7 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdProducto" Type="Int32" />
+          <Property Name="IdProducto" Type="Int32" Nullable="false" />
           <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Material" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -637,9 +638,9 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdTecnologia" Type="Int32" />
-          <Property Name="Pantalla" Type="Double" />
-          <Property Name="Bateria" Type="Int32" />
+          <Property Name="IdTecnologia" Type="Int32" Nullable="false" />
+          <Property Name="Pantalla" Type="Double" Nullable="false" />
+          <Property Name="Bateria" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Tecnologicos" Relationship="Self.FK_Moviles_Tecnologicos" FromRole="Moviles" ToRole="Tecnologicos" />
         </EntityType>
         <EntityType Name="Multimedias">
@@ -647,7 +648,7 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdProducto" Type="Int32" />
+          <Property Name="IdProducto" Type="Int32" Nullable="false" />
           <Property Name="Genero" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Formato" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Idioma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -662,8 +663,8 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdMultimedia" Type="Int32" />
-          <Property Name="Artista" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdMultimedia" Type="Int32" Nullable="false" />
+          <Property Name="Artista" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Multimedias" Relationship="Self.FK_Musicas_Multimedias" FromRole="Musicas" ToRole="Multimedias" />
         </EntityType>
         <EntityType Name="Ordenadores">
@@ -722,7 +723,7 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdModa" Type="Int32" />
+          <Property Name="IdModa" Type="Int32" Nullable="false" />
           <Property Name="Talla" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Modas" Relationship="Self.FK_Ropas_Modas" FromRole="Ropas" ToRole="Modas" />
@@ -818,7 +819,7 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Calzados_Modas">
-          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1">
+          <End Role="Modas" Type="Self.Modas" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Calzados" Type="Self.Calzados" Multiplicity="*" />
@@ -858,7 +859,7 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Moda_Productos">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Modas" Type="Self.Modas" Multiplicity="*" />
@@ -872,7 +873,7 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Ropas_Modas">
-          <End Role="Modas" Type="Self.Modas" Multiplicity="0..1">
+          <End Role="Modas" Type="Self.Modas" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Ropas" Type="Self.Ropas" Multiplicity="*" />
@@ -886,7 +887,7 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Moviles_Tecnologicos">
-          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="0..1">
+          <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Moviles" Type="Self.Moviles" Multiplicity="*" />
@@ -900,7 +901,7 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Multimedias_Productos">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="*" />
@@ -914,7 +915,7 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Musicas_Multimedias">
-          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="0..1">
+          <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Musicas" Type="Self.Musicas" Multiplicity="*" />

@@ -109,7 +109,7 @@ namespace ComercioDigital.Presentacion
                         opcionMenuProducto = RecogerOpcionMenu();
                         if (opcionMenuProducto > 0 && opcionMenuProducto < 5)
                         {
-                            EjecutarOpcionMenuTecnologia(opcionMenuProducto);
+                            EjecutarOpcionMenMultimedia(opcionMenuProducto);
                         }
                         else
                         {
@@ -342,7 +342,7 @@ namespace ComercioDigital.Presentacion
                     Multimedia productoMultimediaMusica = DatosProducto.RecogerDatosMultimedia(vendedorSesion);
                     Console.WriteLine("Musica:");
 
-                    Console.Write("Tipo:");
+                    Console.Write("Artista:");
                     var artista = Console.ReadLine();
 
 
@@ -401,7 +401,7 @@ namespace ComercioDigital.Presentacion
                     Console.Write("Plataforma:");
                     var plataforma = Console.ReadLine();
 
-                    var nuevoVideoJuego = new VideosJuego(null, productoMultimediaVideojuego.Nombre,
+                    var nuevoVideoJuego = new VideoJuego(null, productoMultimediaVideojuego.Nombre,
                         productoMultimediaVideojuego.Marca,
                         productoMultimediaVideojuego.Precio, productoMultimediaVideojuego.Vendedor,
                         productoMultimediaVideojuego.Descripcion,

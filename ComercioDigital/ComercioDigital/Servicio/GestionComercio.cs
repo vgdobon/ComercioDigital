@@ -11,6 +11,7 @@ using ComercioDigital.DTOs.Productos.Multimedia;
 using ComercioDigital.DTOs.Productos.Tecnologia;
 using ComercioDigital.Model;
 using ComercioDigital.Servicio.DB;
+using ComercioDigital.Servicio.DB.Productos;
 
 namespace ComercioDigital.Servicio
 {
@@ -34,6 +35,53 @@ namespace ComercioDigital.Servicio
         {
             if (producto!= null)
             {
+                if(producto is Multimedia)
+                {
+                    if(producto is Musica)
+                    {
+                        DBMusicas.AnnadirMusica((Musica)producto);
+                    }else if(producto is Pelicula)
+                    {
+                        DBPeliculas.AnnadirPelicula((Pelicula)producto);
+                    }
+                    else
+                    {
+                        DBVideoJuegos.AnnadirVideoJuego((VideoJuego)producto);
+                    }
+                }
+                else if(producto is Tecnologia)
+                {
+                    if(producto is Movil)
+                    {
+                        DBMoviles.AnnadirMovil((Movil)producto);
+                    }
+                    else if(producto is Ordenador)
+                    {
+                        DBOrdenadores.AnnadirOrdenador((Ordenador)producto);
+                    }
+                    else
+                    {
+                        DBVideoConsolas.AnnadirVideoConsola((VideoConsola)producto);
+                    }
+
+                }
+                else
+                {
+                    if(producto is Ropa)
+                    {
+                        DBRopas.AnnadirRopa((Ropa)producto);
+                    }else if(producto is Calzado)
+                    {
+                        DBCalzados.AnnadirCalzado((Calzado)producto);
+                    }else if(producto is Joyeria)
+                    {
+                        DBJoyas.AnnadirJoya((Joyeria)producto);
+                    }
+                    else
+                    {
+                        DBBolsos.AnnadirBolso((Bolso)producto);
+                    }
+                }
                 Almacen.AlmacenProductos.Add(producto);
             }
         }
@@ -45,6 +93,7 @@ namespace ComercioDigital.Servicio
             {
                 if (producto.IdProducto == id)
                 {
+                    DBProducto.EliminarProducto(producto.IdProducto);
                     Almacen.AlmacenProductos.Remove(producto);
                     return true;
                 }

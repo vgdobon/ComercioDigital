@@ -21,9 +21,9 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.Almacenes' no tiene definida n
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdModa" Type="int" />
-    <Property Name="Talla" Type="int" />
-    <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdModa" Type="int" Nullable="false" />
+    <Property Name="Talla" Type="int" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -54,7 +54,7 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdProducto" Type="int" />
+    <Property Name="IdProducto" Type="int" Nullable="false" />
     <Property Name="Color" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Material" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Sexo" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -64,16 +64,16 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdTecnologia" Type="int" />
-    <Property Name="Pantalla" Type="float" />
-    <Property Name="Bateria" Type="int" />
+    <Property Name="IdTecnologia" Type="int" Nullable="false" />
+    <Property Name="Pantalla" Type="float" Nullable="false" />
+    <Property Name="Bateria" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Multimedias">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdProducto" Type="int" />
+    <Property Name="IdProducto" Type="int" Nullable="false" />
     <Property Name="Genero" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Formato" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Idioma" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -84,8 +84,8 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdMultimedia" Type="int" />
-    <Property Name="Artista" Type="nvarchar" MaxLength="50" />
+    <Property Name="IdMultimedia" Type="int" Nullable="false" />
+    <Property Name="Artista" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Ordenadores">
     <Key>
@@ -140,7 +140,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdModa" Type="int" />
+    <Property Name="IdModa" Type="int" Nullable="false" />
     <Property Name="Talla" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -231,7 +231,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Calzados_Modas">
-    <End Role="Modas" Type="Self.Modas" Multiplicity="0..1">
+    <End Role="Modas" Type="Self.Modas" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Calzados" Type="Self.Calzados" Multiplicity="*" />
@@ -283,7 +283,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Moda_Productos">
-    <End Role="Productos" Type="Self.Productos" Multiplicity="0..1">
+    <End Role="Productos" Type="Self.Productos" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Modas" Type="Self.Modas" Multiplicity="*" />
@@ -297,7 +297,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Moviles_Tecnologicos">
-    <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="0..1">
+    <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Moviles" Type="Self.Moviles" Multiplicity="*" />
@@ -311,7 +311,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Multimedias_Productos">
-    <End Role="Productos" Type="Self.Productos" Multiplicity="0..1">
+    <End Role="Productos" Type="Self.Productos" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="*" />
@@ -325,7 +325,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Musicas_Multimedias">
-    <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="0..1">
+    <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Musicas" Type="Self.Musicas" Multiplicity="*" />
@@ -385,7 +385,7 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Ropas_Modas">
-    <End Role="Modas" Type="Self.Modas" Multiplicity="0..1">
+    <End Role="Modas" Type="Self.Modas" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="Ropas" Type="Self.Ropas" Multiplicity="*" />
