@@ -28,9 +28,14 @@ namespace ComercioDigital.Presentacion
             {
                 MostrarMenuProducto();
                 opcionTemp = RecogerOpcionMenu();
-                if (opcionTemp > 0 && opcionTemp < 4)
+                if (opcionTemp > 0 && opcionTemp < 5)
                 {
-                    EjecutarOpcionMenuProducto(opcionTemp);
+                    if(opcionTemp==4){
+                        salirMenu=true;
+                    }else{
+                        EjecutarOpcionMenuProducto(opcionTemp);
+                    }
+                    
                 }
                 else
                 {
@@ -39,7 +44,7 @@ namespace ComercioDigital.Presentacion
                 }
                 
 
-            } while (opcionTemp < 4 && !salirMenu);
+            } while (opcionTemp < 0 || !salirMenu);
 
             Console.WriteLine("Se cerro la sesion del vendedor");
 
@@ -232,7 +237,6 @@ namespace ComercioDigital.Presentacion
         private void EjecutarOpcionMenuModa(int opcion)
         {
             
-
             switch (opcion)
             {
 
@@ -328,13 +332,12 @@ namespace ComercioDigital.Presentacion
                               "1  Música\n" +
                               "2  Pelicula o Series\n" +
                               "3  VideoJuegos\n" +
-                              "4  Volver al menu Usuario\n");
+                              "4  Volver al menu vendedor\n");
         }
 
         private void EjecutarOpcionMenMultimedia(int opcion)
         {
             
-
             switch (opcion)
             {
 
@@ -436,7 +439,5 @@ namespace ComercioDigital.Presentacion
 
             return 0;
         }
-
-     
     }
 }

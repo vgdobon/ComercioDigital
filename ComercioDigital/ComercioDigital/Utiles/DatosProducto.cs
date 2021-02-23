@@ -51,7 +51,7 @@ namespace ComercioDigital.Utiles
             string sistemaOperativo = Console.ReadLine();
 
 
-            Console.Write("Modelo del producto");
+            Console.Write("Modelo del producto: ");
             string modelo = Console.ReadLine();
 
             Console.WriteLine("Fecha de lanzamaiento del producto");
