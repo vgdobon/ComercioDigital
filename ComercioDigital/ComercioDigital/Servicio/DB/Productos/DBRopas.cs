@@ -29,15 +29,15 @@ namespace ComercioDigital.Servicio.DB.Productos
         public static Ropas MapRopasFromDTOToDB(Ropa ropaDTO)
         {
             Ropas resul = new Ropas();
-            if (resul.Modas == null )
+            if (resul.Modas == null)
             {
                 resul.Modas = new Modas();
                 if (resul.Modas.Productos == null)
                 {
                     resul.Modas.Productos = new Model.Productos();
                 }
-                
-               
+
+
             }
             resul.Modas.Productos.Nombre = ropaDTO.Nombre;
             resul.Modas.Productos.Precio = ropaDTO.Precio;
@@ -62,7 +62,8 @@ namespace ComercioDigital.Servicio.DB.Productos
 
             Ropas nuevoRopa = MapRopasFromDTOToDB(ropaDTO);
             DBComerce.DBAccess.Ropas.Add(nuevoRopa);
-            DBComerce.DBAccess.SaveChangesAsync();
+            DBComerce.DBAccess.Entry(nuevoRopa).State = System.Data.Entity.EntityState.Added;
+            DBComerce.DBAccess.SaveChanges(); ;
 
         }
     }

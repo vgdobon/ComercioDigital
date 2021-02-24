@@ -15,7 +15,6 @@ namespace ComercioDigital.Model
     public partial class Peliculas
     {
         public int Id { get; set; }
-        public int IdMultimedia { get; set; }
         public string Actores { get; set; }
         public string Director { get; set; }
         public int EdadRecomendada { get; set; }

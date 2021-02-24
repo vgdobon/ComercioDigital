@@ -15,7 +15,6 @@ namespace ComercioDigital.Model
     public partial class Ordenadores
     {
         public int Id { get; set; }
-        public int IdTecnologia { get; set; }
         public string PlacaBase { get; set; }
         public string Tipo { get; set; }
     

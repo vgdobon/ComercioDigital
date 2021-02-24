@@ -8,7 +8,7 @@ namespace ComercioDigital.Utiles
 
         public static void SalirMenu(string s)
         {
-            Console.Clear();
+
             Console.Write(s);
             
             for (int j = 0; j <= 3; j++)

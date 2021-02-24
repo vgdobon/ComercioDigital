@@ -62,6 +62,7 @@ namespace ComercioDigital.Servicio.DB.Productos
 
             Joyas nuevaJoya = MapJoyasFromDTOToDB(joyeriaDTO);
             DBComerce.DBAccess.Joyas.Add(nuevaJoya);
+            DBComerce.DBAccess.Entry(nuevaJoya).State = System.Data.Entity.EntityState.Added;
             DBComerce.DBAccess.SaveChangesAsync();
 
         }

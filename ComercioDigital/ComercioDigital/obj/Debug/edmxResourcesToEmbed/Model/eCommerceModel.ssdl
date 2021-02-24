@@ -12,16 +12,14 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.Almacenes' no tiene definida n
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdModa" Type="int" Nullable="false" />
-    <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Calzados">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdModa" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Talla" Type="int" Nullable="false" />
     <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -45,16 +43,14 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdModa" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Medida" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Modas">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdProducto" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Color" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Material" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Sexo" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -63,8 +59,7 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdTecnologia" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Pantalla" Type="float" Nullable="false" />
     <Property Name="Bateria" Type="int" Nullable="false" />
   </EntityType>
@@ -72,8 +67,7 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdProducto" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Genero" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Formato" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Idioma" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -83,16 +77,14 @@ advertencia 6002: La tabla o vista 'eCommerce.dbo.CarritoProductos' no tiene def
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdMultimedia" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Artista" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Ordenadores">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdTecnologia" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="PlacaBase" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -113,8 +105,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdMultimedia" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Actores" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="Director" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="EdadRecomendada" Type="int" Nullable="false" />
@@ -139,8 +130,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdModa" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Talla" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
@@ -158,8 +148,7 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdProducto" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Color" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Procesador" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="SistemaOperativo" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -192,15 +181,13 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdTecnologia" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Videojuegos">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdMultimedia" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="Plataforma" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="EdadRecomendada" Type="int" Nullable="false" />
   </EntityType>
@@ -216,17 +203,17 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Bolsos_Moda">
+  <Association Name="FK_Bolsos_Modas">
     <End Role="Modas" Type="Self.Modas" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Bolsos" Type="Self.Bolsos" Multiplicity="*" />
+    <End Role="Bolsos" Type="Self.Bolsos" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Modas">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Bolsos">
-        <PropertyRef Name="IdModa" />
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -234,13 +221,13 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     <End Role="Modas" Type="Self.Modas" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Calzados" Type="Self.Calzados" Multiplicity="*" />
+    <End Role="Calzados" Type="Self.Calzados" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Modas">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Calzados">
-        <PropertyRef Name="IdModa" />
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -272,27 +259,27 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     <End Role="Modas" Type="Self.Modas" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Joyas" Type="Self.Joyas" Multiplicity="*" />
+    <End Role="Joyas" Type="Self.Joyas" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Modas">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Joyas">
-        <PropertyRef Name="IdModa" />
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Moda_Productos">
+  <Association Name="FK_Modas_Productos">
     <End Role="Productos" Type="Self.Productos" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Modas" Type="Self.Modas" Multiplicity="*" />
+    <End Role="Modas" Type="Self.Modas" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Productos">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Modas">
-        <PropertyRef Name="IdProducto" />
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -300,13 +287,13 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Moviles" Type="Self.Moviles" Multiplicity="*" />
+    <End Role="Moviles" Type="Self.Moviles" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Tecnologicos">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Moviles">
-        <PropertyRef Name="IdTecnologia" />
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -314,13 +301,13 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     <End Role="Productos" Type="Self.Productos" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="*" />
+    <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Productos">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Multimedias">
-        <PropertyRef Name="IdProducto" />
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -328,13 +315,13 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Musicas" Type="Self.Musicas" Multiplicity="*" />
+    <End Role="Musicas" Type="Self.Musicas" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Multimedias">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Musicas">
-        <PropertyRef Name="IdMultimedia" />
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -342,33 +329,30 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
     <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Ordenadores" Type="Self.Ordenadores" Multiplicity="*" />
+    <End Role="Ordenadores" Type="Self.Ordenadores" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Tecnologicos">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Ordenadores">
-        <PropertyRef Name="IdTecnologia" />
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <!--Errores durante la generación:
 error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProductos', pero no se encuentra la tabla.
         <Association Name="FK_PedidoProductos_Pedidos" />-->
-  <!--Errores durante la generación:
-error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProductos', pero no se encuentra la tabla.
-        <Association Name="FK_PedidoProductos_Productos" />-->
   <Association Name="FK_Peliculas_Multimedias">
     <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Peliculas" Type="Self.Peliculas" Multiplicity="*" />
+    <End Role="Peliculas" Type="Self.Peliculas" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Multimedias">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Peliculas">
-        <PropertyRef Name="IdMultimedia" />
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -388,13 +372,13 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
     <End Role="Modas" Type="Self.Modas" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Ropas" Type="Self.Ropas" Multiplicity="*" />
+    <End Role="Ropas" Type="Self.Ropas" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Modas">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Ropas">
-        <PropertyRef Name="IdModa" />
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -402,13 +386,13 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
     <End Role="Productos" Type="Self.Productos" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="*" />
+    <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Productos">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Tecnologicos">
-        <PropertyRef Name="IdProducto" />
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -440,13 +424,13 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
     <End Role="Tecnologicos" Type="Self.Tecnologicos" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Videoconsolas" Type="Self.Videoconsolas" Multiplicity="*" />
+    <End Role="Videoconsolas" Type="Self.Videoconsolas" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Tecnologicos">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Videoconsolas">
-        <PropertyRef Name="IdTecnologia" />
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -454,13 +438,13 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
     <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Videojuegos" Type="Self.Videojuegos" Multiplicity="*" />
+    <End Role="Videojuegos" Type="Self.Videojuegos" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Multimedias">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Videojuegos">
-        <PropertyRef Name="IdMultimedia" />
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -499,7 +483,7 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
       <End Role="Productos" EntitySet="Productos" />
       <End Role="Almacenes" EntitySet="Almacenes" />
     </AssociationSet>
-    <AssociationSet Name="FK_Bolsos_Moda" Association="Self.FK_Bolsos_Moda">
+    <AssociationSet Name="FK_Bolsos_Modas" Association="Self.FK_Bolsos_Modas">
       <End Role="Modas" EntitySet="Modas" />
       <End Role="Bolsos" EntitySet="Bolsos" />
     </AssociationSet>
@@ -519,7 +503,7 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
       <End Role="Modas" EntitySet="Modas" />
       <End Role="Joyas" EntitySet="Joyas" />
     </AssociationSet>
-    <AssociationSet Name="FK_Moda_Productos" Association="Self.FK_Moda_Productos">
+    <AssociationSet Name="FK_Modas_Productos" Association="Self.FK_Modas_Productos">
       <End Role="Productos" EntitySet="Productos" />
       <End Role="Modas" EntitySet="Modas" />
     </AssociationSet>

@@ -95,13 +95,13 @@ namespace ComercioDigital.Servicio
             if (campo.Equals("nombre"))
             {
                 vendedor.Nombre = s;
-                DBVendedores.ModificarVendedor(vendedor);
+                DBVendedores.ModificarNombreVendedor(vendedor,s);
                 return true;
             }
             else if (campo.Equals("contraseña"))
             {
                 vendedor.Contrasenna = s;
-                DBVendedores.ModificarVendedor(vendedor);
+                DBVendedores.ModificarContrasenaVendedor(vendedor,s);
                 return true;
             }
 

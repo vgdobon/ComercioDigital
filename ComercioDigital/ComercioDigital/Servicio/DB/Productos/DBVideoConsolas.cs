@@ -29,7 +29,7 @@ namespace ComercioDigital.Servicio.DB.Productos
         public static Videoconsolas MapVideoConsolasFromDTOToDB(VideoConsola videoconsolaDTO)
         {
             Videoconsolas resul = new Videoconsolas();
-            if(resul.Tecnologicos == null)
+            if (resul.Tecnologicos == null)
             {
                 resul.Tecnologicos = new Tecnologicos();
 
@@ -62,7 +62,7 @@ namespace ComercioDigital.Servicio.DB.Productos
 
             Videoconsolas nuevaVideoConsola= MapVideoConsolasFromDTOToDB(videoconsolaDTO);
             DBComerce.DBAccess.Videoconsolas.Add(nuevaVideoConsola);
-
+            DBComerce.DBAccess.Entry(nuevaVideoConsola).State = System.Data.Entity.EntityState.Added;
             DBComerce.DBAccess.SaveChangesAsync();
 
         }

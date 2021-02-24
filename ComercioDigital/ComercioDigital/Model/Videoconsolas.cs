@@ -15,7 +15,6 @@ namespace ComercioDigital.Model
     public partial class Videoconsolas
     {
         public int Id { get; set; }
-        public int IdTecnologia { get; set; }
     
         public virtual Tecnologicos Tecnologicos { get; set; }
     }

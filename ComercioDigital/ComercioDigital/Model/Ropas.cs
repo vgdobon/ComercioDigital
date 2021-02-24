@@ -15,7 +15,6 @@ namespace ComercioDigital.Model
     public partial class Ropas
     {
         public int Id { get; set; }
-        public int IdModa { get; set; }
         public string Talla { get; set; }
         public string Tipo { get; set; }
     

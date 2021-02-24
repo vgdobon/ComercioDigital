@@ -35,5 +35,11 @@ namespace ComercioDigital.Servicio.DB
             DBComerce.DBAccess.Productos.Remove(DBComerce.DBAccess.Productos.FirstOrDefault(x => x.Id == id));
         }
 
+        public static Model.Productos BuscarPorId(int id)
+        {
+            return DBComerce.DBAccess.Productos.FirstOrDefault(
+                x => x.Id == id);
+        }
+
     }
 }

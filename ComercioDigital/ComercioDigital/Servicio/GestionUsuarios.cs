@@ -85,13 +85,13 @@ namespace ComercioDigital.Servicio
             if (campo.Equals("nombre"))
             {
                 usuario.Nombre = s;
-                DBUsuarios.ModificarUsuario(usuario);
+                DBUsuarios.ModificarNombre(usuario,s);
                 return true;
             }
             else if (campo.Equals("contraseña"))
             {
                 usuario.Password = s;
-                DBUsuarios.ModificarUsuario(usuario);
+                DBUsuarios.ModificarContrasena(usuario,s);
                 return true;
             }
 
@@ -114,13 +114,82 @@ namespace ComercioDigital.Servicio
         
         public static void AnnadirProductoCarrito(Producto producto,Usuario usuarioSesion)
         {
-            usuarioSesion.CarritoCompra.CarritoCompra.Add(GestionComercio.GetProductoId(producto.IdProducto));
+            usuarioSesion.CarritoCompra.CarritoCompra.Add(producto);
+            DBUsuarios.AnnadirProductoCarrito(usuarioSesion,producto);
+
+        }
+
+        public static void EliminarProductoCarrito(Producto producto, Usuario usuarioSesion)
+        {
+            usuarioSesion.CarritoCompra.CarritoCompra.Remove(producto);
+            DBUsuarios.EliminarProductoCarrito(usuarioSesion,producto);
+
+        }
+
+        public static void AnnadirSaldo(Usuario usuario, decimal saldo)
+        {
+            DBUsuarios.ModificarSaldo(usuario,saldo);
+            usuario.Saldo += saldo;
+            
         }
 
         public static void ActualizarUsuariosDB()
         {
             Usuarios.Clear();
             DBUsuarios.CargarUsuariosDB(DBComerce.DBAccess);
+        }
+
+        public static bool HacerPedido(Usuario usuarioSesion)
+        {
+
+            decimal sumaProductos = SumaProductosCarrito(usuarioSesion);
+            if (sumaProductos <= usuarioSesion.Saldo)
+            {
+
+                sumaProductos = 0;
+                foreach (Producto producto in usuarioSesion.CarritoCompra.CarritoCompra)
+                {
+                    if (producto.Stock >= 0)
+                    {
+
+                        GestionComercio.GetProductoId(producto.IdProducto).Stock--;
+                        sumaProductos += producto.Precio;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"No queda mas stock de {producto.Nombre}");
+                    }
+
+                }
+                usuarioSesion.Saldo -= sumaProductos;
+                DBUsuarios.ModificarUsuario(usuarioSesion);
+                Console.WriteLine($"Pedido realizado.");
+                usuarioSesion.CarritoCompra.CarritoCompra.Clear();
+                return true;
+            }
+
+            return false;
+        }
+
+        public static decimal SumaProductosCarrito(Usuario usuarioSesion)
+        {
+            decimal sumaProductos = 0;
+            foreach (Producto producto in usuarioSesion.CarritoCompra.CarritoCompra)
+            {
+                    sumaProductos += producto.Precio;
+                
+            }
+
+            return sumaProductos;
+        }
+
+        public static decimal ConsultarSaldo(Usuario usuarioSesion)
+        {
+
+
+            return DBUsuarios.BuscarPorId(usuarioSesion.IdUsuario).Saldo;
+
+
         }
     }
 }

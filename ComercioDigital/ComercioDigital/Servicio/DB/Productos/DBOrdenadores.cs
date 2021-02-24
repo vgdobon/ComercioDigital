@@ -33,11 +33,11 @@ namespace ComercioDigital.Servicio.DB.Productos
             {
                 resul.Tecnologicos = new Tecnologicos();
 
-                if(resul.Tecnologicos.Productos == null)
+                if (resul.Tecnologicos.Productos == null)
                 {
                     resul.Tecnologicos.Productos = new Model.Productos();
                 }
-                
+
             }
             resul.Tecnologicos.Productos.Nombre = ordenadorDTO.Nombre;
             resul.Tecnologicos.Productos.Precio = ordenadorDTO.Precio;
@@ -64,6 +64,7 @@ namespace ComercioDigital.Servicio.DB.Productos
 
             Ordenadores nuevoOrdenador = MapOrdenadoresFromDTOToDB(ordenadorDTO);
             DBComerce.DBAccess.Ordenadores.Add(nuevoOrdenador);
+            DBComerce.DBAccess.Entry(nuevoOrdenador).State = System.Data.Entity.EntityState.Added;
             DBComerce.DBAccess.SaveChangesAsync();
 
         }

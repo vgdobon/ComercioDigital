@@ -14,29 +14,15 @@ namespace ComercioDigital.Model
     
     public partial class Modas
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Modas()
-        {
-            this.Bolsos = new HashSet<Bolsos>();
-            this.Calzados = new HashSet<Calzados>();
-            this.Joyas = new HashSet<Joyas>();
-            this.Ropas = new HashSet<Ropas>();
-        }
-    
         public int Id { get; set; }
-        public int IdProducto { get; set; }
         public string Color { get; set; }
         public string Material { get; set; }
         public string Sexo { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bolsos> Bolsos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Calzados> Calzados { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Joyas> Joyas { get; set; }
+        public virtual Bolsos Bolsos { get; set; }
+        public virtual Calzados Calzados { get; set; }
+        public virtual Joyas Joyas { get; set; }
         public virtual Productos Productos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ropas> Ropas { get; set; }
+        public virtual Ropas Ropas { get; set; }
     }
 }

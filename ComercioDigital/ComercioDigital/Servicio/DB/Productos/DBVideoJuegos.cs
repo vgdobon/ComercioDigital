@@ -33,7 +33,7 @@ namespace ComercioDigital.Servicio.DB.Productos
             if (resul.Multimedias == null)
             {
                 resul.Multimedias = new Multimedias();
-                if(resul.Multimedias.Productos == null)
+                if (resul.Multimedias.Productos == null)
                 {
                     resul.Multimedias.Productos = new Model.Productos();
                 }
@@ -63,7 +63,7 @@ namespace ComercioDigital.Servicio.DB.Productos
 
             Videojuegos nuevoVideoJuego = MapVideoJuegosFromDTOToDB(videojuegoDTO);
             DBComerce.DBAccess.Videojuegos.Add(nuevoVideoJuego);
-
+            DBComerce.DBAccess.Entry(nuevoVideoJuego).State = System.Data.Entity.EntityState.Added;
             DBComerce.DBAccess.SaveChangesAsync();
 
         }

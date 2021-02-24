@@ -4,19 +4,17 @@
     <EntitySetMapping Name="Bolsos">
       <EntityTypeMapping TypeName="eCommerceModel.Bolsos">
         <MappingFragment StoreEntitySet="Bolsos">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdModa" ColumnName="IdModa" />
           <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Calzados">
       <EntityTypeMapping TypeName="eCommerceModel.Calzados">
         <MappingFragment StoreEntitySet="Calzados">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdModa" ColumnName="IdModa" />
-          <ScalarProperty Name="Talla" ColumnName="Talla" />
           <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Talla" ColumnName="Talla" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -30,155 +28,146 @@
     <EntitySetMapping Name="Joyas">
       <EntityTypeMapping TypeName="eCommerceModel.Joyas">
         <MappingFragment StoreEntitySet="Joyas">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdModa" ColumnName="IdModa" />
           <ScalarProperty Name="Medida" ColumnName="Medida" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Modas">
       <EntityTypeMapping TypeName="eCommerceModel.Modas">
         <MappingFragment StoreEntitySet="Modas">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-          <ScalarProperty Name="Color" ColumnName="Color" />
-          <ScalarProperty Name="Material" ColumnName="Material" />
           <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Material" ColumnName="Material" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Moviles">
       <EntityTypeMapping TypeName="eCommerceModel.Moviles">
         <MappingFragment StoreEntitySet="Moviles">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdTecnologia" ColumnName="IdTecnologia" />
-          <ScalarProperty Name="Pantalla" ColumnName="Pantalla" />
           <ScalarProperty Name="Bateria" ColumnName="Bateria" />
+          <ScalarProperty Name="Pantalla" ColumnName="Pantalla" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Multimedias">
       <EntityTypeMapping TypeName="eCommerceModel.Multimedias">
         <MappingFragment StoreEntitySet="Multimedias">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-          <ScalarProperty Name="Genero" ColumnName="Genero" />
-          <ScalarProperty Name="Formato" ColumnName="Formato" />
-          <ScalarProperty Name="Idioma" ColumnName="Idioma" />
           <ScalarProperty Name="FechaLanzamiento" ColumnName="FechaLanzamiento" />
+          <ScalarProperty Name="Idioma" ColumnName="Idioma" />
+          <ScalarProperty Name="Formato" ColumnName="Formato" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Musicas">
       <EntityTypeMapping TypeName="eCommerceModel.Musicas">
         <MappingFragment StoreEntitySet="Musicas">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdMultimedia" ColumnName="IdMultimedia" />
           <ScalarProperty Name="Artista" ColumnName="Artista" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Ordenadores">
       <EntityTypeMapping TypeName="eCommerceModel.Ordenadores">
         <MappingFragment StoreEntitySet="Ordenadores">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdTecnologia" ColumnName="IdTecnologia" />
-          <ScalarProperty Name="PlacaBase" ColumnName="PlacaBase" />
           <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="PlacaBase" ColumnName="PlacaBase" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pedidos">
       <EntityTypeMapping TypeName="eCommerceModel.Pedidos">
         <MappingFragment StoreEntitySet="Pedidos">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Peliculas">
       <EntityTypeMapping TypeName="eCommerceModel.Peliculas">
         <MappingFragment StoreEntitySet="Peliculas">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdMultimedia" ColumnName="IdMultimedia" />
-          <ScalarProperty Name="Actores" ColumnName="Actores" />
-          <ScalarProperty Name="Director" ColumnName="Director" />
-          <ScalarProperty Name="EdadRecomendada" ColumnName="EdadRecomendada" />
           <ScalarProperty Name="Sinopsis" ColumnName="Sinopsis" />
+          <ScalarProperty Name="EdadRecomendada" ColumnName="EdadRecomendada" />
+          <ScalarProperty Name="Director" ColumnName="Director" />
+          <ScalarProperty Name="Actores" ColumnName="Actores" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Productos">
       <EntityTypeMapping TypeName="eCommerceModel.Productos">
         <MappingFragment StoreEntitySet="Productos">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Precio" ColumnName="Precio" />
-          <ScalarProperty Name="Marca" ColumnName="Marca" />
-          <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Valoracion" ColumnName="Valoracion" />
-          <ScalarProperty Name="FechaPuestaVenta" ColumnName="FechaPuestaVenta" />
-          <ScalarProperty Name="CodigoDescuento" ColumnName="CodigoDescuento" />
           <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="CodigoDescuento" ColumnName="CodigoDescuento" />
+          <ScalarProperty Name="FechaPuestaVenta" ColumnName="FechaPuestaVenta" />
+          <ScalarProperty Name="Valoracion" ColumnName="Valoracion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Ropas">
       <EntityTypeMapping TypeName="eCommerceModel.Ropas">
         <MappingFragment StoreEntitySet="Ropas">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdModa" ColumnName="IdModa" />
-          <ScalarProperty Name="Talla" ColumnName="Talla" />
           <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Talla" ColumnName="Talla" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="eCommerceModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Tecnologicos">
       <EntityTypeMapping TypeName="eCommerceModel.Tecnologicos">
         <MappingFragment StoreEntitySet="Tecnologicos">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
-          <ScalarProperty Name="Color" ColumnName="Color" />
-          <ScalarProperty Name="Procesador" ColumnName="Procesador" />
-          <ScalarProperty Name="SistemaOperativo" ColumnName="SistemaOperativo" />
-          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
           <ScalarProperty Name="FechaLanzamiento" ColumnName="FechaLanzamiento" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="SistemaOperativo" ColumnName="SistemaOperativo" />
+          <ScalarProperty Name="Procesador" ColumnName="Procesador" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
       <EntityTypeMapping TypeName="eCommerceModel.Usuarios">
         <MappingFragment StoreEntitySet="Usuarios">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Pass" ColumnName="Pass" />
-          <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
-          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
-          <ScalarProperty Name="IdCarrito" ColumnName="IdCarrito" />
           <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+          <ScalarProperty Name="IdCarrito" ColumnName="IdCarrito" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Vendedores">
       <EntityTypeMapping TypeName="eCommerceModel.Vendedores">
         <MappingFragment StoreEntitySet="Vendedores">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-          <ScalarProperty Name="Contrasenna" ColumnName="Contrasenna" />
           <ScalarProperty Name="Valoracion" ColumnName="Valoracion" />
+          <ScalarProperty Name="Contrasenna" ColumnName="Contrasenna" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -186,17 +175,15 @@
       <EntityTypeMapping TypeName="eCommerceModel.Videoconsolas">
         <MappingFragment StoreEntitySet="Videoconsolas">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdTecnologia" ColumnName="IdTecnologia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Videojuegos">
       <EntityTypeMapping TypeName="eCommerceModel.Videojuegos">
         <MappingFragment StoreEntitySet="Videojuegos">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdMultimedia" ColumnName="IdMultimedia" />
-          <ScalarProperty Name="Plataforma" ColumnName="Plataforma" />
           <ScalarProperty Name="EdadRecomendada" ColumnName="EdadRecomendada" />
+          <ScalarProperty Name="Plataforma" ColumnName="Plataforma" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -208,11 +195,11 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <AssociationSetMapping Name="CarritoProductos" TypeName="eCommerceModel.CarritoProductos" StoreEntitySet="CarritoProductos">
-      <EndProperty Name="Carritos">
-        <ScalarProperty Name="Id" ColumnName="IdCarrito" />
-      </EndProperty>
       <EndProperty Name="Productos">
         <ScalarProperty Name="Id" ColumnName="IdProducto" />
+      </EndProperty>
+      <EndProperty Name="Carritos">
+        <ScalarProperty Name="Id" ColumnName="IdCarrito" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

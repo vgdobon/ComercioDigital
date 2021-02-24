@@ -62,8 +62,8 @@ namespace ComercioDigital.Servicio.DB.Productos
 
             Bolsos nuevoBolso = MapBolsosFromDTOToDB(bolsoDTO);
             DBComerce.DBAccess.Bolsos.Add(nuevoBolso);
-
-            DBComerce.DBAccess.SaveChangesAsync();
+            DBComerce.DBAccess.Entry(nuevoBolso).State = System.Data.Entity.EntityState.Added;
+            DBComerce.DBAccess.SaveChanges();
 
         }
 

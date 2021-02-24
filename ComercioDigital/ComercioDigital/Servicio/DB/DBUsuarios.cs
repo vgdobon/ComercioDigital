@@ -85,12 +85,61 @@ namespace ComercioDigital.Servicio.DB
             DBComerce.DBAccess.SaveChanges();
         }
 
+        public static void ModificarSaldo(Usuario usuarioDTO, decimal s)
+        {
+            Usuarios usuarioDB = BuscarPorId(usuarioDTO.IdUsuario);
+            usuarioDB.Saldo += s;
+
+            DBComerce.DBAccess.Entry(usuarioDB).State = System.Data.Entity.EntityState.Modified;
+
+            DBComerce.DBAccess.SaveChangesAsync();
+
+        }
+
+        public static void ModificarNombre(Usuario usuarioDTO,string s) 
+        {
+            Usuarios usuarioDB = BuscarPorId(usuarioDTO.IdUsuario);
+            usuarioDB.Nombre = s;
+
+            DBComerce.DBAccess.Entry(usuarioDB).State = System.Data.Entity.EntityState.Modified;
+            
+            DBComerce.DBAccess.SaveChangesAsync();
+
+        }
+
+        public static void ModificarContrasena(Usuario usuarioDTO, string s)
+        {
+            Usuarios usuarioDB = BuscarPorId(usuarioDTO.IdUsuario);
+            usuarioDB.Pass = s;
+
+            DBComerce.DBAccess.Entry(usuarioDB).State = System.Data.Entity.EntityState.Modified;
+
+            DBComerce.DBAccess.SaveChangesAsync();
+
+        }
+
+
         public static void AnnadirProductoCarrito(Usuario usuarioDTO,Producto producto)
         {
             Usuarios usuarioDB = BuscarPorId(usuarioDTO.IdUsuario);
-            //Productos productoDB = DBProductos.BuscarPorId(producto.IdProducto);
-            //usuarioDB.Carritos.Productos.Add(productoDB);
-            //DBComerce.DBAccess.SaveChanges();
+            Model.Productos productoDB = DBProducto.BuscarPorId(producto.IdProducto);
+            usuarioDB.Carritos.Productos.Add(productoDB);
+            DBComerce.DBAccess.SaveChanges();
         }
+
+        public static void EliminarProductoCarrito(Usuario usuarioDTO, Producto producto)
+        {
+            Usuarios usuarioDB = BuscarPorId(usuarioDTO.IdUsuario);
+            Model.Productos productoDB = DBProducto.BuscarPorId(producto.IdProducto);
+            usuarioDB.Carritos.Productos.Remove(productoDB);
+            DBComerce.DBAccess.SaveChanges();
+        }
+        public static void HacerPedido(Usuario usuarioDTO)
+        {
+            Usuarios usuarioDB = BuscarPorId(usuarioDTO.IdUsuario);
+
+
+        }
+
     }
 }

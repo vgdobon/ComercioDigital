@@ -30,7 +30,7 @@ namespace ComercioDigital.Servicio.DB.Productos
         public static Moviles MapMovilesFromDTOToDB(Movil movilDTO)
         {
             Moviles resul = new Moviles();
-            if(resul.Tecnologicos == null)
+            if (resul.Tecnologicos == null)
             {
                 resul.Tecnologicos = new Tecnologicos();
 
@@ -67,6 +67,7 @@ namespace ComercioDigital.Servicio.DB.Productos
 
             Moviles nuevoMovil = MapMovilesFromDTOToDB(movilDTO);
             DBComerce.DBAccess.Moviles.Add(nuevoMovil);
+            DBComerce.DBAccess.Entry(nuevoMovil).State = System.Data.Entity.EntityState.Added;
             DBComerce.DBAccess.SaveChangesAsync();
 
         }

@@ -185,6 +185,7 @@ namespace ComercioDigital.Presentacion
 
                     if(GestionUsuarios.InsertarUsuario(new Usuario(nombreUsuarioRegistro, direccionUSuarioRegistro, contrasennaUsuarioRegistro)))
                     {
+                        Console.WriteLine("Has obtenido un premio de 10€ por registrarte!!");
                         Mensaje.SalirMenu("Usuario añadido correctamente \nVolviendo al menu principal");
                     }
                     else
@@ -199,15 +200,15 @@ namespace ComercioDigital.Presentacion
                 case 4:
 
                     Console.WriteLine("Registro de nuevo Vendedor");
-
-                    Console.Write("Nombre:");
+                    
+                    Console.Write("Nombre: ");
                     string nombreVendedor = Console.ReadLine();
 
-                    Console.Write("Direccion:");
+                    Console.Write("Direccion: ");
                     string direccionVendedor = Console.ReadLine();
 
 
-                    Console.Write("Contraseña:");
+                    Console.Write("Contraseña: ");
                     string contrasennaVendedor = Console.ReadLine();
 
                     
@@ -240,7 +241,7 @@ namespace ComercioDigital.Presentacion
             Console.WriteLine("2-Ingresar como Vendedor");
             Console.WriteLine("3-Registrarse como Usuario");
             Console.WriteLine("4-Registrarse como Vendedor");
-            Console.WriteLine("5-Salir");
+            Console.WriteLine("5-Salir\n");
 
         }
 
@@ -250,7 +251,7 @@ namespace ComercioDigital.Presentacion
             int opcionPrincipal;
             do
             {
-                Console.Write("Opcion Menu Principal:");
+                Console.Write("Opcion Menu Principal: ");
 
                 bool opcionPrincipalIsINt = int.TryParse(Console.ReadLine(), out opcionPrincipal);
 
@@ -260,12 +261,11 @@ namespace ComercioDigital.Presentacion
                 }
                 else
                 {
-                    Console.WriteLine("No has elegido una opción correcta");
+                    Console.WriteLine("\nNo has elegido una opción correcta\n");
                 }
             } while (!opcionCorrecta);
 
             return opcionPrincipal;
-
         }
     }
 }

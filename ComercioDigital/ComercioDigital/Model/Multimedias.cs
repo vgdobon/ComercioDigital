@@ -14,27 +14,15 @@ namespace ComercioDigital.Model
     
     public partial class Multimedias
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Multimedias()
-        {
-            this.Musicas = new HashSet<Musicas>();
-            this.Peliculas = new HashSet<Peliculas>();
-            this.Videojuegos = new HashSet<Videojuegos>();
-        }
-    
         public int Id { get; set; }
-        public int IdProducto { get; set; }
         public string Genero { get; set; }
         public string Formato { get; set; }
         public string Idioma { get; set; }
         public System.DateTime FechaLanzamiento { get; set; }
     
         public virtual Productos Productos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Musicas> Musicas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Peliculas> Peliculas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Videojuegos> Videojuegos { get; set; }
+        public virtual Musicas Musicas { get; set; }
+        public virtual Peliculas Peliculas { get; set; }
+        public virtual Videojuegos Videojuegos { get; set; }
     }
 }

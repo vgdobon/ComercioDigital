@@ -15,7 +15,6 @@ namespace ComercioDigital.Model
     public partial class Joyas
     {
         public int Id { get; set; }
-        public int IdModa { get; set; }
         public string Medida { get; set; }
     
         public virtual Modas Modas { get; set; }

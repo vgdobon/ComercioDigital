@@ -15,7 +15,6 @@ namespace ComercioDigital.Model
     public partial class Musicas
     {
         public int Id { get; set; }
-        public int IdMultimedia { get; set; }
         public string Artista { get; set; }
     
         public virtual Multimedias Multimedias { get; set; }

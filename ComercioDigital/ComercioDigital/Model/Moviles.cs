@@ -15,7 +15,6 @@ namespace ComercioDigital.Model
     public partial class Moviles
     {
         public int Id { get; set; }
-        public int IdTecnologia { get; set; }
         public double Pantalla { get; set; }
         public int Bateria { get; set; }
     

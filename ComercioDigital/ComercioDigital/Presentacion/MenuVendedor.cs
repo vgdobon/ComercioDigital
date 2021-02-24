@@ -67,20 +67,29 @@ namespace ComercioDigital.Presentacion
                         Console.WriteLine(producto);
                     }
 
-                    Console.WriteLine("Elija el id del producto que queire eliminar");
+                    Console.WriteLine("Elija el id del producto que quiere eliminar o 0 para cancelar: ");
+                 
                     bool opcionEliminarIsInt = int.TryParse(Console.ReadLine(), out int opcionEliminar);
-                    if (opcionEliminarIsInt)
+                    if (opcionEliminar != 0)
                     {
+                        if (opcionEliminarIsInt && GestionComercio.GetProductoId(opcionEliminar).Vendedor == vendedorSesion)
+                        {
 
-                            if (GestionComercio.EliminarProductoAlmacen(opcionEliminar))
-                            {
-                                Console.WriteLine("Producto Eliminado");
-                            }
-                            else
-                            {
-                                Console.WriteLine("Fallo al eliminar el producto");
-                            }
+                                if (GestionComercio.EliminarProductoAlmacen(opcionEliminar))
+                                {
+                                    Console.WriteLine("Producto Eliminado");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Fallo al eliminar el producto");
+                                }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No ha elegido un id correcto");
+                        }
                     }
+                    
 
                     Mensaje.PulsaTeclaSalir();
 
@@ -130,12 +139,13 @@ namespace ComercioDigital.Presentacion
                     
 
 
+                    
                     Mensaje.PulsaTeclaSalir();
                     break;
 
                 case 4:
-                    Console.WriteLine("Eliminar vendedor:");
-                    Console.WriteLine("Escriba su nombre de vendedor si está de acuerdo en eliminar su cuenta");
+                    Console.WriteLine("Eliminar vendedor");
+                    Console.Write("Escriba su nombre de vendedor si está de acuerdo en eliminar su cuenta:");
                     string confirmacionEliminacion = Console.ReadLine();
 
                     if (vendedorSesion.Nombre.Equals(confirmacionEliminacion))

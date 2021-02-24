@@ -14,28 +14,16 @@ namespace ComercioDigital.Model
     
     public partial class Tecnologicos
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tecnologicos()
-        {
-            this.Moviles = new HashSet<Moviles>();
-            this.Ordenadores = new HashSet<Ordenadores>();
-            this.Videoconsolas = new HashSet<Videoconsolas>();
-        }
-    
         public int Id { get; set; }
-        public int IdProducto { get; set; }
         public string Color { get; set; }
         public string Procesador { get; set; }
         public string SistemaOperativo { get; set; }
         public string Modelo { get; set; }
         public System.DateTime FechaLanzamiento { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Moviles> Moviles { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ordenadores> Ordenadores { get; set; }
+        public virtual Moviles Moviles { get; set; }
+        public virtual Ordenadores Ordenadores { get; set; }
         public virtual Productos Productos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Videoconsolas> Videoconsolas { get; set; }
+        public virtual Videoconsolas Videoconsolas { get; set; }
     }
 }

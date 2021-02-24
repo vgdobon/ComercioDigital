@@ -64,6 +64,7 @@ namespace ComercioDigital.Servicio.DB.Productos
             Calzados nuevoCalzado = MapCalzadosFromDTOToDB(calzadoDTO);
             DBComerce.DBAccess.Calzados.Add(nuevoCalzado);
 
+            DBComerce.DBAccess.Entry(nuevoCalzado).State = System.Data.Entity.EntityState.Added;
             DBComerce.DBAccess.SaveChangesAsync();
 
         }

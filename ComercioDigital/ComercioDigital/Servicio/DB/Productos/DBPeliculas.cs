@@ -65,8 +65,8 @@ namespace ComercioDigital.Servicio.DB.Productos
 
             Peliculas nuevaPelicula = MapPeliculaFromDTOToDB(peliculaDTO);
             DBComerce.DBAccess.Peliculas.Add(nuevaPelicula);
-
-            DBComerce.DBAccess.SaveChangesAsync();
+            DBComerce.DBAccess.Entry(nuevaPelicula).State = System.Data.Entity.EntityState.Added;
+            DBComerce.DBAccess.SaveChanges();
 
         }
     }

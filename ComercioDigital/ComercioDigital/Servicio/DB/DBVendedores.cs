@@ -62,14 +62,23 @@ namespace ComercioDigital.Servicio.DB
             DBComerce.DBAccess.SaveChanges();
         }
 
-        public static void ModificarVendedor(Vendedor vendedorDTO)
+        public static void ModificarNombreVendedor(Vendedor vendedorDTO,string nombre)
         {
+            
             Vendedores vendedorDB = BuscarPorId(vendedorDTO.IdVendedor);
-            int idBorrar = vendedorDTO.IdVendedor;
-            vendedorDB = MapVendedorFromDTOToDB(vendedorDTO);
-            DBComerce.DBAccess.Entry(vendedorDB).State = System.Data.Entity.EntityState.Added;
-            EliminarVendedor(idBorrar);
-            DBComerce.DBAccess.SaveChanges();
+            vendedorDB.Nombre = nombre;
+            DBComerce.DBAccess.Entry(vendedorDB).State = EntityState.Modified;
+
+            DBComerce.DBAccess.SaveChangesAsync();
+        }
+        public static void ModificarContrasenaVendedor(Vendedor vendedorDTO, string pass)
+        {
+
+            Vendedores vendedorDB = BuscarPorId(vendedorDTO.IdVendedor);
+            vendedorDB.Contrasenna = pass;
+            DBComerce.DBAccess.Entry(vendedorDB).State = System.Data.Entity.EntityState.Modified;
+
+            DBComerce.DBAccess.SaveChangesAsync();
         }
 
 
@@ -83,12 +92,12 @@ namespace ComercioDigital.Servicio.DB
         //        { 
         //            return true;        
         //        }
-                   
+
         //    }
         //    return false;
         //}
-            
-            
+
+
 
 
 

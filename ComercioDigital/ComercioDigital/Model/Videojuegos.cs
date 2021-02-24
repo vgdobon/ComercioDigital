@@ -15,7 +15,6 @@ namespace ComercioDigital.Model
     public partial class Videojuegos
     {
         public int Id { get; set; }
-        public int IdMultimedia { get; set; }
         public string Plataforma { get; set; }
         public int EdadRecomendada { get; set; }
     

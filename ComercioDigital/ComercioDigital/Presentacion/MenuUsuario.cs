@@ -31,16 +31,27 @@ namespace ComercioDigital.Presentacion
             
         }
 
+        private void MostrarMenuUsuarios()
+        {
+            Console.Clear();
+            Console.WriteLine("1-Tecnologia");
+            Console.WriteLine("2-Moda");
+            Console.WriteLine("3-Multimedia");
+            Console.WriteLine("4-Ver todos los productos");
+            Console.WriteLine("5-Cuenta");
+            Console.WriteLine("6-CarritoCompra");
+            Console.WriteLine("7-Eliminar cuenta");
+            Console.WriteLine("8-Salir\n");
+            Console.Write("Opcion Menu Principal:");
+        }
+
         public void EjecutarOpcionUsuario(int opcion,Usuario usuarioSesion)
         {
             bool existenProductos = false;
             switch (opcion)
             {
-                    
                 case 1:
-
                     
-
                     bool salirMenuTecnologia = false;
 
                     do
@@ -75,10 +86,7 @@ namespace ComercioDigital.Presentacion
 
                                         existenProductos = true;
                                     }
-                                    else
-                                    {
-                                        Console.WriteLine("No queda stock de ordenadores");
-                                    }
+                                   
 
                                     break;
 
@@ -97,8 +105,9 @@ namespace ComercioDigital.Presentacion
                                     }
                                     else
                                     {
-                                        Console.WriteLine("No queda stock de moviles");
+                                        existenProductos = false;
                                     }
+                                    
 
                                     break;
 
@@ -118,8 +127,10 @@ namespace ComercioDigital.Presentacion
                                     }
                                     else
                                     {
-                                        Console.WriteLine("No queda stock de videoconsolas");
+
+                                        existenProductos = false;
                                     }
+                                    
 
                                     break;
 
@@ -146,7 +157,7 @@ namespace ComercioDigital.Presentacion
                                     }
                                     else
                                     {
-                                        Console.WriteLine("No queda stock de productos de tecnologia");
+                                        existenProductos = false;
                                     }
 
                                     break;
@@ -160,47 +171,62 @@ namespace ComercioDigital.Presentacion
                             }
                         }
 
-                        if (!salirMenuTecnologia && existenProductos)
+                        if (!salirMenuTecnologia)
                         {
-                            Console.WriteLine("Escriba el id del producto que quieres añadir a tu carrito.");
-                            Console.Write("Id producto:");
-                            bool idProductoTecnologiaCarritoIsInt = int.TryParse(Console.ReadLine(),
-                                out int idProductoTecnologiaCarrito);
-                            if (idProductoTecnologiaCarritoIsInt &&
-                                GestionComercio.ExisteProductoId(idProductoTecnologiaCarrito))
+                            if (existenProductos)
                             {
-                                if (GestionComercio.GetProductoId(idProductoTecnologiaCarrito).Stock > 0)
+                                Console.WriteLine("Escriba el id del producto que quieres añadir a tu carrito o 0 para volver al menu usuario");
+                                Console.Write("Id producto:");
+                                bool idProductoTecnologiaCarritoIsInt = int.TryParse(Console.ReadLine(),
+                                    out int idProductoTecnologiaCarrito);
+                                if (idProductoTecnologiaCarrito != 0)
                                 {
+                                    if (idProductoTecnologiaCarritoIsInt &&
+                                    GestionComercio.ExisteProductoId(idProductoTecnologiaCarrito))
+                                    {
+                                        if (GestionComercio.GetProductoId(idProductoTecnologiaCarrito).Stock > 0)
+                                        {
 
-                                    usuarioSesion.CarritoCompra.CarritoCompra.Add(
-                                        GestionComercio.GetProductoId(idProductoTecnologiaCarrito));
-                                    Console.WriteLine(
-                                        $"Producto añadido al carrito correctamente: \n {GestionComercio.GetProductoId(idProductoTecnologiaCarrito).Nombre}");
+                                            GestionUsuarios.AnnadirProductoCarrito(GestionComercio.GetProductoId(idProductoTecnologiaCarrito), usuarioSesion);
+                                            Console.WriteLine(
+                                                $"Producto añadido al carrito correctamente: \n {GestionComercio.GetProductoId(idProductoTecnologiaCarrito).Nombre}");
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("No queda stock");
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Id de producto erróneo");
+                                    }
                                 }
                                 else
                                 {
-                                    Console.WriteLine("No queda stock");
+                                    salirMenuTecnologia = true;
                                 }
-
-                            }
-                            else
+                            }else
                             {
-                                Console.WriteLine("Id de producto erróneo");
+                                Mensaje.SalirMenu("No quedan productos de ese tipo.");
+                                salirMenuTecnologia = true;
                             }
+
+
                         }
-
-                        if (!salirMenuTecnologia)
-                            Mensaje.SalirMenu("Volviendo al menu tecnologia");
-
                         
 
+                        
+                        if (!salirMenuTecnologia)
+                        {
+                            Mensaje.SalirMenu("Volviendo al menu tecnologia");
+                        }
+                
                     } while (!salirMenuTecnologia);
 
                     Mensaje.SalirMenu("Volviendo al menu usuario");
 
                     break;
-
-
                 case 2:
                     bool salirMenuModa = false;
 
@@ -340,34 +366,51 @@ namespace ComercioDigital.Presentacion
                             }
                         }
 
-                        if (!salirMenuModa && existenProductos)
+                        if (!salirMenuModa)
                         {
-                            Console.WriteLine("Escriba el id del producto que quieres añadir a tu carrito.");
-                            Console.Write("Id producto:");
-                            bool idProductoModaCarritoIsInt = int.TryParse(Console.ReadLine(), out int idProductoModaCarrito);
-                            if (idProductoModaCarritoIsInt && GestionComercio.ExisteProductoId(idProductoModaCarrito))
+                            if (existenProductos)
                             {
-                               
-                                if (GestionComercio.GetProductoId(idProductoModaCarrito).Stock > 0)
-                                {
+                                    Console.WriteLine("Escriba el id del producto que quieres añadir a tu carrito o 0 para volver al menu usuario");
+                                    Console.Write("Id producto:");
+                                    bool idProductoModaCarritoIsInt = int.TryParse(Console.ReadLine(), out int idProductoModaCarrito);
+                                    if(idProductoModaCarrito != 0)
+                                    {
+                                
+                                        if (idProductoModaCarritoIsInt && GestionComercio.ExisteProductoId(idProductoModaCarrito))
+                                        {
 
-                                    usuarioSesion.CarritoCompra.CarritoCompra.Add(GestionComercio.GetProductoId(idProductoModaCarrito));
-                                    Console.WriteLine($"Producto añadido al carrito correctamente: \n {GestionComercio.GetProductoId(idProductoModaCarrito).Nombre}");
-                                }
-                                else
-                                {
-                                    Console.WriteLine("No queda stock");
-                                }
+                                            if (GestionComercio.GetProductoId(idProductoModaCarrito).Stock > 0)
+                                            {
 
-                            }
-                            else
+                                                GestionUsuarios.AnnadirProductoCarrito(GestionComercio.GetProductoId(idProductoModaCarrito), usuarioSesion);
+                                                Console.WriteLine($"Producto añadido al carrito correctamente: \n {GestionComercio.GetProductoId            (idProductoModaCarrito).Nombre}");
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("No queda stock");
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Id de producto erróneo");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        salirMenuModa = true;
+                                    }
+                                
+                            }else
                             {
-                                Console.WriteLine("Id de producto erróneo");
+                                Mensaje.SalirMenu("No quedan productos de ese tipo.");
+                                salirMenuModa = true;
                             }
+                            
                         }
-                    }
-                    
-                    
+                    } 
+
+
 
                     Mensaje.SalirMenu("Volviendo al menu usuario");
                     
@@ -490,40 +533,51 @@ namespace ComercioDigital.Presentacion
                         }
 
 
-                        if (!salirMenuMultimedia && existenProductos)
+                        if (!salirMenuMultimedia)
                         {
-
-                            Console.WriteLine("Escriba el id del producto que quieres añadir a tu carrito.");
-                            Console.Write("Id producto:");
-                            bool idProductoMultimediaCarritoIsInt =
-                                int.TryParse(Console.ReadLine(), out int idProductoMultimediaCarrito);
-                            if (idProductoMultimediaCarritoIsInt &&
-                                GestionComercio.ExisteProductoId(idProductoMultimediaCarrito))
+                            if (existenProductos)
                             {
-                                
-                                if (GestionComercio.GetProductoId(idProductoMultimediaCarrito).Stock > 0)
+                                Console.WriteLine("Escriba el id del producto que quieres añadir a tu carrito.");
+                                Console.Write("Id producto:");
+                                bool idProductoMultimediaCarritoIsInt =
+                                    int.TryParse(Console.ReadLine(), out int idProductoMultimediaCarrito);
+                                if (idProductoMultimediaCarrito != 0)
                                 {
+                                    if (idProductoMultimediaCarritoIsInt &&
+                                                                    GestionComercio.ExisteProductoId(idProductoMultimediaCarrito))
+                                    {
 
-                                    usuarioSesion.CarritoCompra.CarritoCompra.Add(
-                                        GestionComercio.GetProductoId(idProductoMultimediaCarrito));
-                                    Console.WriteLine(
-                                        $"Producto añadido al carrito correctamente: \n {GestionComercio.GetProductoId(idProductoMultimediaCarrito).Nombre}");
+                                        if (GestionComercio.GetProductoId(idProductoMultimediaCarrito).Stock > 0)
+                                        {
+                                            GestionUsuarios.AnnadirProductoCarrito(GestionComercio.GetProductoId(idProductoMultimediaCarrito), usuarioSesion);
+
+
+                                            Console.WriteLine(
+                                                $"Producto añadido al carrito correctamente: \n {GestionComercio.GetProductoId(idProductoMultimediaCarrito).Nombre}");
+                                        }
+                                        
+
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Id de producto erróneo");
+
+                                    }
                                 }
                                 else
                                 {
-                                    Console.WriteLine("No queda stock");
+                                    salirMenuMultimedia = true;
                                 }
-
                             }
                             else
                             {
-                                Console.WriteLine("Id de producto erróneo");
-                            }
-
+                                Mensaje.SalirMenu("No queda stock");
+                                salirMenuMultimedia = true;
+                            }                         
+                        }else
+                        {
                             Mensaje.SalirMenu("Volviendo al menu multimedia");
-
                         }
-
 
                     }
                     
@@ -555,34 +609,40 @@ namespace ComercioDigital.Presentacion
                     if (existenProductos)
                     {
 
-                        Console.WriteLine("Escriba el id del producto que quieres añadir a tu carrito.");
+                        Console.WriteLine("Escriba el id del producto que quieres añadir a tu carrito o 0 para volver al menu usuario");
                         Console.Write("Id producto:");
                         bool idProductoCarritoIsInt =
                             int.TryParse(Console.ReadLine(), out int idProductoCarrito);
-                        if (idProductoCarritoIsInt &&
-                            GestionComercio.ExisteProductoId(idProductoCarrito))
+                        if(idProductoCarrito != 0)
                         {
-                            usuarioSesion.CarritoCompra.CarritoCompra.Add(
-                                GestionComercio.GetProductoId(idProductoCarrito));
-                            if (GestionComercio.GetProductoId(idProductoCarrito).Stock > 0)
+                            if (idProductoCarritoIsInt &&
+                            GestionComercio.ExisteProductoId(idProductoCarrito))
                             {
-
                                 usuarioSesion.CarritoCompra.CarritoCompra.Add(
                                     GestionComercio.GetProductoId(idProductoCarrito));
-                                Console.WriteLine(
-                                    $"Producto añadido al carrito correctamente: \n {GestionComercio.GetProductoId(idProductoCarrito).Nombre}");
+                                if (GestionComercio.GetProductoId(idProductoCarrito).Stock > 0)
+                                {
+                                    GestionUsuarios.AnnadirProductoCarrito(GestionComercio.GetProductoId(idProductoCarrito), usuarioSesion);
+                                   
+                                    Console.WriteLine(
+                                        $"Producto añadido al carrito correctamente: \n {GestionComercio.GetProductoId(idProductoCarrito).Nombre}");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("No queda stock");
+                                }
+
                             }
                             else
                             {
-                                Console.WriteLine("No queda stock");
+                                Console.WriteLine("Id de producto erróneo");
                             }
-
                         }
-                        else
-                        {
-                            Console.WriteLine("Id de producto erróneo");
-                        }
-
+                    }
+                    else
+                    {
+                        Mensaje.SalirMenu("No quedan productos de ese tipo.");
+                        salirMenuModa = true;
                     }
 
                     Mensaje.SalirMenu("Volviendo al menu usuario");
@@ -621,10 +681,9 @@ namespace ComercioDigital.Presentacion
                                             {
                                                 case 1:
 
-                                                    Console.Write($"Saldo de la cuenta: {usuarioSesion.Saldo}");
+                                                    Console.Write($"Saldo de la cuenta: {GestionUsuarios.ConsultarSaldo(usuarioSesion)}");
 
-                                                    Console.WriteLine("Pulse una letra para continuar");
-                                                    Console.ReadKey();
+                                                    Mensaje.PulsaTeclaSalir();
                                                     break;
 
                                                 case 2:
@@ -634,14 +693,14 @@ namespace ComercioDigital.Presentacion
                                                     bool saldoIsFloat = decimal.TryParse(Console.ReadLine(), out decimal saldo);
                                                     if (saldoIsFloat)
                                                     {
-                                                        usuarioSesion.Saldo += saldo;
-                                                        Console.WriteLine($"Saldo añadido correctamente. Nuevo saldo: {usuarioSesion.Saldo} ");
+                                                        GestionUsuarios.AnnadirSaldo(usuarioSesion,saldo);
+
+                                                        Console.WriteLine($"Saldo añadido correctamente. Nuevo saldo: {GestionUsuarios.ConsultarSaldo(usuarioSesion)} ");
                                                     }
 
 
 
-                                                    Console.WriteLine("Pulse una letra para continuar");
-                                                    Console.ReadKey();
+                                                    Mensaje.PulsaTeclaSalir();
 
                                                     break;
 
@@ -742,37 +801,10 @@ namespace ComercioDigital.Presentacion
                             {
                                 case 1:
                                     Console.WriteLine("Hacer pedido");
-                                    decimal sumaProductos=0;
-                                    
-                                    
-                                    foreach (Producto producto in usuarioSesion.CarritoCompra.CarritoCompra)
-                                    {
-                                        if (producto.Stock > 0)
-                                        {
-                                            sumaProductos += producto.Precio;
-                                        }
-                                    }
 
-                                    if (sumaProductos <= usuarioSesion.Saldo)
-                                    {
 
-                                        sumaProductos = 0;
-                                        foreach (Producto producto in usuarioSesion.CarritoCompra.CarritoCompra)
-                                        {
-                                            if (producto.Stock >= 0)
-                                            {
-                                                GestionComercio.GetProductoId(producto.IdProducto).Stock--;
-                                                sumaProductos += producto.Precio;
-                                            }
-                                            else
-                                            {
-                                                Console.WriteLine($"No queda mas stock de {producto.Nombre}");
-                                            }
-                                            
-                                        }
-                                        usuarioSesion.Saldo -= sumaProductos;
-                                        Console.WriteLine($"Pedido realizado.");
-                                        usuarioSesion.CarritoCompra.CarritoCompra.Clear();
+                                    if (GestionUsuarios.HacerPedido(usuarioSesion))
+                                    {
 
                                     }
                                     else
@@ -786,27 +818,32 @@ namespace ComercioDigital.Presentacion
                                     break;
 
                                 case 2:
+
                                     Console.WriteLine("Eliminar producto del carrito");
                                     foreach (Producto producto in usuarioSesion.CarritoCompra.CarritoCompra)
                                     {
                                         Console.WriteLine(producto);
                                     }
 
-                                    Console.WriteLine("Introduzca el id del producto que quiere eliminar de su carrito");
+                                    Console.WriteLine("Introduzca el id del producto que quiere eliminar de su carrito o 0 para cancelar");
                                     bool idProductoEliminarIsInt = int.TryParse(Console.ReadLine(),out int idProductoEliminar);
 
-                                    Producto productoEliminar = null;
-
-                                    foreach (Producto producto in usuarioSesion.CarritoCompra.CarritoCompra)
+                                    if(idProductoEliminar != 0)
                                     {
-                                        if (producto.IdProducto == idProductoEliminar)
+                                        Producto productoEliminar = null;
+
+                                        foreach (Producto producto in usuarioSesion.CarritoCompra.CarritoCompra)
                                         {
-                                            productoEliminar = producto;
+                                            if (producto.IdProducto == idProductoEliminar)
+                                            {
+                                                productoEliminar = producto;
+
+                                            }
                                         }
+                                        GestionUsuarios.EliminarProductoCarrito(productoEliminar, usuarioSesion);
                                     }
-                                    usuarioSesion.CarritoCompra.CarritoCompra.Remove(productoEliminar);
-                                    Console.WriteLine("Pulse una letra para continuar");
-                                    Console.ReadKey();
+
+                                    Mensaje.PulsaTeclaSalir();
 
                                     break;
                                 case 3:
@@ -815,8 +852,7 @@ namespace ComercioDigital.Presentacion
 
                                     Console.WriteLine("Carrito limpio");
 
-                                    Console.WriteLine("Pulse una letra para continuar");
-                                    Console.ReadKey();
+                                    Mensaje.PulsaTeclaSalir();
                                     break;
 
 
@@ -859,8 +895,7 @@ namespace ComercioDigital.Presentacion
                         Mensaje.SalirMenu("Saliendo de la sesion de usuario");
                     }
 
-                    Console.WriteLine("Pulse una letra para continuar");
-                    Console.ReadKey();
+                    Mensaje.PulsaTeclaSalir();
 
 
 
@@ -893,19 +928,7 @@ namespace ComercioDigital.Presentacion
 
         }
 
-        private void MostrarMenuUsuarios()
-        {
-            Console.Clear();
-            Console.WriteLine("1-Tecnologia");
-            Console.WriteLine("2-Moda");
-            Console.WriteLine("3-Multimedia");
-            Console.WriteLine("4-Ver todos los productos");
-            Console.WriteLine("5-Cuenta");
-            Console.WriteLine("6-CarritoCompra");
-            Console.WriteLine("7-Eliminar cuenta");
-            Console.WriteLine("8-Salir\n");
-            Console.Write("Opcion Menu Principal:");
-        }
+        
 
     }
 }

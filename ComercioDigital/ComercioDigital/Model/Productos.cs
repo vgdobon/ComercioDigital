@@ -17,9 +17,6 @@ namespace ComercioDigital.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Productos()
         {
-            this.Modas = new HashSet<Modas>();
-            this.Multimedias = new HashSet<Multimedias>();
-            this.Tecnologicos = new HashSet<Tecnologicos>();
             this.Carritos = new HashSet<Carritos>();
         }
     
@@ -34,14 +31,11 @@ namespace ComercioDigital.Model
         public string CodigoDescuento { get; set; }
         public int Stock { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Modas> Modas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Multimedias> Multimedias { get; set; }
+        public virtual Modas Modas { get; set; }
+        public virtual Multimedias Multimedias { get; set; }
         public virtual Almacenes Almacenes { get; set; }
         public virtual Vendedores Vendedores { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tecnologicos> Tecnologicos { get; set; }
+        public virtual Tecnologicos Tecnologicos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Carritos> Carritos { get; set; }
     }

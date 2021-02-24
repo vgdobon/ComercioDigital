@@ -27,6 +27,7 @@ namespace ComercioDigital.Presentacion
             do
             {
                 MostrarMenuProducto();
+                
                 opcionTemp = RecogerOpcionMenu();
                 if (opcionTemp > 0 && opcionTemp < 5)
                 {
@@ -431,6 +432,8 @@ namespace ComercioDigital.Presentacion
 
         private int RecogerOpcionMenu()
         {
+
+            Console.WriteLine("Introduza una opción: ");
             var opcionMenuisInt = int.TryParse(Console.ReadLine(), out var opcionMenu);
             if (opcionMenuisInt)
             {
