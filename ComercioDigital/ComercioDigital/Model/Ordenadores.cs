@@ -19,5 +19,27 @@ namespace ComercioDigital.Model
         public string Tipo { get; set; }
     
         public virtual Tecnologicos Tecnologicos { get; set; }
+
+        public static implicit operator Ordenadores(Productos v)
+        {
+            Ordenadores resul = new Ordenadores();
+            resul.Tecnologicos.Productos.Nombre = v.Nombre;
+            resul.Tecnologicos.Productos.Precio = v.Precio;
+            resul.Tecnologicos.Productos.Marca = v.Marca;
+            resul.Tecnologicos.Productos.IdVendedor = v.IdVendedor;
+            resul.Tecnologicos.Productos.Descripcion = v.Descripcion;
+            resul.Tecnologicos.Productos.Valoracion = v.Valoracion;
+            resul.Tecnologicos.Productos.FechaPuestaVenta = v.FechaPuestaVenta;
+            resul.Tecnologicos.Productos.CodigoDescuento = v.CodigoDescuento;
+            resul.Tecnologicos.Productos.Stock = v.Stock;
+            resul.Tecnologicos.Color = v.Tecnologicos.Color;
+            resul.Tecnologicos.Procesador = v.Tecnologicos.Procesador;
+            resul.Tecnologicos.SistemaOperativo = v.Tecnologicos.SistemaOperativo;
+            resul.Tecnologicos.Modelo = v.Tecnologicos.Modelo;
+            resul.Tecnologicos.FechaLanzamiento = v.Tecnologicos.FechaLanzamiento;
+            resul.PlacaBase = v.Tecnologicos.Ordenadores.PlacaBase;
+            resul.Tipo = v.Tecnologicos.Ordenadores.Tipo;
+            return resul;
+        }
     }
 }

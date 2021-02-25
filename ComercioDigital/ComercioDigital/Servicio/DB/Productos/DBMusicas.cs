@@ -1,10 +1,5 @@
 ﻿using ComercioDigital.DTOs.Productos.Multimedia;
 using ComercioDigital.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ComercioDigital.Servicio.DB.Productos
 {
@@ -22,7 +17,7 @@ namespace ComercioDigital.Servicio.DB.Productos
         {
 
             Musica resul = new Musica(musicasdB.Multimedias.Productos.Id, musicasdB.Multimedias.Productos.Nombre, musicasdB.Multimedias.Productos.Marca, musicasdB.Multimedias.Productos.Precio, GestionVendedores.BuscarPorId(musicasdB.Multimedias.Productos.IdVendedor), musicasdB.Multimedias.Productos.Descripcion, musicasdB.Multimedias.Productos.FechaPuestaVenta, musicasdB.Multimedias.Productos.CodigoDescuento,
-                musicasdB.Multimedias.Productos.Stock,musicasdB.Multimedias.Genero, musicasdB.Multimedias.Formato,musicasdB.Multimedias.Idioma, musicasdB.Multimedias.FechaLanzamiento,musicasdB.Artista);
+                musicasdB.Multimedias.Productos.Stock, musicasdB.Multimedias.Genero, musicasdB.Multimedias.Formato, musicasdB.Multimedias.Idioma, musicasdB.Multimedias.FechaLanzamiento, musicasdB.Artista);
             return resul;
         }
 
@@ -53,19 +48,16 @@ namespace ComercioDigital.Servicio.DB.Productos
             resul.Multimedias.Productos.FechaPuestaVenta = musicaDTO.FechaPuestaVenta;
             resul.Multimedias.Productos.CodigoDescuento = musicaDTO.CodigoDescuento;
             resul.Multimedias.Productos.Stock = musicaDTO.Stock;
-           
 
             return resul;
         }
 
         public static void AnnadirMusica(Musica musicaDTO)
         {
-
-                Musicas nuevaMusica = MapMusicasFromDTOToDB(musicaDTO);
-                DBComerce.DBAccess.Musicas.Add(nuevaMusica);
-                DBComerce.DBAccess.Entry(nuevaMusica).State = System.Data.Entity.EntityState.Added;
-                DBComerce.DBAccess.SaveChangesAsync();
-
+            Musicas nuevaMusica = MapMusicasFromDTOToDB(musicaDTO);
+            DBComerce.DBAccess.Musicas.Add(nuevaMusica);
+            DBComerce.DBAccess.Entry(nuevaMusica).State = System.Data.Entity.EntityState.Added;
+            DBComerce.DBAccess.SaveChangesAsync();
         }
     }
 }

@@ -18,5 +18,25 @@ namespace ComercioDigital.Model
         public string Artista { get; set; }
     
         public virtual Multimedias Multimedias { get; set; }
+
+        public static implicit operator Musicas(Productos v)
+        {
+            Musicas resul = new Musicas();
+            resul.Artista = v.Multimedias.Musicas.Artista;
+            resul.Multimedias.Genero = v.Multimedias.Genero;
+            resul.Multimedias.Formato = v.Multimedias.Formato;
+            resul.Multimedias.Idioma = v.Multimedias.Idioma;
+            resul.Multimedias.FechaLanzamiento = v.Multimedias.FechaLanzamiento;
+            resul.Multimedias.Productos.Nombre = v.Nombre;
+            resul.Multimedias.Productos.Precio = v.Precio;
+            resul.Multimedias.Productos.Marca = v.Marca;
+            resul.Multimedias.Productos.IdVendedor = v.IdVendedor;
+            resul.Multimedias.Productos.Descripcion = v.Descripcion;
+            resul.Multimedias.Productos.Valoracion = v.Valoracion;
+            resul.Multimedias.Productos.FechaPuestaVenta = v.FechaPuestaVenta;
+            resul.Multimedias.Productos.CodigoDescuento = v.CodigoDescuento;
+            resul.Multimedias.Productos.Stock = v.Stock;
+            return resul;
+        }
     }
 }

@@ -237,7 +237,9 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CarritoProductos_Carritos">
-          <End Role="Carritos" Type="Self.Carritos" Multiplicity="1" />
+          <End Role="Carritos" Type="Self.Carritos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="CarritoProductos" Type="Self.CarritoProductos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Carritos">
@@ -249,7 +251,9 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CarritoProductos_Productos">
-          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="CarritoProductos" Type="Self.CarritoProductos" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Productos">
@@ -347,6 +351,9 @@ advertencia 6013: La tabla o vista 'eCommerce.dbo.PedidoProductos' no tiene defi
         <!--Errores durante la generación:
 error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProductos', pero no se encuentra la tabla.
         <Association Name="FK_PedidoProductos_Pedidos" />-->
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProductos', pero no se encuentra la tabla.
+        <Association Name="FK_PedidoProductos_Productos" />-->
         <Association Name="FK_Peliculas_Multimedias">
           <End Role="Multimedias" Type="Self.Multimedias" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -478,11 +485,11 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
     [Almacenes].[IdProducto] AS [IdProducto]
     FROM [dbo].[Almacenes] AS [Almacenes]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="CarritoProductos" EntityType="Self.CarritoProductos" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
+          <EntitySet Name="CarritoProductos" EntityType="Self.CarritoProductos" store:Type="Tables" Schema="dbo">
+            <!--<DefiningQuery>SELECT 
     [CarritoProductos].[IdCarrito] AS [IdCarrito], 
     [CarritoProductos].[IdProducto] AS [IdProducto]
-    FROM [dbo].[CarritoProductos] AS [CarritoProductos]</DefiningQuery>
+    FROM [dbo].[CarritoProductos] AS [CarritoProductos]</DefiningQuery>-->
           </EntitySet>
           <AssociationSet Name="FK_almacenes_Productos" Association="Self.FK_almacenes_Productos">
             <End Role="Productos" EntitySet="Productos" />

@@ -31,8 +31,26 @@ namespace ComercioDigital.Servicio.DB
 
         public static void EliminarProducto(int id)
         {
+            Model.Productos productoElminar = DBComerce.DBAccess.Productos.FirstOrDefault(x => x.Id == id);
+            DBComerce.DBAccess.Productos.Remove(productoElminar);
+            DBComerce.DBAccess.Entry(productoElminar).State = EntityState.Deleted;
+            DBComerce.DBAccess.SaveChanges();
+        }
 
-            DBComerce.DBAccess.Productos.Remove(DBComerce.DBAccess.Productos.FirstOrDefault(x => x.Id == id));
+        public static void EliminarProductosVendedor(Vendedor vendedorDto)
+        {
+            foreach (Model.Productos producto in DBComerce.DBAccess.Productos)
+            {
+                if(producto.Vendedores.Id == vendedorDto.IdVendedor)
+                {
+                    DBComerce.DBAccess.Productos.Remove(producto);
+                    DBComerce.DBAccess.Entry(producto).State = EntityState.Deleted;
+                    DBComerce.DBAccess.SaveChangesAsync();
+
+                }
+            }
+            
+            
         }
 
         public static Model.Productos BuscarPorId(int id)

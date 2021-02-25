@@ -1,6 +1,7 @@
 ﻿using ComercioDigital.DTOs.Personas;
 using ComercioDigital.DTOs.Productos;
 using ComercioDigital.Model;
+using ComercioDigital.Servicio.DB.Productos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,13 +27,25 @@ namespace ComercioDigital.Servicio.DB
             Usuario resul = new Usuario(usuarioDB.Nombre,usuarioDB.Domicilio,usuarioDB.Pass,usuarioDB.Saldo,usuarioDB.Id);
             foreach(Carritos carrito in DBComerce.DBAccess.Carritos)
             {
-                if(carrito.Usuarios == usuarioDB)
+                if(usuarioDB.IdCarrito == carrito.Id)
                 {
-                    resul.CarritoCompra.CarritoCompra.Add((DTOs.Productos.Producto)carrito.Productos);
+                    foreach(Model.Productos productoCarritoDB in carrito.Productos)
+                    {
+
+                        if(productoCarritoDB is Bolsos)
+                        {
+                            Bolsos bolso = productoCarritoDB;
+                        }
+                        if (productoCarritoDB is Musicas)
+                        {
+                            Musicas musica =  productoCarritoDB;
+                        }
+                        
+                    }
+                
+                    
                 }
             }
-            
-                //.Where(x => x.Id == usuarioDB.IdCarrito));
 
             return resul;
         }
@@ -107,13 +120,19 @@ namespace ComercioDigital.Servicio.DB
 
         }
 
+        public static void LimpiarCarrito(Usuario usuario)
+        {
+            Usuarios usuarioDB = BuscarPorId(usuario.IdUsuario);
+            usuarioDB.Carritos.Productos.Clear();
+            DBComerce.DBAccess.SaveChanges();
+        }
+
         public static void ModificarContrasena(Usuario usuarioDTO, string s)
         {
             Usuarios usuarioDB = BuscarPorId(usuarioDTO.IdUsuario);
             usuarioDB.Pass = s;
 
             DBComerce.DBAccess.Entry(usuarioDB).State = System.Data.Entity.EntityState.Modified;
-
             DBComerce.DBAccess.SaveChangesAsync();
 
         }
@@ -141,5 +160,10 @@ namespace ComercioDigital.Servicio.DB
 
         }
 
+        internal static int ProductosCarrito(Usuario usuario)
+        {
+            Usuarios usuarioDB = BuscarPorId(usuario.IdUsuario);
+            return usuarioDB.Carritos.Productos.Count();
+        }
     }
 }

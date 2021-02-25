@@ -34,6 +34,7 @@ namespace ComercioDigital.Servicio
             if (usuario != null)
             {
                 Usuarios.Add(usuario);
+                
                 return true;
             }
 
@@ -121,9 +122,16 @@ namespace ComercioDigital.Servicio
 
         public static void EliminarProductoCarrito(Producto producto, Usuario usuarioSesion)
         {
-            usuarioSesion.CarritoCompra.CarritoCompra.Remove(producto);
+            
             DBUsuarios.EliminarProductoCarrito(usuarioSesion,producto);
+            usuarioSesion.CarritoCompra.CarritoCompra.Remove(producto);
 
+        }
+
+        public static void LimpiarCarrito(Usuario usuario)
+        {
+            DBUsuarios.LimpiarCarrito(usuario);
+            usuario.CarritoCompra.CarritoCompra.Clear();
         }
 
         public static void AnnadirSaldo(Usuario usuario, decimal saldo)
@@ -191,5 +199,15 @@ namespace ComercioDigital.Servicio
 
 
         }
+
+        public static int ProductosCarrito(Usuario usuario)
+        {
+            return DBUsuarios.ProductosCarrito(usuario);
+        }
+
+        //public static List<Producto> ListadoProductosCarrito()
+        //{
+
+        //}
     }
 }

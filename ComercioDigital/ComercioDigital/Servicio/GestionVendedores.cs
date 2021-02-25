@@ -80,8 +80,11 @@ namespace ComercioDigital.Servicio
             ActualizarVendedoresBD();
             if (vendedor != null)
             {
-                Vendedores.Remove(vendedor);
+                DBProducto.EliminarProductosVendedor(vendedor);
                 DBVendedores.EliminarVendedor(vendedor.IdVendedor);
+                
+                
+                Vendedores.Remove(vendedor);
                 return true;
             }
 

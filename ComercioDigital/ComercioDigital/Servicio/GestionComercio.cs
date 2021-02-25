@@ -95,6 +95,7 @@ namespace ComercioDigital.Servicio
                 {
                     DBProducto.EliminarProducto(producto.IdProducto);
                     Almacen.AlmacenProductos.Remove(producto);
+                    
                     return true;
                 }
             }

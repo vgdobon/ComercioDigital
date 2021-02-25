@@ -19,5 +19,26 @@ namespace ComercioDigital.Model
         public int EdadRecomendada { get; set; }
     
         public virtual Multimedias Multimedias { get; set; }
+
+        public static implicit operator Videojuegos(Productos v)
+        {
+            Videojuegos resul = new Videojuegos();
+            resul.EdadRecomendada = v.Multimedias.Videojuegos.EdadRecomendada;
+            resul.Plataforma = v.Multimedias.Videojuegos.Plataforma;
+            resul.Multimedias.Genero = v.Multimedias.Genero;
+            resul.Multimedias.Formato = v.Multimedias.Formato;
+            resul.Multimedias.Idioma = v.Multimedias.Idioma;
+            resul.Multimedias.FechaLanzamiento = v.Multimedias.FechaLanzamiento;
+            resul.Multimedias.Productos.Nombre = v.Nombre;
+            resul.Multimedias.Productos.Precio = v.Precio;
+            resul.Multimedias.Productos.Marca = v.Marca;
+            resul.Multimedias.Productos.IdVendedor = v.IdVendedor;
+            resul.Multimedias.Productos.Descripcion = v.Descripcion;
+            resul.Multimedias.Productos.Valoracion = v.Valoracion;
+            resul.Multimedias.Productos.FechaPuestaVenta = v.FechaPuestaVenta;
+            resul.Multimedias.Productos.CodigoDescuento = v.CodigoDescuento;
+            resul.Multimedias.Productos.Stock = v.Stock;
+            return resul;
+        }
     }
 }

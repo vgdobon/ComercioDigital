@@ -782,7 +782,7 @@ namespace ComercioDigital.Presentacion
 
                     Console.WriteLine("CARRITO");
 
-                    if (usuarioSesion.CarritoCompra.CarritoCompra.Count > 0)
+                    if (GestionUsuarios.ProductosCarrito(usuarioSesion) > 0 )
                     {
                         foreach (Producto productoCarrito in usuarioSesion.CarritoCompra.CarritoCompra)
                         {
@@ -848,7 +848,7 @@ namespace ComercioDigital.Presentacion
                                     break;
                                 case 3:
                                     Console.WriteLine("Eliminando el carrito completo");
-                                    usuarioSesion.CarritoCompra.CarritoCompra.Clear();
+                                    GestionUsuarios.LimpiarCarrito(usuarioSesion);
 
                                     Console.WriteLine("Carrito limpio");
 

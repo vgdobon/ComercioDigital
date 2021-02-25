@@ -27,7 +27,7 @@ namespace ComercioDigital.DTOs.Personas
             Domicilio = domicilio?? throw new ArgumentNullException(nameof(domicilio));
             CarritoCompra = new Carrito();
             Pedido = new List<Producto>();
-            Saldo = 10.00M;
+            
         }
 
         public Usuario(string nombre, string domicilio, string password,decimal Saldo,int id)
@@ -38,7 +38,7 @@ namespace ComercioDigital.DTOs.Personas
             CarritoCompra = new Carrito();
             Pedido = new List<Producto>();
             IdUsuario = id;
-            Saldo = 10.00M;
+            Saldo = Saldo;
         }
 
 

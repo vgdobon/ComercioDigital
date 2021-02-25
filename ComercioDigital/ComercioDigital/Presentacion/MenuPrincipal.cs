@@ -193,8 +193,6 @@ namespace ComercioDigital.Presentacion
                         Mensaje.SalirMenu("Ha ocurrido un error en el registro de usuario.Vuelva a intentarlo de nuevo. \nVolviendo al menu principal");
                     }
 
-                    
-
                     break;
 
                 case 4:
@@ -206,7 +204,6 @@ namespace ComercioDigital.Presentacion
 
                     Console.Write("Direccion: ");
                     string direccionVendedor = Console.ReadLine();
-
 
                     Console.Write("Contraseña: ");
                     string contrasennaVendedor = Console.ReadLine();

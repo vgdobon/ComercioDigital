@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ComercioDigital",
+    "\\ComercioDigital\\ComercioDigital",
+    "\\ComercioDigital\\ComercioDigital\\Presentacion"
   ],
-  "SelectedNode": "\\ComercioDigital.sln",
+  "SelectedNode": "\\ComercioDigital\\ComercioDigital\\Presentacion\\MenuPrincipal.cs",
   "PreviewInSolutionExplorer": false
 }

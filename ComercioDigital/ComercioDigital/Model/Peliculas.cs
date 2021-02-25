@@ -21,5 +21,28 @@ namespace ComercioDigital.Model
         public string Sinopsis { get; set; }
     
         public virtual Multimedias Multimedias { get; set; }
+
+        public static implicit operator Peliculas(Productos v)
+        {
+            Peliculas resul = new Peliculas();
+            resul.Actores = v.Multimedias.Peliculas.Actores;
+            resul.Director = v.Multimedias.Peliculas.Director;
+            resul.EdadRecomendada = v.Multimedias.Peliculas.EdadRecomendada;
+            resul.Sinopsis = v.Multimedias.Peliculas.Sinopsis;
+            resul.Multimedias.Genero = v.Multimedias.Genero;
+            resul.Multimedias.Formato = v.Multimedias.Formato;
+            resul.Multimedias.Idioma = v.Multimedias.Idioma;
+            resul.Multimedias.FechaLanzamiento = v.Multimedias.FechaLanzamiento;
+            resul.Multimedias.Productos.Nombre = v.Nombre;
+            resul.Multimedias.Productos.Precio = v.Precio;
+            resul.Multimedias.Productos.Marca = v.Marca;
+            resul.Multimedias.Productos.IdVendedor = v.IdVendedor;
+            resul.Multimedias.Productos.Descripcion = v.Descripcion;
+            resul.Multimedias.Productos.Valoracion = v.Valoracion;
+            resul.Multimedias.Productos.FechaPuestaVenta = v.FechaPuestaVenta;
+            resul.Multimedias.Productos.CodigoDescuento = v.CodigoDescuento;
+            resul.Multimedias.Productos.Stock = v.Stock;
+            return resul;
+        }
     }
 }

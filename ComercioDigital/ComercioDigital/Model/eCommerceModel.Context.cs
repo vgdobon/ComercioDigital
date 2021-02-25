@@ -25,7 +25,7 @@ namespace ComercioDigital.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Bolsos> Bolsos { get; set; }
+        public virtual DbSet<Musicas> Bolsos { get; set; }
         public virtual DbSet<Calzados> Calzados { get; set; }
         public virtual DbSet<Carritos> Carritos { get; set; }
         public virtual DbSet<Joyas> Joyas { get; set; }
