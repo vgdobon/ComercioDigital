@@ -38,5 +38,6 @@ namespace ComercioDigital.Model
 
             return resul;
         }
+
     }
 }

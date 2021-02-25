@@ -40,6 +40,7 @@ namespace ComercioDigital.Servicio.DB.Productos
 
 
             }
+
             resul.Modas.Productos.Nombre = bolsoDTO.Nombre;
             resul.Modas.Productos.Precio = bolsoDTO.Precio;
             resul.Modas.Productos.Marca = bolsoDTO.Marca;
@@ -59,12 +60,10 @@ namespace ComercioDigital.Servicio.DB.Productos
 
         public static void AnnadirBolso(Bolso bolsoDTO)
         {
-
             Bolsos nuevoBolso = MapBolsosFromDTOToDB(bolsoDTO);
             DBComerce.DBAccess.Bolsos.Add(nuevoBolso);
             DBComerce.DBAccess.Entry(nuevoBolso).State = System.Data.Entity.EntityState.Added;
             DBComerce.DBAccess.SaveChanges();
-
         }
 
     }

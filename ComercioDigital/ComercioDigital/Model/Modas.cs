@@ -19,7 +19,7 @@ namespace ComercioDigital.Model
         public string Material { get; set; }
         public string Sexo { get; set; }
     
-        public virtual Musicas Bolsos { get; set; }
+        public virtual Bolsos Bolsos { get; set; }
         public virtual Calzados Calzados { get; set; }
         public virtual Joyas Joyas { get; set; }
         public virtual Productos Productos { get; set; }

@@ -170,10 +170,10 @@ namespace ComercioDigital.Servicio
             return filtroProductos;
         }
 
-        public static void EntregarProducto(Producto producto)
-        {
+        //public static void EntregarProducto(Producto producto)
+        //{
 
-        }
+        //}
 
         public static bool ExistenProductosTipo(Type type)
         {

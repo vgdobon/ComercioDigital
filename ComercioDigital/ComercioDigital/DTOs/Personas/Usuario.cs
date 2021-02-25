@@ -12,13 +12,10 @@ namespace ComercioDigital.DTOs.Personas
         public string Nombre { get; set; }
         public string Password { get; set; }
         public string Domicilio { get; set; }
-        public Carrito CarritoCompra { get; set; }
+        public Carrito CarritoCompra{ get; set; }
         public List<Producto> Pedido { get; set; }
-        
         public int IdUsuario { get; }
-
         public decimal Saldo { get; set; }
-
 
         public Usuario(string nombre, string domicilio,string password )
         {
@@ -27,10 +24,9 @@ namespace ComercioDigital.DTOs.Personas
             Domicilio = domicilio?? throw new ArgumentNullException(nameof(domicilio));
             CarritoCompra = new Carrito();
             Pedido = new List<Producto>();
-            
         }
 
-        public Usuario(string nombre, string domicilio, string password,decimal Saldo,int id)
+        public Usuario(string nombre, string domicilio, string password,decimal saldo,int id)
         {
             Nombre = nombre ?? throw new ArgumentNullException(nameof(nombre));
             Password = password ?? throw new ArgumentNullException(nameof(password));
@@ -38,9 +34,7 @@ namespace ComercioDigital.DTOs.Personas
             CarritoCompra = new Carrito();
             Pedido = new List<Producto>();
             IdUsuario = id;
-            Saldo = Saldo;
+            Saldo = saldo;
         }
-
-
     }
 }

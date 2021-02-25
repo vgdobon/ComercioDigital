@@ -35,7 +35,7 @@ namespace ComercioDigital.Model
             resul.Tecnologicos.SistemaOperativo = v.Tecnologicos.SistemaOperativo;
             resul.Tecnologicos.Modelo = v.Tecnologicos.Modelo;
             resul.Tecnologicos.FechaLanzamiento = v.Tecnologicos.FechaLanzamiento;
-           
+
             return resul;
         }
     }

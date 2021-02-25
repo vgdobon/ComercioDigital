@@ -41,5 +41,6 @@ namespace ComercioDigital.Model
             resul.Tipo = v.Tecnologicos.Ordenadores.Tipo;
             return resul;
         }
+
     }
 }

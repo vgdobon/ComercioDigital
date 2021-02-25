@@ -25,26 +25,22 @@ namespace ComercioDigital.Servicio.DB
         public static Usuario MapUsuarioFromDBToDTO(Usuarios usuarioDB)
         {
             Usuario resul = new Usuario(usuarioDB.Nombre,usuarioDB.Domicilio,usuarioDB.Pass,usuarioDB.Saldo,usuarioDB.Id);
-            foreach(Carritos carrito in DBComerce.DBAccess.Carritos)
+            foreach(Model.Productos productoCarritoDB in usuarioDB.Carritos.Productos)
             {
-                if(usuarioDB.IdCarrito == carrito.Id)
-                {
-                    foreach(Model.Productos productoCarritoDB in carrito.Productos)
-                    {
 
-                        if(productoCarritoDB is Bolsos)
-                        {
-                            Bolsos bolso = productoCarritoDB;
-                        }
-                        if (productoCarritoDB is Musicas)
-                        {
-                            Musicas musica =  productoCarritoDB;
-                        }
-                        
-                    }
-                
+                //resul.usuarioSesion.CarritoCompra.CarritoCompra.Add(productoCarritoDB);
+
+                  if(productoCarritoDB is Bolsos)
+                  {
+                       Bolsos bolso = productoCarritoDB;
+                        resul.CarritoCompra.CarritoCompra.Add(DBBolsos.MapBolsosFromDBToDTO(productoCarritoDB));
+                            
+                  }
+                  if (productoCarritoDB is Musicas)
+                  {
+                       Musicas musica =  productoCarritoDB;
+                  }
                     
-                }
             }
 
             return resul;

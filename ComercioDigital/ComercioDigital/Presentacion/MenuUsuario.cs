@@ -556,7 +556,6 @@ namespace ComercioDigital.Presentacion
                                                 $"Producto añadido al carrito correctamente: \n {GestionComercio.GetProductoId(idProductoMultimediaCarrito).Nombre}");
                                         }
                                         
-
                                     }
                                     else
                                     {
@@ -698,8 +697,6 @@ namespace ComercioDigital.Presentacion
                                                         Console.WriteLine($"Saldo añadido correctamente. Nuevo saldo: {GestionUsuarios.ConsultarSaldo(usuarioSesion)} ");
                                                     }
 
-
-
                                                     Mensaje.PulsaTeclaSalir();
 
                                                     break;
@@ -711,7 +708,6 @@ namespace ComercioDigital.Presentacion
                                                     break;
                                             }
                                         }
-
                                     }
 
                                     break;

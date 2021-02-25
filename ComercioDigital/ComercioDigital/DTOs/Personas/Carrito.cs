@@ -11,7 +11,7 @@ namespace ComercioDigital.DTOs.Personas
     {
 
         public List<Producto> CarritoCompra { get; set; }
-        public int idCarrito { get; set; }
+        public int IdCarrito { get; set; }
         public Carrito()
         {
             CarritoCompra = new List<Producto>();

@@ -46,11 +46,8 @@ namespace ComercioDigital.Servicio.DB
                     DBComerce.DBAccess.Productos.Remove(producto);
                     DBComerce.DBAccess.Entry(producto).State = EntityState.Deleted;
                     DBComerce.DBAccess.SaveChangesAsync();
-
                 }
             }
-            
-            
         }
 
         public static Model.Productos BuscarPorId(int id)

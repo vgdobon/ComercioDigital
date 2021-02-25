@@ -11,7 +11,7 @@ namespace ComercioDigital.Model
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Productos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -38,5 +38,7 @@ namespace ComercioDigital.Model
         public virtual Tecnologicos Tecnologicos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Carritos> Carritos { get; set; }
+
+
     }
 }
