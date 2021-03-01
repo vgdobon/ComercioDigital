@@ -63,7 +63,7 @@ namespace ComercioDigital.Servicio.DB.Productos
             Videoconsolas nuevaVideoConsola= MapVideoConsolasFromDTOToDB(videoconsolaDTO);
             DBComerce.DBAccess.Videoconsolas.Add(nuevaVideoConsola);
             DBComerce.DBAccess.Entry(nuevaVideoConsola).State = System.Data.Entity.EntityState.Added;
-            DBComerce.DBAccess.SaveChangesAsync();
+            DBComerce.DBAccess.SaveChanges();
 
         }
 

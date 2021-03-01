@@ -21,7 +21,9 @@ namespace ComercioDigital.Servicio.DB.Productos
         public static Calzado MapCalzadosFromDBToDTO(Calzados CalzadoDB)
         {
 
-            Calzado resul = new Calzado(CalzadoDB.Modas.Productos.Id, CalzadoDB.Modas.Productos.Nombre, CalzadoDB.Modas.Productos.Marca, CalzadoDB.Modas.Productos.Precio, GestionVendedores.BuscarPorId(CalzadoDB.Modas.Productos.IdVendedor), CalzadoDB.Modas.Productos.Descripcion, CalzadoDB.Modas.Productos.FechaPuestaVenta, CalzadoDB.Modas.Productos.CodigoDescuento,
+            Calzado resul = new Calzado(CalzadoDB.Modas.Productos.Id, CalzadoDB.Modas.Productos.Nombre, CalzadoDB.Modas.Productos.Marca,
+                CalzadoDB.Modas.Productos.Precio, GestionVendedores.BuscarPorId(CalzadoDB.Modas.Productos.IdVendedor), CalzadoDB.Modas.Productos.Descripcion,
+                CalzadoDB.Modas.Productos.FechaPuestaVenta, CalzadoDB.Modas.Productos.CodigoDescuento,
                 CalzadoDB.Modas.Productos.Stock, CalzadoDB.Modas.Color, CalzadoDB.Modas.Material, CalzadoDB.Modas.Sexo,(int)CalzadoDB.Talla,CalzadoDB.Tipo);
             return resul;
         }
@@ -65,7 +67,7 @@ namespace ComercioDigital.Servicio.DB.Productos
             DBComerce.DBAccess.Calzados.Add(nuevoCalzado);
 
             DBComerce.DBAccess.Entry(nuevoCalzado).State = System.Data.Entity.EntityState.Added;
-            DBComerce.DBAccess.SaveChangesAsync();
+            DBComerce.DBAccess.SaveChanges();
 
         }
     }

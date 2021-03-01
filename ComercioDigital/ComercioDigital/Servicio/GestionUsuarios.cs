@@ -105,7 +105,7 @@ namespace ComercioDigital.Servicio
             if (usuario != null)
             {
                 Usuarios.Remove(usuario);
-                DBUsuarios.EliminarUsuario(usuario.IdUsuario);
+                DBUsuarios.EliminarUsuario(usuario);
                 return true;
             }
 
@@ -121,8 +121,8 @@ namespace ComercioDigital.Servicio
         }
 
         public static void EliminarProductoCarrito(Producto producto, Usuario usuarioSesion)
-        {
-            
+        { 
+
             DBUsuarios.EliminarProductoCarrito(usuarioSesion,producto);
             usuarioSesion.CarritoCompra.CarritoCompra.Remove(producto);
 
@@ -136,8 +136,9 @@ namespace ComercioDigital.Servicio
 
         public static void AnnadirSaldo(Usuario usuario, decimal saldo)
         {
-            DBUsuarios.ModificarSaldo(usuario,saldo);
             usuario.Saldo += saldo;
+            DBUsuarios.ModificarSaldo(usuario);
+            
             
         }
 
@@ -149,7 +150,8 @@ namespace ComercioDigital.Servicio
 
         public static bool HacerPedido(Usuario usuarioSesion)
         {
-
+            ActualizarUsuariosDB();
+            GestionComercio.ActualizarAlmacen();
             decimal sumaProductos = SumaProductosCarrito(usuarioSesion);
             if (sumaProductos <= usuarioSesion.Saldo)
             {
@@ -157,27 +159,30 @@ namespace ComercioDigital.Servicio
                 sumaProductos = 0;
                 foreach (Producto producto in usuarioSesion.CarritoCompra.CarritoCompra)
                 {
-                    if (producto.Stock >= 0)
+                    if (GestionComercio.GetProductoId( producto.IdProducto).Stock > 0)
                     {
 
-                        GestionComercio.GetProductoId(producto.IdProducto).Stock--;
+                        GestionComercio.ModificarStockProducto(producto);
+
                         sumaProductos += producto.Precio;
                     }
                     else
                     {
-                        Console.WriteLine($"No queda mas stock de {producto.Nombre}");
+                        Console.WriteLine($"No queda mas stock de {producto.Nombre}. Se borrará el producto del carrito");
                     }
 
                 }
                 usuarioSesion.Saldo -= sumaProductos;
-                DBUsuarios.ModificarUsuario(usuarioSesion);
-                Console.WriteLine($"Pedido realizado.");
-                usuarioSesion.CarritoCompra.CarritoCompra.Clear();
+                DBUsuarios.ModificarSaldo(usuarioSesion);
+                
+                LimpiarCarrito(usuarioSesion);
                 return true;
             }
 
             return false;
         }
+
+
 
         public static decimal SumaProductosCarrito(Usuario usuarioSesion)
         {
@@ -205,9 +210,6 @@ namespace ComercioDigital.Servicio
             return DBUsuarios.ProductosCarrito(usuario);
         }
 
-        //public static List<Producto> ListadoProductosCarrito()
-        //{
-
-        //}
+       
     }
 }

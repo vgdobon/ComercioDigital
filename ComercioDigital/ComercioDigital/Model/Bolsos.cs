@@ -22,6 +22,9 @@ namespace ComercioDigital.Model
         public static implicit operator Bolsos(Productos v)
         {
             Bolsos resul = new Bolsos();
+            resul.Modas = new Modas();
+            resul.Modas.Productos = new Productos();
+            resul.Modas.Productos.Id = v.Id;
             resul.Modas.Productos.Nombre = v.Nombre;
             resul.Modas.Productos.Precio = v.Precio;
             resul.Modas.Productos.Marca = v.Marca;

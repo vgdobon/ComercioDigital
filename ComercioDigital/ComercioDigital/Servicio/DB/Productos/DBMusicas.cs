@@ -57,7 +57,7 @@ namespace ComercioDigital.Servicio.DB.Productos
             Musicas nuevaMusica = MapMusicasFromDTOToDB(musicaDTO);
             DBComerce.DBAccess.Musicas.Add(nuevaMusica);
             DBComerce.DBAccess.Entry(nuevaMusica).State = System.Data.Entity.EntityState.Added;
-            DBComerce.DBAccess.SaveChangesAsync();
+            DBComerce.DBAccess.SaveChanges();
         }
     }
 }

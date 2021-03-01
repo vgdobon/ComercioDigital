@@ -19,10 +19,6 @@ namespace ComercioDigital
             MenuPrincipal menuPrincipal = new MenuPrincipal();
             menuPrincipal.EjecutarApp();
 
-
-
-
-
             // << - -  PRUEBAS - - >>
 
 

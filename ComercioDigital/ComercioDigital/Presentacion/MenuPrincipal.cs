@@ -183,7 +183,7 @@ namespace ComercioDigital.Presentacion
                     Console.Write("Contraseña:");
                     string contrasennaUsuarioRegistro = Console.ReadLine();
 
-                    if(GestionUsuarios.InsertarUsuario(new Usuario(nombreUsuarioRegistro, direccionUSuarioRegistro, contrasennaUsuarioRegistro)))
+                    if(GestionUsuarios.InsertarUsuario(new Usuario(nombreUsuarioRegistro, direccionUSuarioRegistro, contrasennaUsuarioRegistro,10)))
                     {
                         Console.WriteLine("Has obtenido un premio de 10€ por registrarte!!");
                         Mensaje.SalirMenu("Usuario añadido correctamente \nVolviendo al menu principal");

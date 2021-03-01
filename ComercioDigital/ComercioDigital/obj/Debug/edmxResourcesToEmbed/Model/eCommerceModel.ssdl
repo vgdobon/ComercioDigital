@@ -480,12 +480,7 @@ error 6004: Una relación hace referencia a la tabla 'eCommerce.dbo.PedidoProduc
     [Almacenes].[IdProducto] AS [IdProducto]
     FROM [dbo].[Almacenes] AS [Almacenes]</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="CarritoProductos" EntityType="Self.CarritoProductos" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [CarritoProductos].[IdCarrito] AS [IdCarrito], 
-    [CarritoProductos].[IdProducto] AS [IdProducto]
-    FROM [dbo].[CarritoProductos] AS [CarritoProductos]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="CarritoProductos" EntityType="Self.CarritoProductos" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_almacenes_Productos" Association="Self.FK_almacenes_Productos">
       <End Role="Productos" EntitySet="Productos" />
       <End Role="Almacenes" EntitySet="Almacenes" />

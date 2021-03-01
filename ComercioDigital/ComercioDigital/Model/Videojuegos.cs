@@ -23,6 +23,9 @@ namespace ComercioDigital.Model
         public static implicit operator Videojuegos(Productos v)
         {
             Videojuegos resul = new Videojuegos();
+            resul.Multimedias = new Multimedias();
+            resul.Multimedias.Productos = new Productos();
+            resul.Multimedias.Productos.Id = v.Id;
             resul.EdadRecomendada = v.Multimedias.Videojuegos.EdadRecomendada;
             resul.Plataforma = v.Multimedias.Videojuegos.Plataforma;
             resul.Multimedias.Genero = v.Multimedias.Genero;

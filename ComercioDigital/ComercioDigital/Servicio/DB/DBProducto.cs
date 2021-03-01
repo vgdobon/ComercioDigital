@@ -56,5 +56,14 @@ namespace ComercioDigital.Servicio.DB
                 x => x.Id == id);
         }
 
+        internal static void ModificarStockProducto(Producto producto)
+        {
+            Model.Productos productoDB = BuscarPorId(producto.IdProducto);
+            productoDB.Stock--;
+
+            DBComerce.DBAccess.Entry(productoDB).State = System.Data.Entity.EntityState.Modified;
+
+            DBComerce.DBAccess.SaveChanges();
+        }
     }
 }

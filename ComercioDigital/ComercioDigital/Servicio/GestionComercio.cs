@@ -33,14 +33,14 @@ namespace ComercioDigital.Servicio
 
         public static void AgregarProductoAlmacen(Producto producto)
         {
-            if (producto!= null)
+            if (producto != null)
             {
-                if(producto is Multimedia)
+                if (producto is Multimedia)
                 {
-                    if(producto is Musica)
+                    if (producto is Musica)
                     {
                         DBMusicas.AnnadirMusica((Musica)producto);
-                    }else if(producto is Pelicula)
+                    } else if (producto is Pelicula)
                     {
                         DBPeliculas.AnnadirPelicula((Pelicula)producto);
                     }
@@ -49,13 +49,13 @@ namespace ComercioDigital.Servicio
                         DBVideoJuegos.AnnadirVideoJuego((VideoJuego)producto);
                     }
                 }
-                else if(producto is Tecnologia)
+                else if (producto is Tecnologia)
                 {
-                    if(producto is Movil)
+                    if (producto is Movil)
                     {
                         DBMoviles.AnnadirMovil((Movil)producto);
                     }
-                    else if(producto is Ordenador)
+                    else if (producto is Ordenador)
                     {
                         DBOrdenadores.AnnadirOrdenador((Ordenador)producto);
                     }
@@ -67,13 +67,13 @@ namespace ComercioDigital.Servicio
                 }
                 else
                 {
-                    if(producto is Ropa)
+                    if (producto is Ropa)
                     {
                         DBRopas.AnnadirRopa((Ropa)producto);
-                    }else if(producto is Calzado)
+                    } else if (producto is Calzado)
                     {
                         DBCalzados.AnnadirCalzado((Calzado)producto);
-                    }else if(producto is Joyeria)
+                    } else if (producto is Joyeria)
                     {
                         DBJoyas.AnnadirJoya((Joyeria)producto);
                     }
@@ -95,7 +95,7 @@ namespace ComercioDigital.Servicio
                 {
                     DBProducto.EliminarProducto(producto.IdProducto);
                     Almacen.AlmacenProductos.Remove(producto);
-                    
+
                     return true;
                 }
             }
@@ -106,7 +106,7 @@ namespace ComercioDigital.Servicio
         public static List<Producto> FiltroProductoVendedor(Vendedor vendedor)
         {
             ActualizarAlmacen();
-            List<Producto> productosVendedor= new List<Producto>();
+            List<Producto> productosVendedor = new List<Producto>();
 
             foreach (Producto producto in Almacen.AlmacenProductos)
             {
@@ -138,17 +138,9 @@ namespace ComercioDigital.Servicio
         {
 
             ActualizarAlmacen();
-            Producto productoID = null;
 
-            foreach (Producto producto in Almacen.AlmacenProductos)
-            {
-                if (producto.IdProducto == id)
-                {
-                    productoID = producto;
-                }
-            }
-
-            return productoID;
+            return Almacen.AlmacenProductos.FirstOrDefault(x => x.IdProducto == id);
+            
         }
 
         public static List<Producto> FiltroTipoProducto(Type type)
@@ -156,11 +148,11 @@ namespace ComercioDigital.Servicio
             ActualizarAlmacen();
 
             List<Producto> filtroProductos = new List<Producto>();
-
+            filtroProductos.AddRange(Almacen.AlmacenProductos.Where(x => x.GetType() == type).ToList());
             foreach (Producto producto in Almacen.AlmacenProductos)
             {
 
-                if(producto.GetType() == type)
+                if (producto.GetType() == type)
                 {
                     filtroProductos.Add(producto);
                 }
@@ -169,11 +161,6 @@ namespace ComercioDigital.Servicio
 
             return filtroProductos;
         }
-
-        //public static void EntregarProducto(Producto producto)
-        //{
-
-        //}
 
         public static bool ExistenProductosTipo(Type type)
         {
@@ -197,6 +184,27 @@ namespace ComercioDigital.Servicio
             Almacen.AlmacenProductos.Clear();
             DBProducto.CargarProductosDB(DBComerce.DBAccess);
         }
-       
+
+        public static void ModificarStockProducto(Producto producto)
+        {
+            Almacen.AlmacenProductos.FirstOrDefault(x => x.IdProducto == producto.IdProducto).Stock--;
+            DBProducto.ModificarStockProducto(producto);
+
+        }
+
+        public static List<Producto> FiltroProductoPrecio(decimal precio)
+        {
+            ActualizarAlmacen();
+            return Almacen.AlmacenProductos.Where(x => x.Precio <= precio).ToList();
+            
+        }
+
+        public static List<Producto> FiltroProductoMarca(string marca)
+        {
+            ActualizarAlmacen();
+
+            return Almacen.AlmacenProductos.Where(x => x.Marca.ToLower().Equals(marca.ToLower())).ToList();
+        }
+
     }
 }

@@ -14,11 +14,11 @@ namespace ComercioDigital.Servicio.DB.Productos
         {
             foreach (var VARIABLE in DBAccess.Peliculas)
             {
-                GestionComercio.CargarlistaBD(MapPeliculaFromDBToDTO(VARIABLE));
+                GestionComercio.CargarlistaBD(MapPeliculasFromDBToDTO(VARIABLE));
             }
         }
 
-        public static Pelicula MapPeliculaFromDBToDTO(Peliculas peliculasDB)
+        public static Pelicula MapPeliculasFromDBToDTO(Peliculas peliculasDB)
         {
 
             Pelicula resul = new Pelicula(peliculasDB.Multimedias.Productos.Id, peliculasDB.Multimedias.Productos.Nombre, peliculasDB.Multimedias.Productos.Marca, peliculasDB.Multimedias.Productos.Precio, GestionVendedores.BuscarPorId(peliculasDB.Multimedias.Productos.IdVendedor), peliculasDB.Multimedias.Productos.Descripcion, peliculasDB.Multimedias.Productos.FechaPuestaVenta, peliculasDB.Multimedias.Productos.CodigoDescuento,
@@ -26,7 +26,7 @@ namespace ComercioDigital.Servicio.DB.Productos
             return resul;
         }
 
-        public static Peliculas MapPeliculaFromDTOToDB(Pelicula peliculaDTO)
+        public static Peliculas MapPeliculasFromDTOToDB(Pelicula peliculaDTO)
         {
             Peliculas resul = new Peliculas();
 
@@ -63,7 +63,7 @@ namespace ComercioDigital.Servicio.DB.Productos
         public static void AnnadirPelicula(Pelicula peliculaDTO)
         {
 
-            Peliculas nuevaPelicula = MapPeliculaFromDTOToDB(peliculaDTO);
+            Peliculas nuevaPelicula = MapPeliculasFromDTOToDB(peliculaDTO);
             DBComerce.DBAccess.Peliculas.Add(nuevaPelicula);
             DBComerce.DBAccess.Entry(nuevaPelicula).State = System.Data.Entity.EntityState.Added;
             DBComerce.DBAccess.SaveChanges();

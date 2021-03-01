@@ -65,7 +65,7 @@ namespace ComercioDigital.Servicio.DB.Productos
             Ordenadores nuevoOrdenador = MapOrdenadoresFromDTOToDB(ordenadorDTO);
             DBComerce.DBAccess.Ordenadores.Add(nuevoOrdenador);
             DBComerce.DBAccess.Entry(nuevoOrdenador).State = System.Data.Entity.EntityState.Added;
-            DBComerce.DBAccess.SaveChangesAsync();
+            DBComerce.DBAccess.SaveChanges();
 
         }
     }

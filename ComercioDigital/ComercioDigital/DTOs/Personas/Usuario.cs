@@ -17,11 +17,12 @@ namespace ComercioDigital.DTOs.Personas
         public int IdUsuario { get; }
         public decimal Saldo { get; set; }
 
-        public Usuario(string nombre, string domicilio,string password )
+        public Usuario(string nombre, string domicilio,string password,decimal saldo )
         {
             Nombre = nombre ?? throw new ArgumentNullException(nameof(nombre));
             Password = password ?? throw new ArgumentNullException(nameof(password));
             Domicilio = domicilio?? throw new ArgumentNullException(nameof(domicilio));
+            Saldo = saldo;
             CarritoCompra = new Carrito();
             Pedido = new List<Producto>();
         }

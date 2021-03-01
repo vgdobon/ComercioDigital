@@ -68,7 +68,7 @@ namespace ComercioDigital.Servicio.DB.Productos
             Moviles nuevoMovil = MapMovilesFromDTOToDB(movilDTO);
             DBComerce.DBAccess.Moviles.Add(nuevoMovil);
             DBComerce.DBAccess.Entry(nuevoMovil).State = System.Data.Entity.EntityState.Added;
-            DBComerce.DBAccess.SaveChangesAsync();
+            DBComerce.DBAccess.SaveChanges();
 
         }
     }

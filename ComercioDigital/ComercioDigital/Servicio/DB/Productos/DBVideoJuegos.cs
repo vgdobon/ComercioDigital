@@ -64,7 +64,7 @@ namespace ComercioDigital.Servicio.DB.Productos
             Videojuegos nuevoVideoJuego = MapVideoJuegosFromDTOToDB(videojuegoDTO);
             DBComerce.DBAccess.Videojuegos.Add(nuevoVideoJuego);
             DBComerce.DBAccess.Entry(nuevoVideoJuego).State = System.Data.Entity.EntityState.Added;
-            DBComerce.DBAccess.SaveChangesAsync();
+            DBComerce.DBAccess.SaveChanges();
 
         }
     }

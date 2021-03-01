@@ -22,6 +22,9 @@ namespace ComercioDigital.Model
         public static implicit operator Musicas(Productos v)
         {
             Musicas resul = new Musicas();
+            resul.Multimedias = new Multimedias();
+            resul.Multimedias.Productos = new Productos();
+            resul.Multimedias.Productos.Id = v.Id;
             resul.Artista = v.Multimedias.Musicas.Artista;
             resul.Multimedias.Genero = v.Multimedias.Genero;
             resul.Multimedias.Formato = v.Multimedias.Formato;
